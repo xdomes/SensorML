@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SensorML xmlns="http://www.opengis.net/sensorML/1.0.1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:swe="http://www.opengis.net/swe/1.0.1" xmlns:gml="http://www.opengis.net/gml"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xsi:schemaLocation="http://www.opengis.net/sensorML/1.0.1 http://schemas.opengis.net/sensorML/1.0.1/sensorML.xsd"
+    version="1.0.1">
+    <member xlink:role="urn:x-ogc:def:sensor:OGC:processModel">
+        <ProcessModel gml:id="RangeTest">
+            <classification >
+                <ClassifierList>
+                    <classifier name="processType">
+                        <Term definition="http://mmisw.org/ont/q2o/test">
+                            <value>http://mmisw.org/ont/q2o/test/rangeTest</value>
+                        </Term>
+                    </classifier>
+                </ClassifierList>
+            </classification>
+            <inputs>
+                <InputList>
+                    <input name="value">
+                        <swe:Quantity/>                           
+                    </input>
+                </InputList>
+            </inputs>
+            <outputs>
+                <OutputList>
+                    <output name="pass">
+                        <swe:Boolean definition="http://mmisw.org/ont/q2o/flag/pass"/>
+                    </output>
+                </OutputList>
+            </outputs>
+            <parameters>
+                <ParameterList>
+                    <parameter name="minimum">
+                        <swe:Quantity definition="http://mmisw.org/ont/q2o/parameter/minimum"/>                           
+                    </parameter>
+                    <parameter name="maximum">
+                        <swe:Quantity definition="http://mmisw.org/ont/q2o/parameter/maximum"/>
+                    </parameter>
+                </ParameterList>
+            </parameters>
+            <method xlink:href="urn:Q2O:method:RangeTest"/>
+        </ProcessModel>
+    </member>
+</SensorML>

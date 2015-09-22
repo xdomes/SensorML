@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sml:SensorML xmlns:sml="http://www.opengis.net/sensorML/1.0.1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:swe="http://www.opengis.net/swe/1.0.1" xmlns:gml="http://www.opengis.net/gml"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xsi:schemaLocation="http://www.opengis.net/sensorML/1.0.1 http://schemas.opengis.net/sensorML/1.0.1/sensorML.xsd"
+    version="1.0.1">
+    <sml:member xlink:href="">
+        <sml:ProcessChain gml:id="Vel_QC_Chain">
+            <gml:description>Process Chain for ADCP data</gml:description>
+            <gml:name>Velocity QC Chain</gml:name>
+            <sml:inputs>
+                <sml:InputList>
+                    <sml:input name="velocityTimeSeries">
+                        <swe:DataArray>
+                            <swe:elementCount>
+                                <swe:Count/>
+                            </swe:elementCount>
+                            <swe:elementType name="Velocity">
+                                <swe:Quantity definition="urn:ogc:property:OGC:velocity">
+                                    <swe:uom code="cm/s"></swe:uom>
+                                </swe:Quantity>
+                            </swe:elementType>
+                        </swe:DataArray>
+                    </sml:input>
+                </sml:InputList>
+            </sml:inputs>
+            <sml:outputs>
+                <sml:OutputList>
+                    <sml:output name="velocityTimeSeries">
+                        <swe:DataArray>
+                            <swe:elementCount>
+                                <swe:Count/>
+                            </swe:elementCount>
+                            <swe:elementType name="Velocity">
+                                <swe:Quantity definition="urn:ogc:property:OGC:velocity">
+                                    <swe:uom code="cm/s"></swe:uom>
+                                </swe:Quantity>
+                            </swe:elementType>
+                        </swe:DataArray>
+                    </sml:output>
+                    <sml:output name="topBinHeight">
+                            <swe:Quantity definition="urn:MVCO:property:topBinHeight">
+                                <swe:uom code="cm"/>
+                            </swe:Quantity> 
+                    </sml:output>
+                    <sml:output name="aggregateVelocityFlag">
+                        <swe:Boolean definition="urn:Q2O:property:flag:aggregateVelocityFlag"/>
+                    </sml:output>
+                </sml:OutputList>
+            </sml:outputs>
+            <sml:parameters>
+                <sml:ParameterList>
+                    <sml:parameter name="SignalStrengthThreshold">
+                        <swe:Quantity/>
+                    </sml:parameter>
+                    <sml:parameter name="CorrelationCoeffecientFlag">
+                        <swe:Quantity/>
+                    </sml:parameter>
+                    <sml:parameter name="NumIterations">
+                        <swe:Count/>
+                    </sml:parameter>
+                    <sml:parameter name="NumStandardDeviations">
+                        <swe:Quantity/>
+                    </sml:parameter>
+                    <sml:parameter name="PercentPassedThreshold">
+                        <swe:Quantity/>
+                    </sml:parameter>
+                </sml:ParameterList>
+            </sml:parameters>
+            <sml:components>
+                <sml:ComponentList>
+                    <sml:component name="BeamIntensityCheck" xlink:href="urn:MVCO:property:BeamIntensity"/>
+                    <sml:component name="CorrelationCoefficientCheck" xlink:href="urn:MVCO:property:CorrelationCoefficient"/>
+                    <sml:component name="SpikeTest" xlink:href="urn:__:Q2O:spikeTest"/>
+                </sml:ComponentList>
+            </sml:components>
+            <sml:connections>
+                <sml:ConnectionList>
+                    <sml:connection>
+                        <sml:Link>
+                            <sml:source ref="this/inputs/velocityTimeSeries"/>
+                            <sml:destination ref="BeamIntensityCheck/inputs/inputArray"/>
+                        </sml:Link>
+                    </sml:connection>
+                    <sml:connection>
+                        <sml:Link>
+                            <sml:source ref="BeamIntensityCheck/outputes/outputArray"/>
+                            <sml:destination ref="CorrelationCoefficientCheck/inputs/inputArray"/>
+                        </sml:Link>
+                    </sml:connection>
+                    <sml:connection>
+                        <sml:Link>
+                            <sml:source ref="CorrelationCoefficientCheck/outputs/outputArray"/>
+                            <sml:destination ref="SpikeTest/inputs/inputArray"/>
+                        </sml:Link>
+                    </sml:connection>
+                    <sml:connection>
+                        <sml:Link>
+                            <sml:source ref="SpikeTest/outputs/outputArray"/>
+                            <sml:destination ref="this/outputs/velocityTimeSeries"/>
+                        </sml:Link>
+                    </sml:connection>
+                </sml:ConnectionList>
+            </sml:connections>
+        </sml:ProcessChain>
+    </sml:member>
+</sml:SensorML>

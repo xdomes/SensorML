@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<om:ObservationCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.opengis.net/om/1.0 http://schemas.opengis.net/om/1.0.0/observation.xsd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:om="http://www.opengis.net/om/1.0"
+   xmlns:gml="http://www.opengis.net/gml"
+   xmlns:swe="http://www.opengis.net/swe/1.0.1"
+   gml:id="ADCP_Observation">
+   <!-- Observation name -->
+   <gml:name>Data from ADCP profiler</gml:name>
+   <om:member>
+      <om:Observation>
+         <!-- Observation time -->
+         <om:samplingTime/>
+         <!-- Sensor description (SensorML) -->
+         <om:procedure xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/ADCP_System.xml"/>
+         <om:observedProperty xlink:href="urn:ogc:phenomenon:time:iso8601"/>
+         <om:observedProperty xlink:href="urn:ogc:def:property:latitude"/>
+         <om:observedProperty xlink:href="urn:ogc:def:property:longitude"/>
+         <om:observedProperty xlink:href="urn:Q2O:def:property::depth"/>
+         <!--  Add requested Observed Props here! -->
+         <om:featureOfInterest xlink:href="urn:MVCO:location:MarthasVineyardCoastalObservatory"/>
+         <om:parameter></om:parameter>
+         <!-- Result Structure and Encoding -->
+         <om:result>
+            <swe:DataArray>
+               <swe:elementCount>
+                  <swe:Count>
+                     <swe:value/>
+                  </swe:Count>
+               </swe:elementCount>
+               <swe:elementType name="ADCP mixed observation">
+                  <swe:DataRecord>
+                     <!-- Not grouping these, just package them as one big record -->
+                     <!-- time.lat.lon for all requests -->
+                     <swe:field name="time">
+                        <swe:Time definition="urn:ogc:phenomenon:time:iso8601"/>
+                     </swe:field>
+                     <swe:field name="lat">
+                        <swe:Quantity definition="urn:ogc:def:property:latitude">
+                           <swe:uom code="deg"/>
+                        </swe:Quantity> 
+                     </swe:field>
+                     <swe:field name="lon">
+                        <swe:Quantity definition="urn:ogc:def:property:longitude">
+                           <swe:uom code="deg"/>
+                        </swe:Quantity> 
+                     </swe:field>
+                     <swe:field name="depth">
+                        <swe:Quantity definition="urn:Q2O:def:property::depth">
+                           <swe:uom code="m"/>
+                        </swe:Quantity> 
+                     </swe:field>
+                     <!-- Add requested ObsProps here -->
+                     
+                  </swe:DataRecord>
+                  
+               </swe:elementType>
+               <swe:encoding>
+                  <swe:TextBlock decimalSeparator="." tokenSeparator="," blockSeparator=" "/>
+               </swe:encoding>
+               <!-- Result Values -->
+               <swe:values/>
+            </swe:DataArray>
+         </om:result>
+      </om:Observation>
+   </om:member>
+</om:ObservationCollection>

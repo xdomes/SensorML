@@ -1,0 +1,709 @@
+<?xml version="1.0"?>
+<sml:SensorML xmlns:sml="http://www.opengis.net/sensorML/1.0.1"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:swe="http://www.opengis.net/swe/1.0.1" xmlns:gml="http://www.opengis.net/gml"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xsi:schemaLocation="http://www.opengis.net/sensorML/1.0.1 http://schemas.opengis.net/sensorML/1.0.1/sensorML.xsd"
+   version="1.0.1">
+   <sml:member xlink:arcrole="urn:ogc:def:process:OGC:detector">
+      <sml:System gml:id="MVCO_ADCP">
+         <!--============================-->
+         <!--         Metadata           -->
+         <!--============================-->
+         <gml:description>This is the RDI Workhorse 1200 deployed at 
+            Matha's Vineyard Coastal Observatory.</gml:description>
+         <gml:name>MVCO_Workhorse_1200</gml:name>
+         <sml:keywords>
+            <sml:KeywordList codeSpace="urn:x-nasa:def:gcmd:keywords">
+               <sml:keyword>oceanography</sml:keyword>
+               <sml:keyword>waves</sml:keyword>
+               <sml:keyword>currents</sml:keyword>
+               <sml:keyword>acoustic Doppler</sml:keyword>
+               <sml:keyword>profiler</sml:keyword>
+            </sml:KeywordList>
+         </sml:keywords>
+         
+         <!--==========================================================-->
+         <!--===================System Identifiers=====================-->
+         <!--==========================================================-->
+         <sml:identification>
+            <sml:IdentifierList>
+               <sml:identifier name="longName">
+                  <sml:Term definition="urn:ogc:def:property:OGC:longName">
+                     <sml:value>Teledyne RDI ADCP at MVCO</sml:value>
+                  </sml:Term>
+               </sml:identifier>
+               <sml:identifier name="shortName">
+                  <sml:Term definition="urn:ogc:def:property:OGC:shortName">
+                     <sml:value>MVCO_ADCP</sml:value>
+                  </sml:Term>
+               </sml:identifier>
+               <sml:identifier name="Serial Number">
+                  <sml:Term definition="urn:ogc:def:identifier:OGC:serialNumber">
+                     <sml:codeSpace xlink:href="urn:ogc:def:identifier:SBE:serialNumber"/>
+                     <sml:value>14391</sml:value>
+                  </sml:Term>
+               </sml:identifier>
+            </sml:IdentifierList>
+         </sml:identification>
+         
+         <!--==========================================================-->
+         <!--===================System Classifiers=====================-->
+         <!--==========================================================-->
+         <sml:classification>
+            <sml:ClassifierList>
+               <sml:classifier name="intendedApplication">
+                  <sml:Term definition="urn:ogc:def:property:OGC:application">
+                     <sml:value>Ocean Waves</sml:value>
+                  </sml:Term>
+               </sml:classifier>
+               <sml:classifier name="intendedApplication">
+                  <sml:Term definition="urn:ogc:def:property:OGC:application">
+                     <sml:value>Ocean Currents</sml:value>
+                  </sml:Term>
+               </sml:classifier>
+               <sml:classifier name="sensorType">
+                  <sml:Term definition="urn:ogc:def:property:OGC:sensorType">
+                     <sml:value>Acoustic Doppler</sml:value>
+                  </sml:Term>
+               </sml:classifier>
+               <sml:classifier name="sensorType">
+                  <sml:Term definition="urn:ogc:def:property:OGC:sensorType">
+                     <sml:value>profiler</sml:value>
+                  </sml:Term>
+               </sml:classifier>
+            </sml:ClassifierList>
+         </sml:classification>
+         <!--- Valid Time in this context applies to this document -->
+         <sml:validTime>
+            <gml:TimeInstant>
+               <gml:timePosition indeterminatePosition="after">2009-03-20</gml:timePosition>
+            </gml:TimeInstant>
+         </sml:validTime>
+         
+         <!--==========================================================-->
+         <!--============       System Contacts           =============-->
+         <!--==========================================================-->
+         <sml:contact xlink:arcrole="urn:ogc:def:property:OGC:operator">
+            <sml:ResponsibleParty>
+               <sml:individualName>Janet Fredericks</sml:individualName>
+               <sml:organizationName>Woods Hole Oceanographic Institution</sml:organizationName>
+               <sml:contactInfo>
+                  <sml:phone>
+                     <sml:voice>+1-508-548-1400</sml:voice>
+                     <sml:facsimile>+1-508-457-2194</sml:facsimile>
+                  </sml:phone>
+                  <sml:address>
+                     <sml:deliveryPoint>266 Water Street</sml:deliveryPoint>
+                     <sml:city>Woods Hole</sml:city>
+                     <sml:administrativeArea>MA</sml:administrativeArea>
+                     <sml:postalCode> 02543</sml:postalCode>
+                     <sml:country>USA</sml:country>
+                     <sml:electronicMailAddress>jfredericks@whoi.edu</sml:electronicMailAddress>
+                  </sml:address>
+               </sml:contactInfo>
+            </sml:ResponsibleParty> 
+         </sml:contact>
+         
+         <!--==========================================================-->
+         <!--================       History             ===============-->
+         <!--==========================================================-->
+         <sml:history>
+            <sml:EventList>
+               
+               <sml:member name="System Deployment">
+                  <sml:Event>
+                     <sml:date>2001-04-20</sml:date>
+                     <gml:description>Initial System Deployment</gml:description>
+                     <sml:property name="Deployment parameters">
+                        <swe:DataRecord>
+                           <swe:field name="EventType">
+                              <swe:Category definition=""> <!-- ? -->
+                                 <swe:codeSpace xlink:href="http://mmisw.org/ont/mvco/historyEventType"/>
+                                 <swe:value>SystemDeployment</swe:value>
+                              </swe:Category>
+                           </swe:field>
+                           <swe:field name="ComponentID" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/RDI_Workhorse_1200.xml#RDI_Workhorse_1200"/>
+                           <swe:field name="SerialNumber">
+                              <swe:Category definition="urn:ogc:def:identifier:OGC:serialNumber">
+                                 <swe:value>1654</swe:value>
+                              </swe:Category>
+                           </swe:field>  
+                           <swe:field name="ManufactureDate">
+                              <swe:Time>
+                                 <swe:value>2007-09-01T00:00:00Z</swe:value>
+                              </swe:Time>
+                           </swe:field>
+                           <swe:field name="DeploymentTimeRange">
+                              <swe:TimeRange>
+                                 <swe:value>2001-04-20T00:00:00Z 2009-08-31T23:00:00Z</swe:value>
+                              </swe:TimeRange>
+                           </swe:field>
+                           <swe:field name="FirmwareVersion">
+                              <swe:Category>
+                                 <swe:value>16.21</swe:value>
+                              </swe:Category>
+                           </swe:field>
+                           <swe:field name="AdditionalDocumentation" xlink:href="http://mvcodata.whoi.edu/documentation"/>
+                        </swe:DataRecord>
+                     </sml:property>
+                  </sml:Event>
+               </sml:member>
+               
+               <sml:member name="Sensor Change">
+                  <sml:Event>
+                     <sml:date>2007-11-20</sml:date>
+                     <gml:description>Sensor Change</gml:description>
+                     <sml:property name="Sensor Change parameters">
+                        <swe:DataRecord>
+                           <swe:field name="EventType">
+                              <swe:Category definition="">
+                                 <swe:codeSpace xlink:href="http://mmisw.org/ont/mvco/historyEventType"/>
+                                 <swe:value>SensorChange</swe:value>
+                              </swe:Category>
+                           </swe:field>
+                           <swe:field name="ComponentID" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/RDI_Workhorse_1200.xml#RDI_Workhorse_1200"/>
+                           <swe:field name="SerialNumber">
+                              <swe:Category definition="urn:ogc:def:identifier:OGC:serialNumber">
+                                 <swe:value>10295</swe:value>
+                              </swe:Category>
+                           </swe:field>  
+                           <swe:field name="ManufactureDate">
+                              <swe:Time>
+                                 <swe:value>2007-11-20T00:00:00Z</swe:value>
+                              </swe:Time>
+                           </swe:field>
+                           <swe:field name="DeploymentTimeRange">
+                              <swe:TimeRange>
+                                 <swe:value>2009-09-03T16:07:58Z now</swe:value>
+                              </swe:TimeRange>
+                           </swe:field>
+                           <swe:field name="FirmwareVersion">
+                              <swe:Category>
+                                 <swe:value>16.3</swe:value>
+                              </swe:Category>
+                           </swe:field>
+                           <swe:field name="AdditionalDocumentation" xlink:href="http://mvcodata.whoi.edu/documentation"/>
+                        </swe:DataRecord>
+                     </sml:property>
+                  </sml:Event>
+               </sml:member>
+               
+               <sml:member name="Temperature Sensor Deployment">
+                  <sml:Event>
+                     <sml:date>2001-04-20Z</sml:date>
+                     <gml:description>Deployment data for Temperature Sensor</gml:description>
+                     <sml:property name="Deployment Data">
+                        <swe:DataRecord>
+                           <swe:field name="EventType">
+                              <swe:Category definition=""> 
+                                 <swe:codeSpace xlink:href="http://mmisw.org/ont/mvco/historyEventType"/>
+                                 <swe:value>SensorDeployment</swe:value>
+                              </swe:Category>
+                           </swe:field>
+                           <swe:field name="ComponentID" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/RDI_Workhorse_1200.xml#TemperatureSensor"/>
+                           <swe:field name="ManufactureDate">
+                              <swe:Time>
+                                 <swe:value>2001-04-20Z</swe:value>
+                              </swe:Time>
+                           </swe:field>
+                           <swe:field name="CalibrationDate">
+                              <swe:Time>
+                                 <swe:value>2001-04-20Z</swe:value>
+                              </swe:Time>
+                           </swe:field>
+                           <swe:field name="CalibrationLocation">
+                              <swe:Category>
+                                 <swe:value>Manufacturer</swe:value>
+                              </swe:Category>
+                           </swe:field>
+                        </swe:DataRecord>
+                     </sml:property>
+                  </sml:Event>
+               </sml:member>
+               
+               <sml:member name="Temperature Sensor Change">
+                  <sml:Event>
+                     <sml:date>2009-09-01Z</sml:date>
+                     <gml:description>Deployment data for Changed Temperature Sensor</gml:description>
+                     <sml:property name="Sensor Change Parameters">
+                        <swe:DataRecord>
+                           <swe:field name="EventType">
+                              <swe:Category definition="">
+                                 <swe:codeSpace xlink:href="http://mmisw.org/ont/mvco/historyEventType"/>
+                                 <swe:value>SensorChange</swe:value>
+                              </swe:Category>
+                           </swe:field>
+                           <swe:field name="ComponentID" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/RDI_Workhorse_1200.xml#TemperatureSensor"/>
+                           <swe:field name="ManufactureDate">
+                              <swe:Time>
+                                 <swe:value>2007-11-20Z</swe:value>
+                              </swe:Time>
+                           </swe:field>
+                           <swe:field name="CalibrationDate">
+                              <swe:Time>
+                                 <swe:value>2007-11-20Z</swe:value>
+                              </swe:Time>
+                           </swe:field>
+                           <swe:field name="CalibrationLocation">
+                              <swe:Category>
+                                 <swe:value>Manufacturer</swe:value>
+                              </swe:Category>
+                           </swe:field>
+                        </swe:DataRecord>
+                     </sml:property>
+                  </sml:Event>
+               </sml:member>
+               
+               <sml:member name="Pressure Sensor Deployment">
+                  <sml:Event>
+                     <sml:date>2001-04-20Z</sml:date>
+                     <gml:description>Deployment data for Pressure Sensor</gml:description>
+                     <sml:property name="Deployment Data">
+                        <swe:DataRecord>
+                           <swe:field name="EventType">
+                              <swe:Category definition=""> 
+                                 <swe:codeSpace xlink:href="http://mmisw.org/ont/mvco/historyEventType"/>
+                                 <swe:value>SensorDeployment</swe:value>
+                              </swe:Category>
+                           </swe:field>
+                           <swe:field name="ComponentID" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/RDI_Workhorse_1200.xml#PressureSensor"/>
+                           <swe:field name="ManufactureDate">
+                              <swe:Time>
+                                 <swe:value>2001-04-20Z</swe:value>
+                              </swe:Time>
+                           </swe:field>
+                           <swe:field name="Calibration Date">
+                              <swe:Time>
+                                 <swe:value>2001-04-20Z</swe:value>
+                              </swe:Time>
+                           </swe:field>
+                           <swe:field name="CalibrationLocation">
+                              <swe:Category>
+                                 <swe:value>Manufacturer</swe:value>
+                              </swe:Category>
+                           </swe:field>
+                        </swe:DataRecord>
+                     </sml:property>
+                  </sml:Event>
+               </sml:member>
+               
+               <sml:member name="Sensor Change">
+                  <sml:Event>
+                     <sml:date>2007-11-20Z</sml:date>
+                     <gml:description>Deployment data for Changed Pressure Sensor</gml:description>
+                     <sml:property name="Sensor Change Parameters">
+                        <swe:DataRecord>
+                           <swe:field name="EventType">
+                              <swe:Category definition=""> 
+                                 <swe:codeSpace xlink:href="http://mmisw.org/ont/mvco/historyEventType"/>
+                                 <swe:value>SensorChange</swe:value>
+                              </swe:Category>
+                           </swe:field>
+                           <swe:field name="ComponentID" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/RDI_Workhorse_1200.xml#PressureSensor"/>
+                           <swe:field name="ManufactureDate">
+                              <swe:Time>
+                                 <swe:value>2007-11-20Z</swe:value>
+                              </swe:Time>
+                           </swe:field>
+                           <swe:field name="CalibrationDate">
+                              <swe:Time>
+                                 <swe:value>2007-11-20Z</swe:value>
+                              </swe:Time>
+                           </swe:field>
+                           <swe:field name="CalibrationLocation">
+                              <swe:Category>
+                                 <swe:value>Manufacturer</swe:value>
+                              </swe:Category>
+                           </swe:field>
+                        </swe:DataRecord>
+                     </sml:property>
+                  </sml:Event>
+               </sml:member>
+               
+               <sml:member name="Transducer Deployment">
+                  <sml:Event>
+                     <sml:date>2001-04-20Z</sml:date>
+                     <gml:description>Deployment data for Transducers</gml:description>
+                     <sml:property name="Deployment Data">
+                        <swe:DataRecord>
+                           <swe:field name="EventType">
+                              <swe:Category definition=""> 
+                                 <swe:codeSpace xlink:href="http://mmisw.org/ont/mvco/historyEventType"/>
+                                 <swe:value>SensorDeployment</swe:value>
+                              </swe:Category>
+                           </swe:field>
+                           <swe:field name="ComponentID" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/RDI_Workhorse_1200.xml#Transducer"/>
+                           <swe:field name="ManufactureDate">
+                              <swe:Time>
+                                 <swe:value>2001-04-20Z</swe:value>
+                              </swe:Time>
+                           </swe:field>
+                           <swe:field name="Calibration Date">
+                              <swe:Time>
+                                 <swe:value>2001-04-20Z</swe:value>
+                              </swe:Time>
+                           </swe:field>
+                        </swe:DataRecord>
+                     </sml:property>
+                  </sml:Event>
+               </sml:member>
+               
+               <sml:member name="Sensor Change">
+                  <sml:Event>
+                     <sml:date>2007-11-20Z</sml:date>
+                     <gml:description>Deployment data for Changed Transducer</gml:description>
+                     <sml:property name="Sensor Change Parameters">
+                        <swe:DataRecord>
+                           <swe:field name="EventType">
+                              <swe:Category definition=""> 
+                                 <swe:codeSpace xlink:href="http://mmisw.org/ont/mvco/historyEventType"/>
+                                 <swe:value>SensorChange</swe:value>
+                              </swe:Category>
+                           </swe:field>
+                           <swe:field name="ComponentID" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/RDI_Workhorse_1200.xml#Transducer"/>
+                           <swe:field name="ManufactureDate">
+                              <swe:Time>
+                                 <swe:value>2007-11-20Z</swe:value>
+                              </swe:Time>
+                           </swe:field>
+                           <swe:field name="Calibration Date">
+                              <swe:Time>
+                                 <swe:value>2007-11-20Z</swe:value>
+                              </swe:Time>
+                           </swe:field>
+                        </swe:DataRecord>
+                     </sml:property>
+                  </sml:Event>
+               </sml:member>
+               
+               <sml:member name="PressurePort">
+                  <sml:Event>
+                     <sml:date>2003-04-14Z</sml:date>
+                     <gml:description>pressure port deployed with mud embedded (bad pressure)</gml:description>
+                     <sml:property name="Pressure Port Deployment parameters">
+                        <swe:DataRecord>
+                           <swe:field name="EventType">
+                              <swe:Category definition=""> 
+                                 <swe:codeSpace xlink:href="http://mmisw.org/ont/mvco/historyEventType"/>
+                                 <swe:value>SensorDeployment</swe:value>
+                              </swe:Category>
+                           </swe:field>
+                           <swe:field name="ComponentID" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/RDI_Workhorse_1200.xml#PressureSensor"/>
+                        </swe:DataRecord>
+                     </sml:property>
+                  </sml:Event>
+               </sml:member>
+               
+               <sml:member name="PressurePort">
+                  <sml:Event>
+                     <sml:date>2004-08-31Z</sml:date>
+                     <gml:description>pressure port replaced</gml:description>
+                     <sml:property name="Pressure Port Deployment parameters">
+                        <swe:DataRecord>
+                           <swe:field name="EventType">
+                              <swe:Category definition=""> 
+                                 <swe:codeSpace xlink:href="http://mmisw.org/ont/mvco/historyEventType"/>
+                                 <swe:value>SensorChange</swe:value>
+                              </swe:Category>
+                           </swe:field>
+                           <swe:field name="ComponentID" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/RDI_Workhorse_1200.xml#PressureSensor"/>
+                        </swe:DataRecord>
+                     </sml:property>
+                  </sml:Event>
+               </sml:member>
+               
+               <sml:member name="CleanedFaces">
+                  <sml:Event>
+                     <sml:date>2003-10-29Z</sml:date>
+                     <gml:description>cleaned off ADCP faces</gml:description>
+                     <sml:property name="CleanedFaces Parameters">
+                        <swe:DataRecord>
+                           <swe:field name="EventType">
+                              <swe:Category definition=""> 
+                                 <swe:codeSpace xlink:href="http://mmisw.org/ont/mvco/historyEventType"/>
+                                 <swe:value>CleanedFaces</swe:value>
+                              </swe:Category>
+                           </swe:field>
+                           <swe:field name="ComponentID" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/RDI_Workhorse_1200.xml#Transducer"/>
+                        </swe:DataRecord>
+                     </sml:property>
+                  </sml:Event>
+               </sml:member>
+               
+               <sml:member name="CleanedFaces">
+                  <sml:Event>
+                     <sml:date>2004-12-06Z</sml:date>
+                     <gml:description>cleaned off ADCP faces</gml:description>
+                     <sml:property name="CleanedFaces Parameters">
+                        <swe:DataRecord>
+                           <swe:field name="EventType">
+                              <swe:Category definition=""> 
+                                 <swe:codeSpace xlink:href="http://mmisw.org/ont/mvco/historyEventType"/>
+                                 <swe:value>CleanedFaces</swe:value>
+                              </swe:Category>
+                           </swe:field>
+                           <swe:field name="ComponentID" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/RDI_Workhorse_1200.xml#Transducer"/>
+                        </swe:DataRecord>
+                     </sml:property>
+                  </sml:Event>
+               </sml:member>
+               
+               <sml:member name="CleanedFaces">
+                  <sml:Event>
+                     <sml:date>2005-05-12Z</sml:date>
+                     <gml:description>cleaned off ADCP faces</gml:description>
+                     <sml:property name="CleanedFaces Parameters">
+                        <swe:DataRecord>
+                           <swe:field name="EventType">
+                              <swe:Category definition=""> 
+                                 <swe:codeSpace xlink:href="http://mmisw.org/ont/mvco/historyEventType"/>
+                                 <swe:value>CleanedFaces</swe:value>
+                              </swe:Category>
+                           </swe:field>
+                           <swe:field name="ComponentID" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/RDI_Workhorse_1200.xml#Transducer"/>
+                        </swe:DataRecord>
+                     </sml:property>
+                  </sml:Event>
+               </sml:member>
+               
+               <sml:member name="CleanedFaces">
+                  <sml:Event>
+                     <sml:date>2005-11-12Z</sml:date>
+                     <gml:description>cleaned off ADCP faces</gml:description>
+                     <sml:property name="CleanedFaces Parameters">
+                        <swe:DataRecord>
+                           <swe:field name="EventType">
+                              <swe:Category definition=""> 
+                                 <swe:codeSpace xlink:href="http://mmisw.org/ont/mvco/historyEventType"/>
+                                 <swe:value>CleanedFaces</swe:value>
+                              </swe:Category>
+                           </swe:field>
+                           <swe:field name="ComponentID" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/RDI_Workhorse_1200.xml#Transducer"/>
+                        </swe:DataRecord>
+                     </sml:property>
+                  </sml:Event>
+               </sml:member>
+               
+               <sml:member name="CleanedFaces">
+                  <sml:Event>
+                     <sml:date>2006-03-07Z</sml:date>
+                     <gml:description>cleaned off ADCP faces</gml:description>
+                     <sml:property name="CleanedFaces Parameters">
+                        <swe:DataRecord>
+                           <swe:field name="EventType">
+                              <swe:Category definition=""> 
+                                 <swe:codeSpace xlink:href="http://mmisw.org/ont/mvco/historyEventType"/>
+                                 <swe:value>CleanedFaces</swe:value>
+                              </swe:Category>
+                           </swe:field>
+                           <swe:field name="ComponentID" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/RDI_Workhorse_1200.xml#Transducer"/>
+                        </swe:DataRecord>
+                     </sml:property>
+                  </sml:Event>
+               </sml:member>
+               
+               <sml:member name="newTray">
+                  <sml:Event>
+                     <sml:date>2006-09-01Z</sml:date>
+                     <gml:description>instrument maintenance new tray installed; ht above bottom
+                        raised to 2.25 m</gml:description>
+                     <sml:property name="CleanedFaces Parameters">
+                        <swe:DataRecord>
+                           <swe:field name="EventType">
+                              <swe:Category definition=""> 
+                                 <swe:codeSpace xlink:href="http://mmisw.org/ont/mvco/historyEventType"/>
+                                 <swe:value>New Tray</swe:value>
+                              </swe:Category>
+                           </swe:field>
+                           <swe:field name="ComponentID" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/MVCO_ObservingSystem.xml#12mNode"/>
+                        </swe:DataRecord>
+                     </sml:property>
+                  </sml:Event>
+               </sml:member>
+               
+               <sml:member name="CleanedFaces">
+                  <sml:Event>
+                     <sml:date>2008-01-29Z</sml:date>
+                     <gml:description>cleaned off ADCP faces</gml:description>
+                     <sml:property name="CleanedFaces Parameters">
+                        <swe:DataRecord>
+                           <swe:field name="EventType">
+                              <swe:Category definition=""> 
+                                 <swe:codeSpace xlink:href="http://mmisw.org/ont/mvco/historyEventType"/>
+                                 <swe:value>CleanedFaces</swe:value>
+                              </swe:Category>
+                           </swe:field>
+                           <swe:field name="ComponentID" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/RDI_Workhorse_1200.xml#Transducer"/>
+                        </swe:DataRecord>
+                     </sml:property>
+                  </sml:Event>
+               </sml:member>
+               
+               <sml:member name="CleanedFaces">
+                  <sml:Event>
+                     <sml:date>2008-04-25Z</sml:date>
+                     <gml:description>cleaned off ADCP faces</gml:description>
+                     <sml:property name="CleanedFaces Parameters">
+                        <swe:DataRecord>
+                           <swe:field name="EventType">
+                              <swe:Category definition=""> 
+                                 <swe:codeSpace xlink:href="http://mmisw.org/ont/mvco/historyEventType"/>
+                                 <swe:value>CleanedFaces</swe:value>
+                              </swe:Category>
+                           </swe:field>
+                           <swe:field name="ComponentID" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/RDI_Workhorse_1200.xml#Transducer"/>
+                        </swe:DataRecord>
+                     </sml:property>
+                  </sml:Event>
+               </sml:member>
+               
+               <sml:member name="CleanedFaces">
+                  <sml:Event>
+                     <sml:date>2009-03-21T19:00:00Z</sml:date>
+                     <gml:description>cleaned off ADCP faces</gml:description>
+                     <sml:property name="CleanedFaces Parameters">
+                        <swe:DataRecord>
+                           <swe:field name="EventType">
+                              <swe:Category definition=""> 
+                                 <swe:codeSpace xlink:href="http://mmisw.org/ont/mvco/historyEventType"/>
+                                 <swe:value>CleanedFaces</swe:value>
+                              </swe:Category>
+                           </swe:field>
+                           <swe:field name="ComponentID" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/RDI_Workhorse_1200.xml#Transducer"/>
+                        </swe:DataRecord>
+                     </sml:property>
+                  </sml:Event>
+               </sml:member>
+            </sml:EventList>
+         </sml:history>
+         
+         <!--==========================================================-->
+         <!--============        System Parameters         ============-->
+         <!--==========================================================-->
+         <sml:parameters>
+            <sml:ParameterList>
+               <sml:parameter name="Doppler Parameters">
+                  <swe:DataRecord>
+                     <swe:field name="ReportingFrequency">
+                        <swe:Quantity definition="urn:RDI:property:reportingFrequency">
+                           <swe:uom code="min"/>
+                           <swe:value>20</swe:value>
+                        </swe:Quantity>
+                     </swe:field>
+                     
+                     <swe:field name="samplingFrequency">
+                        <swe:Quantity definition="urn:RDI:property:samplingFrequency">
+                           <swe:uom code="Hz"/>
+                           <swe:value>2</swe:value>
+                        </swe:Quantity>
+                     </swe:field>
+                     
+                     <swe:field name="cellSize">
+                        <swe:Quantity definition="urn:RDI:property:cellSize">
+                           <gml:description>Depth Cell size</gml:description>
+                           <swe:uom code="cm"/>
+                           <swe:value>50</swe:value>
+                        </swe:Quantity>
+                     </swe:field>                  
+                     
+                     <swe:field name="distanceToFirstBin">
+                        <swe:Quantity definition="urn:RDI:property:distanceToFirstBin">
+                           <gml:description>Distance to first bin</gml:description>
+                           <swe:uom code="cm"/>
+                           <swe:value>122</swe:value>
+                        </swe:Quantity>
+                     </swe:field>
+                     
+                     <swe:field name="pingInterval">
+                        <swe:Quantity definition="urn:RDI:property:pingInterval">
+                           <gml:description>Distance to first bin</gml:description>
+                           <swe:uom code="s"/>
+                           <swe:value>0.5</swe:value>
+                        </swe:Quantity>
+                     </swe:field>
+                  </swe:DataRecord>
+               </sml:parameter>
+               
+            </sml:ParameterList>
+         </sml:parameters>
+         
+         <!--=======================-->
+         <!-- Profiler Components   -->
+         <!--=======================-->
+         <sml:components>
+            <sml:ComponentList>
+               <sml:component name="RDI_Workhorse" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/RDI_Workhorse_1200.xml"/>
+               
+            </sml:ComponentList>
+         </sml:components>
+         
+         <!--======================-->
+         <!-- Components Positions -->
+         <!--======================-->
+         <sml:positions>
+            <sml:PositionList>
+               <!--=================================-->
+               <!-- Position of Platform            -->
+               <!--  Note- need depth here          -->
+               <!--=================================-->
+               <sml:position name="platformPosition">
+                  <swe:Position localFrame="#PLATFORM_FRAME"
+                     referenceFrame="urn:ogc:def:crs,crs:EPSG:6.15:4326,crs:EPSG:6.15:5113">
+                     <swe:location>
+                        <swe:Vector definition="urn:ogc:def:property:OGC:location">
+                           <swe:coordinate name="latitude">
+                              <swe:Quantity definition="urn:ogc:def:property:OGC:latitude">
+                                 <swe:uom code="deg"/>
+                                 <swe:value>41.3366</swe:value>
+                              </swe:Quantity>
+                           </swe:coordinate>
+                           <swe:coordinate name="longitude">
+                              <swe:Quantity definition="urn:ogc:def:property:OGC:longitude">
+                                 <swe:uom code="deg"/>
+                                 <swe:value>-70.5564</swe:value>
+                              </swe:Quantity>
+                           </swe:coordinate>
+                           <swe:coordinate name="heightAboveSeafloor">
+                              <swe:Quantity definition="urn:ogc:def:property:OGC:height">
+                                 <swe:uom code="m"/>
+                                 <swe:value>0</swe:value>
+                              </swe:Quantity>
+                           </swe:coordinate>
+                        </swe:Vector>
+                     </swe:location>
+                     <swe:orientation>
+                        <swe:Vector>
+                           <swe:coordinate name="trueHeading">
+                              <swe:Quantity definition="urn:RDI:property:trueHeading">
+                                 <swe:uom code="deg"/>
+                                 <swe:value>244</swe:value>
+                              </swe:Quantity>
+                           </swe:coordinate>
+                           <!-- NEED values for pitch and roll -->
+                           <swe:coordinate name="pitch">
+                              <swe:Quantity definition="urn:RDI:property:pitch">
+                                 <swe:uom code="deg"/>
+                              </swe:Quantity>
+                           </swe:coordinate>
+                           <swe:coordinate name="roll">
+                              <swe:Quantity definition="urn:RDI:property:roll">
+                                 <swe:uom code="deg"/>
+                              </swe:Quantity>
+                           </swe:coordinate>							
+                        </swe:Vector>
+                     </swe:orientation>
+                  </swe:Position>
+               </sml:position>
+               
+            </sml:PositionList>
+         </sml:positions>
+         
+         <!--==============================-->
+         <!--      System Connections      -->
+         <!--==============================-->
+         <sml:connections></sml:connections>
+         
+      </sml:System>
+   </sml:member>
+</sml:SensorML>

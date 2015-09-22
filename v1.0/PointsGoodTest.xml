@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SensorML xmlns="http://www.opengis.net/sensorML/1.0"
+    xmlns:swe="http://www.opengis.net/swe/1.0" xmlns:gml="http://www.opengis.net/gml"
+    xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.opengis.net/sensorML/1.0 http://schemas.opengis.net/sensorML/1.0.0/sensorML.xsd"
+    version="1.0">
+    <member xlink:role="urn:x-ogc:def:sensor:OGC:processModel">
+        <ProcessModel gml:id="PointsGoodTest">
+            <gml:description>This test is based on performaing a set of time series tests and a summation
+                             of the number of points accepted in the time series.  If the number of points
+                             passed (accepted) divided by the number of points in a time series is greater
+                             or equal to the minimum percentage, then the test passes.</gml:description>
+            <gml:name>PointsGoodTest</gml:name>
+            <classification>
+                <ClassifierList>
+                    <classifier name="processType">
+                        <Term definition="http://mmisw.org/ont/q2o/test">
+                            <value>http://mmisw.org/ont/q2o/test/pointsGoodTest</value>
+                        </Term>
+                    </classifier>
+                </ClassifierList>
+            </classification>
+            <inputs>
+                <InputList>
+                    <input name="value">
+                        <swe:Quantity/>                           
+                    </input>
+                </InputList>
+            </inputs>
+            <outputs>
+                <OutputList>
+                    <output name="pass">
+                        <swe:Boolean definition="http://mmisw.org/ont/q2o/flag/pass"/>
+                    </output>
+                </OutputList>
+            </outputs>
+            <parameters>
+                <ParameterList>
+                    <parameter name="minimumPercent">
+                        <swe:Count definition="http://mmisw.org/ont/q2o/parameter/percentageOfPoints"/>
+                    </parameter>
+                </ParameterList>
+            </parameters>
+            <method xlink:href="urn:_:Q2O:method:PointsGoodTest"/>
+        </ProcessModel>
+    </member>
+</SensorML>

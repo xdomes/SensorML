@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<swe:field name="aggregatePressureFlag">
+    <swe:Category definition="urn:MVCO:_property:flag:aggregatePressureFlag">
+        <swe:codeSpace xlink:href="link:to:enumeration:of:values"/>
+        <swe:value>
+            SUSPECT
+        </swe:value>
+    </swe:Category>
+</swe:field>

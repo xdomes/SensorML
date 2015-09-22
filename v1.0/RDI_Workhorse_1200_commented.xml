@@ -1,0 +1,352 @@
+<?xml version="1.0"?>
+<sml:SensorML xmlns:sml="http://www.opengis.net/sensorML/1.0.1"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:swe="http://www.opengis.net/swe/1.0.1" xmlns:gml="http://www.opengis.net/gml"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xsi:schemaLocation="http://www.opengis.net/sensorML/1.0.1 http://schemas.opengis.net/sensorML/1.0.1/sensorML.xsd"
+   version="1.0.1">
+   <sml:member xlink:arcrole="urn:ogc:def:process:OGC:detector">
+      <sml:System gml:id="RDI_Workhorse_1200"> <!-- Models = 75,150,300,600,1200 -->
+         <!--============================-->
+         <!--         Metadata           -->
+         <!--============================-->
+         <gml:description>The Monitor is Teledyne RD Instruments’
+            most popular direct-reading Acoustic Doppler Current
+            Profiler (ADCP). The unit is typically bottom frame-mounted
+            and hard-wired to shore to provide real-time monitoring
+            of coastal currents. The Monitor’s high data accuracy and
+            reliability make it a favorite for deployments in highvolume
+            traffic areas such as ports and harbors, where the
+            data is often integrated into a Vessel Traffic Monitoring
+            System. In fact, the Monitor has been selected for most
+            major port programs undertaken in the United States.</gml:description>
+         <gml:name>RDI_Workhorse_1200</gml:name>
+         <sml:keywords>
+            <sml:KeywordList codeSpace="urn:x-nasa:def:gcmd:keywords">
+               <sml:keyword>oceanography</sml:keyword>
+               <sml:keyword>waves</sml:keyword>
+               <sml:keyword>currents</sml:keyword>
+               <sml:keyword>acoustic Doppler</sml:keyword>
+               <sml:keyword>profiler</sml:keyword>
+            </sml:KeywordList>
+         </sml:keywords>
+         <!--==========================================================-->
+         <!--===================System Identifiers=====================-->
+         <!--==========================================================-->
+         <sml:identification>
+            <sml:IdentifierList>
+               <!-- Should we have a Codepace value for OGC? Does such a thing exist? -->
+               <sml:identifier name="longName">
+                  <sml:Term definition="urn:ogc:def:property:OGC:longName">
+                     <sml:value>Teledyne RDI Workhorse Monitor 1200</sml:value>
+                  </sml:Term>
+               </sml:identifier>
+               <sml:identifier name="shortName">
+                  <sml:Term definition="urn:ogc:def:property:OGC:shortName">
+                     <sml:value>RDI Workhorse</sml:value>
+                  </sml:Term>
+               </sml:identifier>
+               <sml:identifier name="manufacturer">
+                  <sml:Term definition="urn:ogc:def:property:OGC:manufacturer">
+                     <sml:value>Teledyne RDInstruments</sml:value>
+                  </sml:Term>
+               </sml:identifier>
+               <sml:identifier name="Model Number">
+                  <sml:Term definition="urn:ogc:def:identifier:OGC:modelNumber">
+                     <sml:value>Workhorse 1200</sml:value>
+                  </sml:Term>
+               </sml:identifier>
+            </sml:IdentifierList>
+         </sml:identification>
+         <!--==========================================================-->
+         <!--===================System Classifiers=====================-->
+         <!--==========================================================-->
+         <sml:classification>
+            <sml:ClassifierList>
+               <sml:classifier name="intendedApplication">
+                  <sml:Term definition="urn:ogc:def:property:OGC:application">
+                     <sml:value>Ocean Waves</sml:value>
+                  </sml:Term>
+               </sml:classifier>
+               <sml:classifier name="intendedApplication">
+                  <sml:Term definition="urn:ogc:def:property:OGC:application">
+                     <sml:value>Ocean Currents</sml:value>
+                  </sml:Term>
+               </sml:classifier>
+               <sml:classifier name="sensorType">
+                  <sml:Term definition="urn:ogc:def:property:OGC:sensorType">
+                     <sml:value>Acoustic Doppler</sml:value>
+                  </sml:Term>
+               </sml:classifier>
+               <sml:classifier name="sensorType">
+                  <sml:Term definition="urn:ogc:def:property:OGC:sensorType">
+                     <sml:value>profiler</sml:value>
+                  </sml:Term>
+               </sml:classifier>
+            </sml:ClassifierList>
+         </sml:classification>
+         <!-- ================================================= -->
+         <!--                System Characteristics             -->
+         <!-- ================================================= -->
+         <sml:characteristics name="Physical Properties">
+            <swe:DataRecord definition="urn:ogc:def:property:physicalProperties">
+               <swe:field name="weight">
+                  <swe:Quantity definition="urn:ogc:def:property:weight">
+                     <swe:uom code="kg"/>
+                     <swe:value>7.6</swe:value>
+                  </swe:Quantity>
+               </swe:field>
+               <swe:field name="width">
+                  <swe:Quantity definition="urn:ogc:def:property:width">
+                     <swe:uom code="mm"/>
+                     <swe:value>228.0</swe:value>
+                  </swe:Quantity>
+               </swe:field>
+               <swe:field name="height">
+                  <swe:Quantity definition="urn:ogc:def:property:height">
+                     <swe:uom code="mm"/>
+                     <swe:value>201.5</swe:value>
+                  </swe:Quantity>
+               </swe:field>
+               <!--  Add BAUD rate somewhere -->
+            </swe:DataRecord>
+         </sml:characteristics>
+         <!--==========================================================-->
+         <!--============       System Capabilities       =============-->
+         <!--==========================================================-->
+         <!-- *SF* work on this section with Darryl -->
+         <!-- *SF* some of these may need to be replicated/moved to Paramters.  
+               Keep those that are deemed important for discovery -->
+         <sml:capabilities name="DopplerProperties">
+            <swe:DataRecord>
+               <swe:field name="beamFrequency">
+                  <swe:Quantity definition="urn:MVCO:property:beamFrequency">
+                     <swe:uom code="kHz"/>
+                     <swe:value>1200</swe:value>
+                  </swe:Quantity>
+               </swe:field>
+               <!-- *SF* - Might add repoting freq = 2hz here.  -->
+               <!-- <moved samplingFreq to params -->
+               <swe:field name="samplingFrequency">  
+                  <!-- user MODFIIABLE -->
+                  <swe:Quantity definition="urn:MVCO:property:samplingFrequency">
+                     <swe:uom code="Hz"/>
+                     <swe:value>2</swe:value>
+                  </swe:Quantity>
+               </swe:field>
+               <!-- They have default command properties program- add those here -->
+               <!-- Specifics can be configured in specific file -->
+               <swe:field name="VerticalRseolution">
+                  <swe:Quantity></swe:Quantity>                  
+               </swe:field>
+               <swe:field name="ExpectedSpeedAccuracy">
+                  <swe:Quantity definition="urn:MVCO:property:expectedSpeedAccuracy">
+                     <swe:uom code="cm/s"/>
+                     <swe:value>2</swe:value>
+                  </swe:Quantity>
+               </swe:field>
+               <swe:field name="ExpectedDirectionAccuracy">
+                  <swe:Quantity definition="urn:MVCO:property:expectedDirectionAccuracy">
+                     <swe:uom code="deg"/>
+                     <swe:value>3</swe:value>
+                  </swe:Quantity>
+               </swe:field>
+               <swe:field name="SpeedResolution">
+                  <swe:Quantity definition="urn:MVCO:property:SpeedResolution">
+                     <swe:uom code="cm/s"/>
+                     <swe:value>.1</swe:value>
+                  </swe:Quantity>
+               </swe:field>
+               <swe:field name="DirectionResolution">
+                  <swe:Quantity definition="urn:MVCO:property:directionResolution">
+                     <swe:uom code="deg"/>
+                     <swe:value>.1</swe:value>
+                  </swe:Quantity>
+               </swe:field>
+               <swe:field name="SpeedRange">
+                  <swe:QuantityRange definition="urn:MVCO:property:speedRange">
+                     <swe:uom code="m/s"/>
+                     <swe:value>-5 +5</swe:value>
+                  </swe:QuantityRange>
+               </swe:field>
+            </swe:DataRecord>
+         </sml:capabilities>
+         <!--==========================================================-->
+         <!--============       System Contacts           =============-->
+         <!--==========================================================-->
+         <!-- Group Mfr, Sale, CustSupprt -->
+         <!-- Expert -->
+         <sml:contact xlink:arcrole="urn:ogc:def:property:OGC:sales">
+            <!-- * DS - can we add decsription of this, or is xlink:arcrole the only way to do it?  -->
+            <sml:ResponsibleParty>
+               <sml:organizationName>Teledyne RD Instruments</sml:organizationName>
+               <sml:contactInfo>
+                  <sml:phone>
+                     <sml:voice>+1-858-842-2600</sml:voice>
+                     <sml:facsimile>+1-858-842-2822</sml:facsimile>
+                  </sml:phone>
+                  <sml:address>
+                     <sml:deliveryPoint>14020 Stowe Drive</sml:deliveryPoint>
+                     <sml:city>Poway</sml:city>
+                     <sml:administrativeArea>CA</sml:administrativeArea>
+                     <sml:postalCode>92064</sml:postalCode>
+                     <sml:country>USA</sml:country>
+                     <sml:electronicMailAddress>rdisales@teledyne.com</sml:electronicMailAddress>
+                  </sml:address>
+               </sml:contactInfo>
+            </sml:ResponsibleParty>
+         </sml:contact> 
+         <sml:contact xlink:arcrole="urn:ogc:def:property:OGC:expert">
+            <sml:Person>
+               <sml:surname>Symonds</sml:surname>
+               <sml:name>Darryl</sml:name>
+               <sml:userID>...</sml:userID>  <!-- What should this be? -->
+               <sml:affiliation>Teledyne RD Instruments</sml:affiliation>
+               <sml:phoneNumber>+1-858-842-2644</sml:phoneNumber>
+               <sml:email>dsymonds@teledyne.com</sml:email>
+            </sml:Person>
+         </sml:contact>
+         <!--==========================================================-->
+         <!--============       System Documentation       ============-->
+         <!--==========================================================-->
+         <sml:documentation xlink:arcrole="website">
+            <sml:Document>
+               <gml:description>Collection of information regarding Teldyne RDI's ADCP profilers</gml:description>
+               <sml:onlineResource xlink:href="http://www.rdinstruments.com/rdi_library.html"/>
+            </sml:Document>
+         </sml:documentation>
+         <sml:documentation xlink:arcrole="photo">
+            <sml:Document>
+               <gml:description>Photos of the workhorse</gml:description>
+               <sml:onlineResource xlink:href="http://www.rdinstruments.com/monitor.html"/>
+            </sml:Document>
+         </sml:documentation>
+         <sml:documentation xlink:arcrole="datasheet">
+            <sml:Document>
+               <gml:description>Datasheet for the workhorse</gml:description>
+               <sml:onlineResource
+                  xlink:href="http://www.rdinstruments.com/datasheets/workhorse_monitor_ds_lr.pdf"/>
+            </sml:Document>
+         </sml:documentation>
+         <!--============================-->
+         <!-- Platform Coordinate Frame  -->
+         <!--============================-->
+         <!-- *SF* fill out Coordinate frame info -->
+         <sml:spatialReferenceFrame>
+            <gml:EngineeringCRS gml:id="PLATFORM_FRAME">
+               <gml:srsName>ADCP Platform reference frame</gml:srsName>
+               <gml:usesCS xlink:href="urn:ogc:def:cs:xyzFrame"/>
+               <gml:usesEngineeringDatum>
+                  <gml:EngineeringDatum gml:id="PLATFORM_DATUM">
+                     <gml:datumName/>
+                     <gml:anchorPoint/>
+                  </gml:EngineeringDatum>
+               </gml:usesEngineeringDatum>
+            </gml:EngineeringCRS>
+         </sml:spatialReferenceFrame>
+         <!--========================-->
+         <!-- TODO:  Profiler Inputs -->
+         <!--========================-->
+         <sml:inputs>
+            <sml:InputList>
+               <sml:input name="pressure">
+                  <!-- Julie? - What dictionary will we use for the physical observables like seaWaterPressure  
+                                if we do NOT use mmi CF terms registered by Tethys.
+                                Using fictitious URN for now.  TC, 3/19 -->
+                  <swe:ObservableProperty definition="urn:MVCO:property:seaWaterPressure">
+                     <gml:description>Brief desciption here to distinguish sea water pressure from other pressures</gml:description>
+                  </swe:ObservableProperty>
+               </sml:input>
+               <sml:input name="temperature">
+                  <swe:ObservableProperty definition="urn:ogc:property:OGC:temperature"/>
+               </sml:input>
+               <!-- *SF*  Change in backScatter Volume (input) causes an echoIntensity (output)  -->
+               <sml:input name="volumetricBackscatter">
+                  <!--  *SF*  need to point to nice description of what is really being observed -->
+                  <swe:ObservableProperty definition="urn:ogc:property:OGC:volumetricScatter">
+                     <gml:description>XXX</gml:description>
+                  </swe:ObservableProperty>
+               </sml:input>
+               <!-- *SF*  Add second term, one for volumetricBackscatter, one for particleMotion -->
+               <sml:input name="particleMotion">
+                  <!--  *SF*  need to point to nice description of what is really being observed -->
+                  <swe:ObservableProperty definition="urn:ogc:property:OGC:particleMotion">
+                     <gml:description></gml:description>
+                  </swe:ObservableProperty>
+               </sml:input>
+            </sml:InputList>
+         </sml:inputs>
+         <!--==============================-->
+         <!--      Profiler Outputs        -->
+         <!--==============================-->
+         <sml:outputs>
+            <sml:OutputList>
+               <sml:output name="ADCP_outputs">
+                  <swe:DataRecord>
+                     <swe:field name="pressure">
+                        <!-- See above not about NOT using cf terms -->
+                        <swe:Quantity definition="urn:MVCO:property:seaWaterPressure">
+                           <swe:uom code="dbar"/>
+                        </swe:Quantity>
+                     </swe:field>
+                     <!-- *SF*  pressure can be pressure, one can be depth- ADD Depth as separate output - KPA, not dbar -->
+                     <swe:field name="temperature">
+                        <!-- See above not about NOT using cf terms -->
+                        <swe:Quantity definition="urn:MVCO:property:seaWaterTemperature">
+                           <swe:uom code="cel"/>
+                        </swe:Quantity>
+                     </swe:field>
+                     <swe:field name="velocity">
+                        <swe:Quantity definition="urn:ogc:property:OGC:velocity">
+                           <swe:uom code="mm/s"/>
+                        </swe:Quantity>
+                     </swe:field>
+                     <swe:field name="beamIntensity">  
+                        <swe:Quantity definition="http://mmisw.org/ont/mvco/qcflag/beamIntensity"> </swe:Quantity>
+                     </swe:field>
+                     <swe:field name="correlationCoefficient"> 
+                        <swe:Quantity definition="http://mmisw.org/ont/mvco/qcflag/correlationCoefficient"> </swe:Quantity>
+                     </swe:field>
+                  </swe:DataRecord>
+               </sml:output>
+            </sml:OutputList>
+         </sml:outputs>
+         <!-- *SF* specifiy parameters for changeable things samplingFrequency (some of these are in Capabilities now, 
+                   but should be relocated here.  Also, Make thes quantities with AllowedValues for ranges -->
+         <sml:parameters>
+            <sml:ParameterList>
+               <sml:parameter name="samplingFrequency">
+                  <swe:Quantity definition="urn:MVCO:property:samplingFrequency">
+                     <swe:uom code="Hz"/>
+                     <swe:value>2</swe:value>
+                  </swe:Quantity>
+               </sml:parameter>
+            </sml:ParameterList>
+         </sml:parameters>
+         
+         <!--=======================-->
+         <!-- Profiler Components   -->
+         <!--=======================-->
+         <!--  TODO here, we could separate out the PT Sensor from the doppler if we have sufficient info,
+               and describe their relative positioning in this section -->
+         <sml:components>
+            <sml:ComponentList>
+               <sml:component name="PT Sensor" xlink:href=""/>  <!-- use href if defined in separate doc -->
+               <sml:component name="Doppler"> <!-- If we separate like this, move Doppler stuff to this element -->
+                  <sml:Component>
+                     <gml:description></gml:description>
+                     <sml:capabilities></sml:capabilities>
+                     <sml:inputs></sml:inputs>
+                     <sml:outputs></sml:outputs>
+                     <sml:parameters></sml:parameters>
+                     <sml:method></sml:method>
+                  </sml:Component>
+               </sml:component>
+            </sml:ComponentList>
+         </sml:components>
+         <!--==============================-->
+         <!--      System Connections      -->
+         <!--==============================-->
+      </sml:System>
+   </sml:member>
+</sml:SensorML>

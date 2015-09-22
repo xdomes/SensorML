@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SensorML xmlns="http://www.opengis.net/sensorML/1.0"
+    xmlns:swe="http://www.opengis.net/swe/1.0" xmlns:gml="http://www.opengis.net/gml"
+    xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.opengis.net/sensorML/1.0 http://schemas.opengis.net/sensorML/1.0.0/sensorML.xsd"
+    version="1.0">
+    <member xlink:role="urn:x-ogc:def:sensor:OGC:processModel">
+        <ProcessChain gml:id="Spike">
+            <classification>
+                <ClassifierList>
+                    <classifier name="processType">
+                        <Term definition="http://mmisw.org/ont/mvco/process">
+                            <value>http://mmisw.org/ont/q2o/test/spikeTest</value>
+                        </Term>
+                    </classifier>
+                </ClassifierList>
+            </classification>
+            <inputs>
+                <InputList>
+                    <input name="inputValues">
+                        <swe:DataArray>
+                            <swe:elementCount>
+                                <swe:Count>
+                                    <swe:value>2400</swe:value>
+                                </swe:Count>
+                            </swe:elementCount>
+                            <swe:elementType name="TimeSeries">
+                                <swe:Quantity definition="urn:_:Q2O:timeSeries"/>
+                            </swe:elementType>
+                        </swe:DataArray>                           
+                    </input>
+                </InputList>
+            </inputs>
+            <outputs>
+                <OutputList>
+                    <output name="outputValues">
+                        <swe:DataArray>
+                            <swe:elementCount>
+                                <swe:Count>
+                                    <swe:value>2400</swe:value>
+                                </swe:Count>
+                            </swe:elementCount>
+                            <swe:elementType name="TimeSeries">
+                                <swe:Quantity definition="urn:_:Q2O:timeSeries"/>
+                            </swe:elementType>
+                        </swe:DataArray>                    
+                    </output>
+                    <output name="aggregateFlag">
+                        <swe:Category definition="urn:Q2O:property:flag:aggregateFlag">
+                            <swe:codeSpace xlink:href="http://mmisw.org/ont/mvco/flag"/> 
+                        </swe:Category>
+                    </output>
+                </OutputList>
+            </outputs>
+            <parameters>
+                <ParameterList>
+                    <parameter name="numIterations"> 
+                        <swe:Count definition="http://mmisw.org/ont/q2o/parameter/iterations">
+                            <gml:description></gml:description>
+                        </swe:Count>
+                    </parameter>
+                    <parameter name="numStdDeviations"> 
+                        <swe:Count definition="http://mmisw.org/ont/q2o/parameter/numberOfSigma"/>
+                    </parameter>
+                </ParameterList>
+            </parameters>
+            <components>
+                <ComponentList>
+                    <component name="computeStdDev" xlink:href="urn:MVCO:process:ComputeStdDev"/>
+                    <component name="minThresholdTest" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.2/MinThresholdTest.xml"/>
+                </ComponentList>
+            </components>
+            <connections/> <!-- TODO -->
+        </ProcessChain>
+    </member>
+</SensorML>

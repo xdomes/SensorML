@@ -1,0 +1,20 @@
+3 meanSeaWaterPressure http://mmisw.org/ont/mvco/properties/meanSeaWaterPressure cm
+4 waveHeightFromPressure http://mmisw.org/ont/mvco/properties/wavePeriodFromPressure cm
+5 wavePeriodFromPressure http://mmisw.org/ont/mvco/properties/wavePeriodFromPressure swe:Quantity s
+7 hiCutoffFrequency http://mmisw.org/ont/mvco/properties/hiCutoffFrequency swe:Quantity Hz
+11 waveHeightAll http://mmisw.org/ont/mvco/properties/waveHeightAll swe:Quantity cm
+12 swell http://mmisw.org/ont/mvco/properties/swell swe:Quantity cm
+13 windWaves http://mmisw.org/ont/mvco/properties/windWaves swe:Quantity cm
+14 wavePeriodAll http://mmisw.org/ont/mvco/properties/wavePeriodAll swe:Quantity s
+15 swellPeriod http://mmisw.org/ont/mvco/properties/swellPeriod swe:Quantity s
+16 windWavePeriod http://mmisw.org/ont/mvco/properties/windWavePeriod swe:Quantity s
+17 dominantWaveDirection http://mmisw.org/ont/mvco/properties/dominantWaveDirection swe:Quantity deg
+18 swellDirection http://mmisw.org/ont/mvco/properties/swellDirection swe:Quantity deg
+19 windWaveDirection http://mmisw.org/ont/mvco/properties/windWaveDirection swe:Quantity deg
+20 topBinHeight http://mmisw.org/ont/mvco/properties/topBinHeight swe:Quantity cm
+21 bottomBinHeight http://mmisw.org/ont/mvco/properties/bottomBinHeight swe:Quantity cm
+1 dataGapFlag http://mmisw.org/ont/mvco/qcflag/dataGapFlag swe:Category  
+2 aggregatePressureFlag http://mmisw.org/ont/mvco/qcflag/aggregatePressureFlag swe:Category  
+8 echoIntensityFlag http://mmisw.org/ont/mvco/qcflag/echoIntensityFlag swe:Category
+9 cMFlag http://mmisw.org/ont/mvco/qcflag/cMFlag swe:Category
+10 aggregateVelocityFlag http://mmisw.org/ont/mvco/qcflag/aggregateVelocityFlag swe:Category

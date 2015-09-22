@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SensorML xmlns="http://www.opengis.net/sensorML/1.0.1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:swe="http://www.opengis.net/swe/1.0.1" xmlns:gml="http://www.opengis.net/gml"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xsi:schemaLocation="http://www.opengis.net/sensorML/1.0.1 http://schemas.opengis.net/sensorML/1.0.1/sensorML.xsd"
+    version="1.0.1">
+    <member xlink:role="urn:ogc:def:process:Q2O:QCTest">
+        <ProcessModel gml:id="waveHeightMinMax">
+            <identification>
+                <IdentifierList>
+                    <identifier name="QC Test Type">
+                        <Term definition="urn:ogc:def:process:Q2O:QCTest">
+                            <value>urn:ogc:def:process:Q2O:waveHeightRangeCheck</value>
+                        </Term>
+                    </identifier>
+                </IdentifierList>
+            </identification>
+            <inputs>
+                <InputList>
+                    <input name="value">
+                        <swe:Quantity definition="urn:ogc:def:property:Q2O:waveHeight">
+                            <swe:uom code="m"/>
+                        </swe:Quantity>                           
+                    </input>
+                </InputList>
+            </inputs>
+            <outputs>
+                <OutputList>
+                    <output name="pass">
+                        <swe:Boolean/>
+                    </output>
+                </OutputList>
+            </outputs>
+            <parameters>
+                <ParameterList>
+                    <parameter name="minimum">
+                        <swe:Quantity definition="urn:ogc:def:property:Q2O:waveHeight">
+                            <swe:uom code="m"/>
+                            <swe:value>0</swe:value>
+                        </swe:Quantity>                           
+                    </parameter>
+                    <parameter name="maximum">
+                        <swe:Quantity definition="urn:ogc:def:property:Q2O:waveHeight">
+                            <swe:uom code="m"/>
+                            <swe:value>10</swe:value>
+                        </swe:Quantity>                           
+                    </parameter>
+                </ParameterList>
+            </parameters>
+            <method xlink:href="urn:org:def:process:Q2O:RangeCheck:1.0"/>
+        </ProcessModel>
+    </member>
+</SensorML>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<om:ObservationCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.opengis.net/om/1.0 http://schemas.opengis.net/om/1.0.0/observation.xsd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:om="http://www.opengis.net/om/1.0"
+   xmlns:gml="http://www.opengis.net/gml"
+   xmlns:swe="http://www.opengis.net/swe/1.0.1"
+   gml:id="ADCP_Observation">
+   <!-- Observation name -->
+   <gml:name>Data from ADCP profiler</gml:name>
+   <om:member>
+      <om:Observation>
+         <!-- Observation time -->
+         <om:samplingTime/>
+         <!-- Sensor description (SensorML) -->
+         <om:procedure xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/Pressure_Obs_Process.xml"/>
+         <!-- Observable is a composite containing all data for now  -->
+         <om:observedProperty>
+            <swe:CompositePhenomenon gml:id="PRESSURE_ALL" dimension="9">
+               <gml:description>All Pressure params from ADCP including bad data and agPressure Flag</gml:description>
+               <gml:name>ADCP Pressure measurements</gml:name>
+               <swe:component xlink:href="urn:ogc:phenomenon:time:iso8601"/>
+               <swe:component xlink:href="urn:ogc:def:property:latitude"/>
+               <swe:component xlink:href="urn:ogc:def:property:longitude"/>
+               <swe:component xlink:href="urn:Q2O:def:property::depth"/>
+               <swe:component xlink:href="http://mmisw.org/ont/mvco/properties/meanSeaWaterPressure"/>
+               <swe:component xlink:href="http://mmisw.org/ont/mvco/properties/waveHeightFromPressure"/>
+               <swe:component xlink:href="http://mmisw.org/ont/mvco/properties/wavePeriodFromPressure"/>
+               <swe:component xlink:href="http://mmisw.org/ont/mvco/properties/wavePeriodFromPressure"/>
+               <swe:component xlink:href="http://mmisw.org/ont/mvco/properties/hiCutoffFrequency"/>
+               <swe:component xlink:href="http://mmisw.org/ont/mvco/qcflag/aggregatePressureFlag"/>
+            </swe:CompositePhenomenon>
+         </om:observedProperty>
+         <!-- Feature Of Interest -->
+         <om:featureOfInterest xlink:href="urn:MVCO:location:MarthasVineyardCoastalObservatory"/>
+         <!-- Result Structure and Encoding -->
+         <om:result>
+            <swe:DataArray>
+               <swe:elementCount>
+                  <swe:Count>
+                     <swe:value></swe:value>   
+                  </swe:Count>
+               </swe:elementCount>
+               <swe:elementType name="acdpPressureObs">
+                  <swe:DataRecord>
+                     <swe:field name="sysInfo">
+                        <swe:DataRecord>
+                           <swe:field name="time">
+                              <swe:Time definition="urn:ogc:phenomenon:time:iso8601"/>
+                           </swe:field>
+                           <swe:field name="lat">
+                              <swe:Quantity definition="urn:ogc:def:property:latitude">
+                                 <swe:uom code="deg"/>
+                              </swe:Quantity> 
+                           </swe:field>
+                           <swe:field name="lon">
+                              <swe:Quantity definition="urn:ogc:def:property:longitude">
+                                 <swe:uom code="deg"/>
+                              </swe:Quantity> 
+                           </swe:field>
+                           <swe:field name="depth">
+                              <swe:Quantity definition="urn:Q2O:def:property::depth">
+                                 <swe:uom code="m"/>
+                              </swe:Quantity> 
+                           </swe:field>
+                        </swe:DataRecord>
+                     </swe:field>
+                     
+                     <swe:field name="pressureObsChainOutputs">
+                        <swe:DataRecord>
+                           <swe:field name="pressure">  
+                              <swe:Quantity definition="http://mmisw.org/ont/mvco/properties/meanSeaWaterPressure">
+                                 <swe:uom code="cm"></swe:uom>
+                              </swe:Quantity>
+                           </swe:field>
+                           <swe:field name="waveHeightFromPressure">
+                              <swe:Quantity definition="http://mmisw.org/ont/mvco/properties/waveHeightFromPressure">
+                                 <swe:uom code="cm"></swe:uom>
+                              </swe:Quantity> 
+                           </swe:field>
+                           <swe:field name="wavePeriodFromPressure">
+                              <swe:Quantity definition="http://mmisw.org/ont/mvco/properties/wavePeriodFromPressure">
+                                 <swe:uom code="s"></swe:uom>
+                              </swe:Quantity> 
+                           </swe:field>
+                           <swe:field name="loCutoffFrequency">
+                              <swe:Quantity definition="http://mmisw.org/ont/mvco/properties/loCutoffFrequency">
+                                 <swe:uom code="Hz"></swe:uom>
+                              </swe:Quantity> 
+                           </swe:field>
+                           <swe:field name="hiCutoffFrequency">
+                              <swe:Quantity definition="http://mmisw.org/ont/mvco/properties/hiCutoffFrequency">
+                                 <swe:uom code="Hz"></swe:uom>
+                              </swe:Quantity> 
+                           </swe:field>
+                        </swe:DataRecord>
+                     </swe:field>
+                     
+                     <swe:field name="flags">
+                        <swe:DataRecord>
+                           <swe:field name="aggregatePressureFlag">
+                              <swe:Category definition="http://mmisw.org/ont/mvco/qcflag/aggregatePressureFlag">
+                                 <swe:codeSpace xlink:href="http://mmisw.org/ont/mvco/flag"/> 
+                              </swe:Category>
+                           </swe:field>
+                        </swe:DataRecord>
+                     </swe:field>
+                     
+                  </swe:DataRecord>
+               </swe:elementType>
+               <swe:encoding>
+                  <swe:TextBlock decimalSeparator="." tokenSeparator="," blockSeparator=" "/>
+               </swe:encoding>
+               <!-- Result Values -->
+               <swe:values/>
+            </swe:DataArray>
+         </om:result>
+      </om:Observation>
+   </om:member>
+</om:ObservationCollection>

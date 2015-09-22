@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SensorML xmlns="http://www.opengis.net/sensorML/1.0.1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:swe="http://www.opengis.net/swe/1.0.1" xmlns:gml="http://www.opengis.net/gml"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xsi:schemaLocation="http://www.opengis.net/sensorML/1.0.1 http://schemas.opengis.net/sensorML/1.0.1/sensorML.xsd"
+    version="1.0.1">
+    <member xlink:role="urn:x-ogc:def:sensor:OGC:processModel">
+        <ProcessModel gml:id="MinMax">
+            <inputs>
+                <InputList>
+                    <input name="value">
+                        <swe:Quantity/>                           
+                    </input>
+                </InputList>
+            </inputs>
+            <outputs>
+                <OutputList>
+                    <output name="pass">
+                        <swe:Boolean/>
+                    </output>
+                </OutputList>
+            </outputs>
+            <parameters>
+                <ParameterList>
+                    <parameter name="minimum">
+                        <swe:Quantity/>                           
+                    </parameter>
+                    <parameter name="maximum">
+                        <swe:Quantity/>
+                    </parameter>
+                </ParameterList>
+            </parameters>
+            <method xlink:href="urn:org:def:process:Q2O:RangeCheck:1.0"/>
+        </ProcessModel>
+    </member>
+</SensorML>

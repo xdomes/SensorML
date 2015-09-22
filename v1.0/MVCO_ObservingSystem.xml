@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>    
+<sml:SensorML xmlns:sml="http://www.opengis.net/sensorML/1.0.1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:swe="http://www.opengis.net/swe/1.0.1" xmlns:gml="http://www.opengis.net/gml"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xsi:schemaLocation="http://www.opengis.net/sensorML/1.0.1 http://schemas.opengis.net/sensorML/1.0.1/sensorML.xsd"
+    version="1.0.1">
+    <sml:member>
+        <sml:System gml:id="MVCO_System">
+            <gml:description>A cabled observatory south of Marthas Vineyard, MASS (USA), owned and operated
+                             by the Woods Hole Oceanographic Institution (WHOI).
+            </gml:description>
+            <gml:name>Marthas Vineyard Coastal Observatory</gml:name>
+            
+            <gml:boundedBy>
+                <gml:Envelope>
+                    <gml:lowerCorner srsName="urn:ogc:def:crs:EPSG:6.15:4326">41.1667 -70.8333</gml:lowerCorner>
+                    <gml:upperCorner srsName="urn:ogc:def:crs:EPSG:6.15:4326">41.4167 -70.1667</gml:upperCorner>
+                </gml:Envelope>
+            </gml:boundedBy>
+            
+            <sml:components >
+                <sml:ComponentList>
+                    <sml:component name="Shore Lab" >
+                        <sml:System>
+                            <gml:description></gml:description>
+                            <gml:name></gml:name>
+                            <gml:boundedBy>
+                                <gml:Envelope>
+                                    <gml:lowerCorner srsName="urn:ogc:def:crs:EPSG:6.15:4326">41.3620 -70.5225</gml:lowerCorner>
+                                    <gml:upperCorner srsName="urn:ogc:def:crs:EPSG:6.15:4326">41.3620 -70.5225</gml:upperCorner>
+                                </gml:Envelope>
+                            </gml:boundedBy>
+                            <sml:components>...</sml:components>
+                        </sml:System>
+                    </sml:component>
+                    
+                    <sml:component name="metMast">
+                        <sml:System>
+                            <gml:description>A mast on the beach where instruments are mounted for taking images and making
+                                             marine meteorological observations.  It is equipped with power and fiber-optic
+                                             communications and is part of the MVCO infrastructure.
+                            </gml:description>
+                            <gml:name>MVCO Node at South Beach </gml:name>
+                            <gml:boundedBy>
+                                <gml:Envelope>
+                                    <gml:lowerCorner srsName="urn:ogc:def:crs:EPSG:6.15:4326">41.3499 -70.5267</gml:lowerCorner>
+                                    <gml:upperCorner srsName="urn:ogc:def:crs:EPSG:6.15:4326">41.3499 -70.5267</gml:upperCorner>
+                                </gml:Envelope>
+                            </gml:boundedBy>
+                        </sml:System>
+                    </sml:component>
+                    
+                    <sml:component name="12mNode">
+                        <sml:System gml:id="12mNode">
+                            <gml:description>A fixed subsea platform at the 13 meter isobath equipped with power and fiber-optic
+                                             communications.  It is part of the MVCO.
+                            </gml:description>
+                            <gml:name>MVCO_12m-Node</gml:name>
+                            <gml:boundedBy>
+                                <gml:Envelope>
+                                    <gml:lowerCorner srsName="urn:ogc:def:crs:EPSG:6.15:4326">41.3499 -70.5267</gml:lowerCorner>
+                                    <gml:upperCorner srsName="urn:ogc:def:crs:EPSG:6.15:4326">41.3499 -70.5267</gml:upperCorner>
+                                </gml:Envelope>
+                            </gml:boundedBy>
+                            <sml:components>
+                                <sml:ComponentList>
+                                    <sml:component name="PressureGauge"></sml:component>
+                                    <sml:component name="SalinitySensor"></sml:component>
+                                    <sml:component name="ADCP System" xlink:role="urn:ogc:def:process:OGC:system"  
+                                        xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.2/ADCP_System.xml"/>
+                                </sml:ComponentList>
+                            </sml:components>
+                        </sml:System>
+                    </sml:component>
+                    
+                    <sml:component name="airSeaInteractionTower">
+                        <sml:System>
+                            <gml:description>A fixed platform at the 16 meter isobath equipped with power and fiber-optic
+                                             communications.  It is part of the MVCO.
+                            </gml:description>
+                            <gml:name>Air-Sea Interaction Tower</gml:name>
+                            <gml:boundedBy>
+                                <gml:Envelope>
+                                    <gml:lowerCorner srsName="urn:ogc:def:crs:EPSG:6.15:4326">41.325 -70.5667</gml:lowerCorner>
+                                    <gml:upperCorner srsName="urn:ogc:def:crs:EPSG:6.15:4326">41.325 -70.5667</gml:upperCorner>
+                                </gml:Envelope>
+                            </gml:boundedBy>
+                        </sml:System>
+                    </sml:component>
+                    
+                </sml:ComponentList>
+            </sml:components>
+            
+        </sml:System>
+    </sml:member>
+</sml:SensorML>

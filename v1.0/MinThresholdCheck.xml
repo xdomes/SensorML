@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SensorML xmlns="http://www.opengis.net/sensorML/1.0"
+    xmlns:swe="http://www.opengis.net/swe/1.0" xmlns:gml="http://www.opengis.net/gml"
+    xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.opengis.net/sensorML/1.0 http://schemas.opengis.net/sensorML/1.0.0/sensorML.xsd"
+    version="1.0.0">
+    <member xlink:role="urn:x-ogc:def:sensor:OGC:processModel">
+        <ProcessModel gml:id="ThresholdCheck">
+            <inputs>
+                <InputList>
+                    <input name="value">
+                        <swe:Quantity/>                           
+                    </input>
+                </InputList>
+            </inputs>
+            <outputs>
+                <OutputList>
+                    <output name="pass">
+                        <swe:Boolean/>
+                    </output>
+                </OutputList>
+            </outputs>
+            <parameters>
+                <ParameterList>
+                    <parameter name="thresholdValue"></parameter>
+                </ParameterList>
+            </parameters>
+            <method xlink:href="urn:ogc:def:process:Q2O:thresholdCheck"/>
+        </ProcessModel>
+    </member>
+</SensorML>

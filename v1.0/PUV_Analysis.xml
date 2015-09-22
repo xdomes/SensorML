@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sml:SensorML xmlns:sml="http://www.opengis.net/sensorML/1.0.1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:swe="http://www.opengis.net/swe/1.0.1" xmlns:gml="http://www.opengis.net/gml"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xsi:schemaLocation="http://www.opengis.net/sensorML/1.0.1 http://schemas.opengis.net/sensorML/1.0.1/sensorML.xsd"
+    version="1.0.1">
+    <sml:member>
+        <sml:ProcessChain gml:id="PUV_Analysis">
+            <gml:description>Process Chain for generating Pressure and horizontal velocity-derived 
+                wave parameters from time series of data that has undergone
+                QA/QC processing</gml:description>
+            <gml:name>PUV Analysis Process</gml:name>
+            <sml:classification>
+                <sml:ClassifierList>
+                    <sml:classifier name="processType">
+                        <sml:Term definition="http://mmisw.org/ont/mvco/process">
+                            <sml:value>http://mmisw.org/ont/mvco/process/puvAnalysis</sml:value>
+                        </sml:Term>
+                    </sml:classifier>
+                </sml:ClassifierList>
+            </sml:classification>
+            <sml:documentation>
+                <sml:Document>
+                    <gml:description>E. Terray (eterray@whoi.edu) - using coSpectra of pressure and horizontal velocity
+                                    </gml:description>
+                </sml:Document>
+            </sml:documentation>
+            <sml:inputs>
+                <sml:InputList>
+                    <sml:input name="PressureTimeSeries">
+                        <swe:DataArray>
+                            <swe:elementCount>
+                                <swe:Count/>
+                            </swe:elementCount>
+                            <swe:elementType name="Pressure">
+                                <swe:Quantity definition="urn:ogc:property:OGC:pressure">
+                                    <swe:uom code="mbar"></swe:uom>
+                                </swe:Quantity>
+                            </swe:elementType>
+                        </swe:DataArray>
+                    </sml:input>
+                    <sml:input name="VelocityTimeSeries">
+                        <swe:DataArray>
+                            <swe:elementCount>
+                                <swe:Count/>
+                            </swe:elementCount>
+                            <swe:elementType name="Velocity">
+                                <swe:Quantity definition="urn:ogc:property:OGC:velocity">
+                                    <swe:uom code="cm/s"></swe:uom>
+                                </swe:Quantity>
+                            </swe:elementType>
+                        </swe:DataArray>
+                    </sml:input>
+                </sml:InputList>
+            </sml:inputs>
+            <sml:outputs>
+                <sml:OutputList>
+                    <sml:output name="dominantWaveDirection">
+                        <swe:Quantity definition="urn:ogc:property:OGC:angle">
+                            <swe:uom code="deg"></swe:uom>
+                        </swe:Quantity>
+                    </sml:output>
+                    <sml:output name="swellDirection">
+                        <swe:Quantity definition="urn:ogc:property:OGC:angle">
+                            <swe:uom code="deg"></swe:uom>
+                        </swe:Quantity>
+                    </sml:output>
+                    <sml:output name="windWaveDirection">
+                        <swe:Quantity definition="urn:ogc:property:OGC:angle">
+                            <swe:uom code="deg"></swe:uom>
+                        </swe:Quantity>
+                    </sml:output>
+                </sml:OutputList>
+            </sml:outputs>
+            <sml:parameters></sml:parameters>   <!--  TODO -->
+            <sml:components></sml:components>   <!--  TODO -->
+            <sml:connections></sml:connections> <!--  TODO -->
+        </sml:ProcessChain>
+    </sml:member>
+</sml:SensorML>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SensorML xmlns="http://www.opengis.net/sensorML/1.0"
+    xmlns:swe="http://www.opengis.net/swe/1.0" xmlns:gml="http://www.opengis.net/gml"
+    xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.opengis.net/sensorML/1.0 http://schemas.opengis.net/sensorML/1.0.0/sensorML.xsd"
+    version="1.0">
+    <member xlink:role="urn:x-ogc:def:sensor:OGC:processModel">
+        <ProcessModel gml:id="DataGapTest">
+            <gml:description></gml:description>
+            <gml:name>DataGapTest</gml:name>
+            <classification>
+                <ClassifierList>
+                    <classifier name="processType">
+                        <Term definition="http://mmisw.org/ont/q2o/test">
+                            <value>http://mmisw.org/ont/q2o/test/dataGapTest</value>
+                        </Term>
+                    </classifier>
+                </ClassifierList>
+            </classification>
+            
+            <inputs>
+                <InputList>
+                    <input name="timeSeries">
+                        <swe:DataArray>
+                            <swe:elementCount>
+                                <swe:Count>
+                                    <swe:value>2400</swe:value>
+                                </swe:Count>
+                            </swe:elementCount>
+                            <swe:elementType name="TimeSeries">
+                                <swe:Quantity definition="urn:_:Q2O:timeSeries"/>
+                            </swe:elementType>
+                        </swe:DataArray>                           
+                    </input>
+                </InputList>
+            </inputs>
+            
+            <outputs>
+                <OutputList>
+                    <output name="timeSeries">
+                        <swe:DataArray>
+                            <swe:elementCount>
+                                <swe:Count>
+                                    <swe:value>2400</swe:value>
+                                </swe:Count>
+                            </swe:elementCount>
+                            <swe:elementType name="TimeSeries">
+                                <swe:Quantity definition="urn:_:Q2O:timeSeries"/>
+                            </swe:elementType>
+                        </swe:DataArray>
+                    </output>
+                    <output name="dataGapFlag">
+                        <swe:Category definition="http://mmisw.org/ont/mvco/qcflag/dataGapFlag">
+                            <swe:codeSpace xlink:href="http://mmisw.org/ont/mvco/flag"/> 
+                        </swe:Category>
+                    </output> 
+                </OutputList>
+            </outputs>
+            
+            <parameters>
+                <ParameterList>
+                    <parameter name="dataGapParams">
+                        <swe:DataRecord>
+                            <swe:field name="maxGap">
+                                <swe:Quantity definition="http://mmisw.org/ont/q2o/parameter/numberOfPoints"/>
+                            </swe:field>
+                            <swe:field name="maxNumberOfGaps">
+                                <swe:Quantity definition="http://mmisw.org/ont/q2o/parameter/numberOfGaps"/>
+                            </swe:field>
+                        </swe:DataRecord>
+                    </parameter>
+                </ParameterList>
+            </parameters>
+            <method xlink:href="urn:_:Q2O:method:dataGapTest"/> <!-- TODO -->
+        </ProcessModel>
+    </member>
+</SensorML>

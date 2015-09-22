@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sml:SensorML xmlns:sml="http://www.opengis.net/sensorML/1.0.1"
+    xmlns:swe="http://www.opengis.net/swe/1.0" xmlns:gml="http://www.opengis.net/gml"
+    xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.opengis.net/sensorML/1.0.1 http://schemas.opengis.net/sensorML/1.0.1/sensorML.xsd"
+    version="1.0.1">
+    <sml:member xlink:role="urn:x-ogc:def:sensor:OGC:processModel">
+        <sml:ProcessModel gml:id="ProcessModelTemplate">
+            <gml:description>Template file for generic ProcessModel</gml:description>
+            <gml:name>ProcessModel template</gml:name>
+            <!-- Define all Inputs to your ProcessModel here -->
+            <sml:inputs>
+                <sml:InputList>
+                    <sml:input name="input1"/>
+                    <sml:input name="input1"/>
+                </sml:InputList>
+            </sml:inputs>
+            <!-- Define all Outputs from your ProcessModel here -->
+            <sml:outputs>
+                <sml:OutputList>
+                    <sml:output name="output1"/>
+                    <sml:output name="output1"/>
+                </sml:OutputList>
+            </sml:outputs>
+            <!-- Define required paramters to your ProcessModel here -->
+            <sml:parameters>
+                <sml:ParameterList>
+                    <sml:parameter name="parameter1"/>
+                    <sml:parameter name="parameter2"/>
+                </sml:ParameterList>
+            </sml:parameters>
+            <!-- ProcessModel method declaration- point to or declare the method used by this ProcessModel -->
+            <sml:method xlink:href="urn:point:to:method"/>
+        </sml:ProcessModel>
+    </sml:member>
+</sml:SensorML>

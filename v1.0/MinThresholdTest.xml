@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SensorML xmlns="http://www.opengis.net/sensorML/1.0"
+    xmlns:swe="http://www.opengis.net/swe/1.0" xmlns:gml="http://www.opengis.net/gml"
+    xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.opengis.net/sensorML/1.0 http://schemas.opengis.net/sensorML/1.0.0/sensorML.xsd"
+    version="1.0">
+    <member xlink:role="urn:x-ogc:def:sensor:OGC:processModel">
+        <ProcessModel gml:id="MinThresholdTest">
+            <gml:description>Test a value against some minimum Threshold.  This
+                             differs from the PointsGoodTest because this test
+                             operates on an actual value, not a percentage.</gml:description>
+            <gml:name>MinThresholdTest</gml:name>
+            <classification>
+                <ClassifierList>
+                    <classifier name="processType">
+                        <Term definition="http://mmisw.org/ont/mvco/process">
+                            <value>http://mmisw.org/ont/mvco/process/MinThresholdTest</value>
+                        </Term>
+                    </classifier>
+                </ClassifierList>
+            </classification>      
+            <inputs>
+                <InputList>
+                    <input name="value">
+                        <swe:Quantity/>                           
+                    </input>
+                </InputList>
+            </inputs>
+            <outputs>
+                <OutputList>
+                    <output name="pass">
+                        <swe:Boolean definition="http://mmisw.org/ont/mvco/flag/pass"/>
+                    </output>
+                </OutputList>
+            </outputs>
+            <parameters>
+                <ParameterList>
+                    <parameter name="thresholdValue">
+                        <swe:Count/>
+                    </parameter>
+                </ParameterList>
+            </parameters>
+            <method/>
+        </ProcessModel>
+    </member>
+</SensorML>

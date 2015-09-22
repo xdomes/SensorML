@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sos:Capabilities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.opengis.net/sos/1.0 http://schemas.opengis.net/sos/1.0.0/sosGetCapabilities.xsd"
+	xmlns:ows="http://www.opengis.net/ows/1.1"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns:gml="http://www.opengis.net/gml"
+	xmlns:swe="http://www.opengis.net/swe/1.0.1"
+	xmlns:sos="http://www.opengis.net/sos/1.0"
+	version="1.0.0">
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- Service Identification -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<ows:ServiceIdentification>
+		<ows:Title>ADCP SOS</ows:Title>
+		<ows:Abstract>ADD CONTENT</ows:Abstract>
+		<ows:Keywords>
+			<ows:Keyword>oceanography, doppler, adcp, waves, swell</ows:Keyword>
+		</ows:Keywords>
+		<ows:ServiceType codeSpace="http://opengeospatial.net">OGC:SOS</ows:ServiceType>
+		<ows:ServiceTypeVersion>1.0.0</ows:ServiceTypeVersion>
+		<ows:Fees>NONE</ows:Fees>
+		<ows:AccessConstraints>NONE</ows:AccessConstraints>
+	</ows:ServiceIdentification>
+	<!--~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- Provider Description -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~-->
+	<ows:ServiceProvider>
+		<ows:ProviderName>University of Alabama in Huntsville, VAST</ows:ProviderName>
+		<ows:ProviderSite xlink:href="http://www.whoi.edu"/>
+		<ows:ServiceContact>
+			<ows:IndividualName>Tony Cook</ows:IndividualName>
+			<ows:PositionName>Software Engineer</ows:PositionName>
+			<ows:ContactInfo>
+				<ows:Phone>
+					<ows:Voice>+1-512-358-4848</ows:Voice>
+				</ows:Phone>
+				<ows:Address>
+					<ows:DeliveryPoint>NSSTC, 320 Sparkman Dr.</ows:DeliveryPoint>
+					<ows:City>Huntsville</ows:City>
+					<ows:AdministrativeArea>AL</ows:AdministrativeArea>
+					<ows:PostalCode>35899</ows:PostalCode>
+					<ows:Country>USA</ows:Country>
+					<ows:ElectronicMailAddress>tcook@nsstc.uah.edu</ows:ElectronicMailAddress>
+				</ows:Address>
+			</ows:ContactInfo>
+		</ows:ServiceContact>
+	</ows:ServiceProvider>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- operations Metadata Section -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+	<ows:OperationsMetadata>
+		<ows:Operation name="GetCapabilities">
+			<ows:DCP>
+				<ows:HTTP>
+					<ows:Get xlink:href="http://mvcodata.whoi.edu/q2o/adcp"/>
+					<ows:Post xlink:href="http://mvcodata.whoi.edu/q2o/adcp"/>
+				</ows:HTTP>
+			</ows:DCP>
+			<ows:Parameter name="service">
+				<ows:AllowedValues>
+					<ows:Value>SOS</ows:Value>
+				</ows:AllowedValues>
+			</ows:Parameter>
+			<ows:Parameter name="version">
+				<ows:AllowedValues>
+					<ows:Value>1.0</ows:Value>
+				</ows:AllowedValues>
+			</ows:Parameter>
+		</ows:Operation>
+		<ows:Operation name="GetObservation">
+			<ows:DCP>
+				<ows:HTTP>
+					<ows:Get xlink:href="http://mvcodata.whoi.edu/q2o/adcp"/>
+					<ows:Post xlink:href="http://mvcodata.whoi.edu/q2o/adcp"/>					
+				</ows:HTTP>
+			</ows:DCP>
+			<ows:Parameter name="observedProperty">
+				<ows:AllowedValues>
+					<ows:Value>ALL_PROPERTIES</ows:Value>
+					<ows:Value>http://mmisw.org/ont/mvco/properties/meanSeaWaterPressure</ows:Value>
+					<ows:Value>http://mmisw.org/ont/mvco/properties/waveHeightFromPressure</ows:Value>
+					<ows:Value>http://mmisw.org/ont/mvco/properties/wavePeriodFromPressure</ows:Value>
+					<ows:Value>http://mmisw.org/ont/mvco/properties/hiCutoffFrequency</ows:Value>
+					<ows:Value>http://mmisw.org/ont/mvco/properties/waveHeightAll</ows:Value>
+					<ows:Value>http://mmisw.org/ont/mvco/properties/swell</ows:Value>
+					<ows:Value>http://mmisw.org/ont/mvco/properties/windWaves</ows:Value>
+					<ows:Value>http://mmisw.org/ont/mvco/properties/wavePeriodAll</ows:Value>
+					<ows:Value>http://mmisw.org/ont/mvco/properties/swellPeriod</ows:Value>
+					<ows:Value>http://mmisw.org/ont/mvco/properties/windWavePeriod</ows:Value>
+					<ows:Value>http://mmisw.org/ont/mvco/properties/dominantWaveDirection</ows:Value>
+					<ows:Value>http://mmisw.org/ont/mvco/properties/swellDirection</ows:Value>
+					<ows:Value>http://mmisw.org/ont/mvco/properties/windWaveDirection</ows:Value>
+					<ows:Value>http://mmisw.org/ont/mvco/properties/topBinHeight</ows:Value>
+					<ows:Value>http://mmisw.org/ont/mvco/properties/bottomBinHeight</ows:Value>
+					<ows:Value>http://mmisw.org/ont/mvco/qcflag/dataGapFlag</ows:Value>
+					<ows:Value>http://mmisw.org/ont/mvco/qcflag/aggregatePressureFlag</ows:Value>
+					<ows:Value>http://mmisw.org/ont/mvco/qcflag/echoIntensityFlag</ows:Value>
+					<ows:Value>http://mmisw.org/ont/mvco/qcflag/cMFlag</ows:Value>
+					<ows:Value>http://mmisw.org/ont/mvco/qcflag/aggregateVelocityFlag</ows:Value>
+				</ows:AllowedValues>
+			</ows:Parameter>
+			<!-- How do we specify an optional argument now -->
+			<ows:Parameter name="eventTime">
+				<ows:AnyValue/>
+			</ows:Parameter>
+			<ows:Parameter name="offering">
+				<ows:AllowedValues>
+					<ows:Value>ADCP_DATA</ows:Value>
+					<ows:Value>ADCP_DATA</ows:Value>
+					<ows:Value>ADCP_DATA_QC</ows:Value>
+					<ows:Value>PRESSURE_ALL</ows:Value>
+					<ows:Value>PRESSURE_QC</ows:Value>
+					<ows:Value>VELOCITY_ALL</ows:Value>
+					<ows:Value>VELOCITY_QC</ows:Value>
+				</ows:AllowedValues>
+			</ows:Parameter>
+		</ows:Operation>
+		<ows:Operation name="DescribeSensor">
+			<ows:DCP>
+				<ows:HTTP>
+					<ows:Get xlink:href="http://mvcodata.whoi.edu/q2o/adcp"/>
+					<ows:Post xlink:href="http://mvcodata.whoi.edu/q2o/adcp"/>					
+				</ows:HTTP>
+			</ows:DCP>
+			<ows:Parameter name="procedure">
+				<ows:AllowedValues>
+					<ows:Value>http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/MVCO_ObservingSystem.xml</ows:Value>
+					<ows:Value>http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/ADCP_System.xml</ows:Value>
+					<ows:Value>http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/MVCO_Workhorse_1200.xml</ows:Value>
+					<ows:Value>http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/RDI_Workhorse_1200.xml</ows:Value>
+					<ows:Value>http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/Pressure_Obs_Process.xml</ows:Value>
+					<ows:Value>http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/Velocity_Obs_Process.xml</ows:Value>
+					<ows:Value>http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/Pressure_QC_Chain.xml</ows:Value>
+					<ows:Value>http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/Velocity_QC_Chain.xml</ows:Value>
+					<ows:Value>http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/PUV_Analysis.xml</ows:Value>
+				</ows:AllowedValues>
+			</ows:Parameter>
+		</ows:Operation>
+	</ows:OperationsMetadata>
+	<!--~~~~~~~~~~~~~~~~~~~~~~~-->
+	<!-- Observation Offerings -->
+	<!--~~~~~~~~~~~~~~~~~~~~~~~-->
+	<sos:Contents>
+		<sos:ObservationOfferingList>
+			<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+			<sos:ObservationOffering gml:id="ADCP_DATA">
+				<gml:description>ADCP data from MVCO doppler, with QC data inline</gml:description>
+				<gml:name>MVCO ADCP</gml:name>
+				<gml:boundedBy>
+					<gml:Envelope>
+						<gml:lowerCorner srsName="urn:ogc:def:crs:EPSG:6.15:4326">41.3366 -70.5564</gml:lowerCorner>
+						<gml:upperCorner srsName="urn:ogc:def:crs:EPSG:6.15:4326">41.3366 -70.5564</gml:upperCorner>
+					</gml:Envelope>
+				</gml:boundedBy>
+				<sos:time>
+					<gml:TimePeriod>
+						<gml:beginPosition>2008-04-09T00:00:00</gml:beginPosition>
+						<gml:endPosition indeterminatePosition="now"/>
+					</gml:TimePeriod>
+				</sos:time>
+				<sos:procedure xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/ADCP_System.xml">
+					<swe:internalInfo>
+						<swe:Parameters>
+							<swe:sensorMLUrl xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/ADCP_System.xml"/>
+						</swe:Parameters>
+					</swe:internalInfo>
+				</sos:procedure>
+				<sos:procedure xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/MVCO_Workhorse_1200.xml">
+					<swe:internalInfo>
+						<swe:Parameters>
+							<swe:sensorMLUrl xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/MVCO_Workhorse_1200.xml"/>
+						</swe:Parameters>
+					</swe:internalInfo>
+				</sos:procedure>	
+				<sos:procedure xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/RDI_Workhorse_1200.xml">
+					<swe:internalInfo>
+						<swe:Parameters>
+							<swe:sensorMLUrl xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/RDI_Workhorse_1200.xml"/>
+						</swe:Parameters>
+					</swe:internalInfo>
+				</sos:procedure>
+				<sos:procedure xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/PUV_Analysis.xml">
+					<swe:internalInfo>
+						<swe:Parameters>
+							<swe:sensorMLUrl xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/PUV_Analysis.xml"/>
+						</swe:Parameters>
+					</swe:internalInfo>
+				</sos:procedure>
+				<sos:observedProperty>
+					<swe:CompositePhenomenon gml:id="ALL_DATA" dimension="24">
+						<gml:description>ALL Mesurements from ADCP_System including QC flags and bad data</gml:description>
+						<gml:name>ADCP measurements</gml:name>
+						<swe:component xlink:href="urn:ogc:phenomenon:time:iso8601"/>
+						<swe:component xlink:href="urn:ogc:def:property:latitude"/>
+						<swe:component xlink:href="urn:ogc:def:property:longitude"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/meanSeaWaterPressure"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/waveHeightFromPressure"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/wavePeriodFromPressure"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/wavePeriodFromPressure"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/hiCutoffFrequency"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/waveHeightAll"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/swell"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/windWaves"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/wavePeriodAll"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/swellPeriod"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/windWavePeriod"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/dominantWaveDirection"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/swellDirection"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/windWaveDirection"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/topBinHeight"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/bottomBinHeight"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/qcflag/dataGapFlag"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/qcflag/aggregatePressureFlag"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/qcflag/echoIntensityFlag"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/qcflag/cMFlag"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/qcflag/aggregateVelocityFlag"/>
+					</swe:CompositePhenomenon>
+				</sos:observedProperty>
+				<sos:observedProperty xlink:href="http://mmisw.org/ont/mvco/properties/meanSeaWaterPressure"/>
+				<sos:observedProperty xlink:href="http://mmisw.org/ont/mvco/properties/waveHeightFromPressure"/>
+				<sos:observedProperty xlink:href="http://mmisw.org/ont/mvco/properties/wavePeriodFromPressure"/>
+				<sos:observedProperty xlink:href="http://mmisw.org/ont/mvco/properties/wavePeriodFromPressure"/>
+				<sos:observedProperty xlink:href="http://mmisw.org/ont/mvco/properties/hiCutoffFrequency"/>
+				<sos:observedProperty xlink:href="http://mmisw.org/ont/mvco/properties/waveHeightAll"/>
+				<sos:observedProperty xlink:href="http://mmisw.org/ont/mvco/properties/swell"/>
+				<sos:observedProperty xlink:href="http://mmisw.org/ont/mvco/properties/windWaves"/>
+				<sos:observedProperty xlink:href="http://mmisw.org/ont/mvco/properties/wavePeriodAll"/>
+				<sos:observedProperty xlink:href="http://mmisw.org/ont/mvco/properties/swellPeriod"/>
+				<sos:observedProperty xlink:href="http://mmisw.org/ont/mvco/properties/windWavePeriod"/>
+				<sos:observedProperty xlink:href="http://mmisw.org/ont/mvco/properties/dominantWaveDirection"/>
+				<sos:observedProperty xlink:href="http://mmisw.org/ont/mvco/properties/swellDirection"/>
+				<sos:observedProperty xlink:href="http://mmisw.org/ont/mvco/properties/windWaveDirection"/>
+				<sos:observedProperty xlink:href="http://mmisw.org/ont/mvco/properties/topBinHeight"/>
+				<sos:observedProperty xlink:href="http://mmisw.org/ont/mvco/properties/bottomBinHeight"/>
+				<sos:observedProperty xlink:href="http://mmisw.org/ont/mvco/qcflag/dataGapFlag"/>
+				<sos:observedProperty xlink:href="http://mmisw.org/ont/mvco/qcflag/aggregatePressureFlag"/>
+				<sos:observedProperty xlink:href="http://mmisw.org/ont/mvco/qcflag/echoIntensityFlag"/>
+				<sos:observedProperty xlink:href="http://mmisw.org/ont/mvco/qcflag/cMFlag"/>
+				<sos:observedProperty xlink:href="http://mmisw.org/ont/mvco/qcflag/aggregateVelocityFlag"/>
+				<sos:featureOfInterest xlink:href="urn:MVCO:location:MarthasVineyardCoastalObservatory"/>
+				<sos:responseFormat>text/xml; subtype="om/1.0"</sos:responseFormat>
+				<sos:responseMode>inline</sos:responseMode>
+			</sos:ObservationOffering>
+			
+			<sos:ObservationOffering gml:id="ADCP_DATA_QC">
+				<gml:description>ADCP data from MVCO doppler, with QC data inline</gml:description>
+				<gml:name>MVCO ADCP QC</gml:name>
+				<gml:boundedBy>
+					<gml:Envelope>
+						<gml:lowerCorner srsName="urn:ogc:def:crs:EPSG:6.15:4326">41.3366 -70.5564</gml:lowerCorner>
+						<gml:upperCorner srsName="urn:ogc:def:crs:EPSG:6.15:4326">41.3366 -70.5564</gml:upperCorner>
+					</gml:Envelope>
+				</gml:boundedBy>
+				<sos:time>
+					<gml:TimePeriod>
+						<gml:beginPosition>2008-04-09T00:00:00</gml:beginPosition>
+						<gml:endPosition indeterminatePosition="now"/>
+					</gml:TimePeriod>
+				</sos:time>
+				<sos:procedure xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/ADCP_System.xml"/>				
+				<sos:observedProperty>
+					<swe:CompositePhenomenon gml:id="ALL_DATA_QC" dimension="19">
+						<gml:description>Data from ADCP Chain with bad data points and QC flag info filtered out</gml:description>
+						<gml:name>ADCP measurements</gml:name>
+						<swe:component xlink:href="urn:ogc:phenomenon:time:iso8601"/>
+						<swe:component xlink:href="urn:ogc:def:property:latitude"/>
+						<swe:component xlink:href="urn:ogc:def:property:longitude"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/meanSeaWaterPressure"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/waveHeightFromPressure"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/wavePeriodFromPressure"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/wavePeriodFromPressure"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/hiCutoffFrequency"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/waveHeightAll"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/swell"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/windWaves"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/wavePeriodAll"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/swellPeriod"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/windWavePeriod"/>
+						<swe:component xlink:href="urn:MVCO:property:waveDirection"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/swellDirection"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/windWaveDirection"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/topBinHeight"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/bottomBinHeight"/>
+					</swe:CompositePhenomenon>
+				</sos:observedProperty>
+				<sos:featureOfInterest xlink:href="urn:MVCO:location:MarthasVineyardCoastalObservatory"/>
+				<sos:responseFormat>text/xml; subtype="om/1.0"</sos:responseFormat>
+				<sos:responseMode>inline</sos:responseMode>
+			</sos:ObservationOffering>
+			
+			<sos:ObservationOffering gml:id="PRESSURE_ALL">
+				<gml:description>ADCP Pressure measurements (includes non-QC'd data)</gml:description>
+				<gml:name>MVCO ADCP Pressure</gml:name>
+				<gml:boundedBy>
+					<gml:Envelope>
+						<gml:lowerCorner srsName="urn:ogc:def:crs:EPSG:6.15:4326">41.3366 -70.5564</gml:lowerCorner>
+						<gml:upperCorner srsName="urn:ogc:def:crs:EPSG:6.15:4326">41.3366 -70.5564</gml:upperCorner>
+					</gml:Envelope>
+				</gml:boundedBy>
+				<sos:time>
+					<gml:TimePeriod>
+						<gml:beginPosition>2008-04-09T00:00:00</gml:beginPosition>
+						<gml:endPosition indeterminatePosition="now"/>
+					</gml:TimePeriod>
+				</sos:time>
+				<sos:procedure xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/Pressure_Obs_Process.xml">
+					<swe:internalInfo>
+						<swe:Parameters>
+							<swe:sensorMLUrl xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/Pressure_Obs_Process.xml"/>
+						</swe:Parameters>
+					</swe:internalInfo>
+				</sos:procedure>
+				<sos:observedProperty>
+					<swe:CompositePhenomenon gml:id="ALL_PRESSURE" dimension="9">
+						<gml:description>All Pressure params from ADCP including bad data and agPressure Flag</gml:description>
+						<gml:name>ADCP Pressure measurements</gml:name>
+						<swe:component xlink:href="urn:ogc:phenomenon:time:iso8601"/>
+						<swe:component xlink:href="urn:ogc:def:property:latitude"/>
+						<swe:component xlink:href="urn:ogc:def:property:longitude"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/meanSeaWaterPressure"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/waveHeightFromPressure"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/wavePeriodFromPressure"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/wavePeriodFromPressure"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/hiCutoffFrequency"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/qcflag/aggregatePressureFlag"/>
+					</swe:CompositePhenomenon>
+				</sos:observedProperty>
+				<sos:featureOfInterest xlink:href="urn:MVCO:location:MarthasVineyardCoastalObservatory"/>
+				<sos:responseFormat>text/xml; subtype="om/1.0"</sos:responseFormat>
+				<sos:responseMode>inline</sos:responseMode>
+			</sos:ObservationOffering>
+			
+			<sos:ObservationOffering gml:id="PRESSURE_QC">
+				<gml:description>ADCP Pressure measurements (excludes data that has not passed QA/QC)</gml:description>
+				<gml:name>MVCO ADCP Pressure</gml:name>
+				<gml:boundedBy>
+					<gml:Envelope>
+						<gml:lowerCorner srsName="urn:ogc:def:crs:EPSG:6.15:4326">41.3366 -70.5564</gml:lowerCorner>
+						<gml:upperCorner srsName="urn:ogc:def:crs:EPSG:6.15:4326">41.3366 -70.5564</gml:upperCorner>
+					</gml:Envelope>
+				</gml:boundedBy>
+				<sos:time>
+					<gml:TimePeriod>
+						<gml:beginPosition>2008-04-09T00:00:00</gml:beginPosition>
+						<gml:endPosition indeterminatePosition="now"/>
+					</gml:TimePeriod>
+				</sos:time>
+				<sos:procedure xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/Pressure_QC_Chain.xml">
+					<swe:internalInfo>
+						<swe:Parameters>
+							<swe:sensorMLUrl xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/Pressure_QC_Chain.xml"/>
+						</swe:Parameters>
+					</swe:internalInfo>
+				</sos:procedure>
+				<sos:observedProperty>
+					<swe:CompositePhenomenon gml:id="QC_PRESSURE" dimension="8">
+						<gml:description>ADCP Pressure measurements with QC applied and bad points filtered out</gml:description>
+						<gml:name>ADCP_Pressure_QC</gml:name>
+						<swe:component xlink:href="urn:ogc:phenomenon:time:iso8601"/>
+						<swe:component xlink:href="urn:ogc:def:property:latitude"/>
+						<swe:component xlink:href="urn:ogc:def:property:longitude"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/meanSeaWaterPressure"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/waveHeightFromPressure"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/wavePeriodFromPressure"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/wavePeriodFromPressure"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/hiCutoffFrequency"/>
+					</swe:CompositePhenomenon>
+				</sos:observedProperty>
+				<sos:featureOfInterest xlink:href="urn:MVCO:location:MarthasVineyardCoastalObservatory"/>
+				<sos:responseFormat>text/xml; subtype="om/1.0"</sos:responseFormat>
+				<sos:responseMode>inline</sos:responseMode>
+			</sos:ObservationOffering>
+			
+			
+			<sos:ObservationOffering gml:id="VELOCITY_ALL">
+				<gml:description>ADCP Velocity measurements (includes non-QC'd data)</gml:description>
+				<gml:name>MVCO ADCP Velocity</gml:name>
+				<gml:boundedBy>
+					<gml:Envelope>
+						<gml:lowerCorner srsName="urn:ogc:def:crs:EPSG:6.15:4326">41.3366 -70.5564</gml:lowerCorner>
+						<gml:upperCorner srsName="urn:ogc:def:crs:EPSG:6.15:4326">41.3366 -70.5564</gml:upperCorner>
+					</gml:Envelope>
+				</gml:boundedBy>
+				<sos:time>
+					<gml:TimePeriod>
+						<gml:beginPosition>2008-04-09T00:00:00</gml:beginPosition>
+						<gml:endPosition indeterminatePosition="now"/>
+					</gml:TimePeriod>
+				</sos:time>
+				<sos:procedure xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/Velocity_Obs_Process.xml">
+					<swe:internalInfo>
+						<swe:Parameters>
+							<swe:sensorMLUrl xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/Velocity_Obs_Process.xml"/>
+						</swe:Parameters>
+					</swe:internalInfo>
+				</sos:procedure>
+				<!--				<sos:procedure xlink:href="urn:MVCO:process:ADCP:Velocity_QC_Chain"/>-->
+				<sos:observedProperty>
+					<swe:CompositePhenomenon gml:id="ALL_VELOCITY" dimension="15">
+						<gml:description>All Velocity Mesasurements with bad data and QC flags included</gml:description>
+						<gml:name>ADCP_Velocity</gml:name>
+						<swe:component xlink:href="urn:ogc:phenomenon:time:iso8601"/>
+						<swe:component xlink:href="urn:ogc:def:property:latitude"/>
+						<swe:component xlink:href="urn:ogc:def:property:longitude"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/waveHeightAll"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/swell"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/windWaves"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/wavePeriodAll"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/swellPeriod"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/windWavePeriod"/>
+						<swe:component xlink:href="urn:MVCO:property:waveDirection"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/swellDirection"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/windWaveDirection"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/topBinHeight"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/bottomBinHeight"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/qcflag/aggregateVelocityFlag"/>
+					</swe:CompositePhenomenon>
+				</sos:observedProperty>
+				<sos:featureOfInterest xlink:href="urn:MVCO:location:MarthasVineyardCoastalObservatory"/>
+				<sos:responseFormat>text/xml; subtype="om/1.0"</sos:responseFormat>
+				<sos:responseMode>inline</sos:responseMode>
+			</sos:ObservationOffering>
+			
+			<sos:ObservationOffering gml:id="VELOCITY_QC">
+				<gml:description>ADCP Velocity measurements (excludes data that has not passed QA/QC)</gml:description>
+				<gml:name>MVCO ADCP Velocity QC</gml:name>
+				<gml:boundedBy>
+					<gml:Envelope>
+						<gml:lowerCorner srsName="urn:ogc:def:crs:EPSG:6.15:4326">41.3366 -70.5564</gml:lowerCorner>
+						<gml:upperCorner srsName="urn:ogc:def:crs:EPSG:6.15:4326">41.3366 -70.5564</gml:upperCorner>
+					</gml:Envelope>
+				</gml:boundedBy>
+				<sos:time>
+					<gml:TimePeriod>
+						<gml:beginPosition>2008-04-09T00:00:00</gml:beginPosition>
+						<gml:endPosition indeterminatePosition="now"/>
+					</gml:TimePeriod>
+				</sos:time>
+				<sos:procedure xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/Velocity_QC_Chain.xml">
+					<swe:internalInfo>
+						<swe:Parameters>
+							<swe:sensorMLUrl xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/Velocity_QC_Chain.xml"/>
+						</swe:Parameters>
+					</swe:internalInfo>
+				</sos:procedure>
+				<sos:observedProperty>
+					<swe:CompositePhenomenon gml:id="QC_VELOCITY" dimension="14">
+						<gml:description>ADCP Velocity data with bad points and QC flags filtered out</gml:description>
+						<gml:name>ADCP Velocity measurements</gml:name>
+						<swe:component xlink:href="urn:ogc:phenomenon:time:iso8601"/>
+						<swe:component xlink:href="urn:ogc:def:property:latitude"/>
+						<swe:component xlink:href="urn:ogc:def:property:longitude"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/waveHeightAll"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/swell"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/windWaves"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/wavePeriodAll"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/swellPeriod"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/windWavePeriod"/>
+						<swe:component xlink:href="urn:MVCO:property:waveDirection"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/swellDirection"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/windWaveDirection"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/topBinHeight"/>
+						<swe:component xlink:href="http://mmisw.org/ont/mvco/properties/bottomBinHeight"/>
+					</swe:CompositePhenomenon>
+				</sos:observedProperty>
+				<sos:featureOfInterest xlink:href="urn:MVCO:location:MarthasVineyardCoastalObservatory"/>
+				<sos:responseFormat>text/xml; subtype="om/1.0"</sos:responseFormat>
+				<sos:responseMode>inline</sos:responseMode>
+			</sos:ObservationOffering>
+			
+			<sos:ObservationOffering gml:id="QC_PARAMS">
+				<gml:description>ADCP QC PARAMS.  These are time-tagged to indicate what QC paramter 
+					values were used to create the ObservcationOfferings available from the MVCO ADCP SOS.
+					Paramter names should match paramter names in the ProcessChains files.  
+   				    Eventual goal is for the UAH SesnorML processsing engine to dynamically take these values
+   				    and perform QC processing on the fly.)</gml:description>
+				<gml:name>MVCO ADCP Velocity</gml:name>
+				<gml:boundedBy>
+					<gml:Envelope>
+						<gml:lowerCorner srsName="urn:ogc:def:crs:EPSG:6.15:4326">41.3366 -70.5564</gml:lowerCorner>
+						<gml:upperCorner srsName="urn:ogc:def:crs:EPSG:6.15:4326">41.3366 -70.5564</gml:upperCorner>
+					</gml:Envelope>
+				</gml:boundedBy>
+				<sos:time>
+					<gml:TimePeriod>
+						<gml:beginPosition>2008-04-01T00:00:00</gml:beginPosition>
+						<gml:endPosition indeterminatePosition="now"/>
+					</gml:TimePeriod>
+				</sos:time>
+				<sos:procedure xlink:href=""/>
+				<sos:observedProperty>
+					<swe:CompositePhenomenon gml:id="PARAMS" dimension="2">
+						<gml:description>t</gml:description>
+						<gml:name>ADCP QC Param values</gml:name>
+						<swe:component xlink:href="urn:ogc:phenomenon:time:iso8601"/>
+						<swe:component xlink:href="urn:ogc:def:property:latitude"/>
+					</swe:CompositePhenomenon>
+				</sos:observedProperty>
+				<sos:featureOfInterest xlink:href="urn:MVCO:location:MarthasVineyardCoastalObservatory"/>
+				<sos:responseFormat>text/xml; subtype="om/1.0"</sos:responseFormat>
+				<sos:responseMode>inline</sos:responseMode>
+			</sos:ObservationOffering>
+			
+		</sos:ObservationOfferingList>
+	</sos:Contents>
+</sos:Capabilities>

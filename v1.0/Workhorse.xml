@@ -1,0 +1,402 @@
+<?xml version="1.0"?>
+<sml:SensorML xmlns:sml="http://www.opengis.net/sensorML/1.0.1"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:swe="http://www.opengis.net/swe/1.0.1" xmlns:gml="http://www.opengis.net/gml"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xsi:schemaLocation="http://www.opengis.net/sensorML/1.0.1 http://schemas.opengis.net/sensorML/1.0.1/sensorML.xsd"
+   version="1.0.1">
+   <sml:member xlink:arcrole="urn:ogc:def:process:OGC:detector">
+      <sml:System gml:id="MVCO_ADCP">
+         <!--============================-->
+         <!--         Metadata           -->
+         <!--============================-->
+         <gml:description>Teledyne RDI ADCP located at Martha's Vineyard Coastal Observatory</gml:description>
+         <gml:name>MVCO_Workhorse</gml:name>
+         <sml:keywords>
+            <sml:KeywordList codeSpace="urn:x-nasa:def:gcmd:keywords">
+               <sml:keyword>oceanography</sml:keyword>
+               <sml:keyword>waves</sml:keyword>
+               <sml:keyword>acoustic Doppler</sml:keyword>
+               <sml:keyword>profiler</sml:keyword>
+            </sml:KeywordList>
+         </sml:keywords>
+         <!--==========================================================-->
+         <!--===================System Identifiers=====================-->
+         <!--==========================================================-->
+         <sml:identification>
+            <sml:IdentifierList>
+               <sml:identifier name="longName">
+                  <sml:Term definition="urn:ogc:def:property:OGC:longName">
+                     <sml:value>Teledyne RDI ADCP at MVCO</sml:value>
+                  </sml:Term>
+               </sml:identifier>
+               <sml:identifier name="shortName">
+                  <sml:Term definition="urn:ogc:def:property:OGC:shortName">
+                     <sml:value>MVCO_ADCP</sml:value>
+                  </sml:Term>
+               </sml:identifier>
+               <sml:identifier name="manufacturer">
+                  <sml:Term definition="urn:ogc:def:property:OGC:manufacturer">
+                     <sml:value>Teledyne RDInstruments</sml:value>
+                  </sml:Term>
+               </sml:identifier>
+               <sml:identifier name="Model Number">
+                  <sml:Term definition="urn:ogc:def:identifier:OGC:modelNumber">
+                     <sml:codeSpace xlink:href="urn:ogc:def:identifier:SBE:modelNumber"/>
+                     <sml:value>Workhorse 1200</sml:value>
+                  </sml:Term>
+               </sml:identifier>
+               <sml:identifier name="Serial Number">
+                  <sml:Term definition="urn:ogc:def:identifier:OGC:serialNumber">
+                     <sml:codeSpace xlink:href="urn:ogc:def:identifier:SBE:serialNumber"/>
+                     <sml:value>1654</sml:value>
+                  </sml:Term>
+               </sml:identifier>
+            </sml:IdentifierList>
+         </sml:identification>
+         <!--==========================================================-->
+         <!--===================System Classifiers=====================-->
+         <!--==========================================================-->
+         <sml:classification>
+            <sml:ClassifierList>
+               <sml:classifier name="intendedApplication">
+                  <sml:Term definition="urn:ogc:def:property:OGC:application">
+                     <sml:value>waves</sml:value>
+                  </sml:Term>
+               </sml:classifier>
+               <sml:classifier name="intendedApplication">
+                  <sml:Term definition="urn:ogc:def:property:OGC:application">
+                     <sml:value>currents</sml:value>
+                  </sml:Term>
+               </sml:classifier>
+               <sml:classifier name="sensorType">
+                  <sml:Term definition="urn:ogc:def:property:OGC:sensorType">
+                     <sml:value>Acoustic Doppler</sml:value>
+                  </sml:Term>
+               </sml:classifier>
+               <sml:classifier name="sensorType">
+                  <sml:Term definition="urn:ogc:def:property:OGC:sensorType">
+                     <sml:value>profiler</sml:value>
+                  </sml:Term>
+               </sml:classifier>
+            </sml:ClassifierList>
+         </sml:classification>
+         <sml:validTime>
+            <gml:TimeInstant>
+               <gml:timePosition indeterminatePosition="after">2001-07-11</gml:timePosition>
+            </gml:TimeInstant>
+         </sml:validTime>
+         <!-- ================================================= -->
+         <!--                System Characteristics             -->
+         <!-- ================================================= -->
+         <sml:characteristics>
+            <swe:DataRecord definition="urn:ogc:def:property:physicalProperties">
+               <swe:field name="weight">
+                  <swe:Quantity definition="urn:ogc:def:property:weight">
+                     <swe:uom code="kg"/>
+                     <swe:value>7.6</swe:value>
+                  </swe:Quantity>
+               </swe:field>
+               <swe:field name="width">
+                  <swe:Quantity definition="urn:ogc:def:property:width">
+                     <swe:uom code="mm"/>
+                     <swe:value>228.0</swe:value>
+                  </swe:Quantity>
+               </swe:field>
+               <swe:field name="height">
+                  <swe:Quantity definition="urn:ogc:def:property:height">
+                     <swe:uom code="mm"/>
+                     <swe:value>201.5</swe:value>
+                  </swe:Quantity>
+               </swe:field>
+            </swe:DataRecord>
+         </sml:characteristics>
+         <!--==========================================================-->
+         <!--============       System Capabilities       =============-->
+         <!--==========================================================-->
+         <sml:capabilities name="DopplerProperies">
+            <swe:DataRecord>
+               <swe:field name="frequency">
+                  <swe:Quantity definition="urn:ogc:def:property:OGC:1.0:frequency">
+                     <swe:uom code="hz"/>
+                     <swe:value>1200</swe:value>
+                  </swe:Quantity>
+               </swe:field>
+               <swe:field name="ExpectedSpeedAccuracy">
+                  <swe:Quantity definition="">
+                     <swe:uom code="cm/s"/>
+                     <swe:value>2</swe:value>
+                  </swe:Quantity>
+               </swe:field>
+               <swe:field name="ExpectedDirectionAccuracy">
+                  <swe:Quantity definition="">
+                     <swe:uom code="deg"/>
+                     <swe:value>3</swe:value>
+                  </swe:Quantity>
+               </swe:field>
+               <swe:field name="SpeedResolution">
+                  <swe:Quantity definition="">
+                     <swe:uom code="cm/s"/>
+                     <swe:value>.1</swe:value>
+                  </swe:Quantity>
+               </swe:field>
+               <swe:field name="DirectionResolution">
+                  <swe:Quantity definition="">
+                     <swe:uom code="deg"/>
+                     <swe:value>.1</swe:value>
+                  </swe:Quantity>
+               </swe:field>
+               <swe:field name="SpeedRange">
+                  <swe:QuantityRange definition="">
+                     <swe:uom code="m/s"/>
+                     <swe:value>-5 +5</swe:value>
+                  </swe:QuantityRange>
+               </swe:field>
+               <swe:field name="ReportingFrequency">
+                  <swe:Quantity definition="">
+                     <swe:uom code="min"/>
+                     <swe:value>20</swe:value>
+                  </swe:Quantity>
+               </swe:field>
+            </swe:DataRecord>
+         </sml:capabilities>
+         <!--==========================================================-->
+         <!--============       System Contacts           =============-->
+         <!--==========================================================-->
+         <sml:contact xlink:arcrole="urn:ogc:def:property:OGC:manufacturer">
+            <sml:ResponsibleParty>
+               <sml:organizationName>Teledyne RDInstruments</sml:organizationName>
+               <sml:contactInfo>
+                  <sml:phone>
+                     <sml:voice>+1-858-842-2600</sml:voice>
+                     <sml:facsimile>+1-858-842-2822</sml:facsimile>
+                  </sml:phone>
+                  <sml:address>
+                     <sml:deliveryPoint>14020 Stowe Drive</sml:deliveryPoint>
+                     <sml:city>Poway</sml:city>
+                     <sml:administrativeArea>CA</sml:administrativeArea>
+                     <sml:postalCode> 92064</sml:postalCode>
+                     <sml:country>USA</sml:country>
+                     <sml:electronicMailAddress>rdisales@teledyne.com</sml:electronicMailAddress>
+                  </sml:address>
+               </sml:contactInfo>
+            </sml:ResponsibleParty>
+         </sml:contact>
+         <!--==========================================================-->
+         <!--============       System Documentation       ============-->
+         <!--==========================================================-->
+         <sml:documentation xlink:arcrole="documents">
+            <sml:DocumentList>
+               <sml:member name="website">
+                  <sml:Document>
+                     <gml:description>Collection of information regarding Teldyne RDI's ADCP profilers</gml:description>
+                     <sml:onlineResource xlink:href="http://www.rdinstruments.com/rdi_library.html"/>
+                  </sml:Document>
+               </sml:member>
+               <sml:member name="photo">
+                  <sml:Document>
+                     <gml:description>Photos of the workhorse</gml:description>
+                     <sml:onlineResource xlink:href="http://www.rdinstruments.com/monitor.html"/>
+                  </sml:Document>
+               </sml:member>
+               <sml:member name="datasheet">
+                  <sml:Document>
+                     <gml:description>Datasheet for the workhorse</gml:description>
+                     <sml:onlineResource xlink:href="http://www.rdinstruments.com/datasheets/workhorse_monitor_ds_lr.pdf"/>
+                  </sml:Document>
+               </sml:member>
+            </sml:DocumentList>
+         </sml:documentation>
+         <!--==========================================================-->
+         <!--============       System History             ============-->
+         <!--==========================================================-->
+         <sml:history>
+            <sml:EventList>
+               <sml:member name="BeginData">
+                  <sml:Event>
+                     <sml:date>2001-07-11Z</sml:date>
+                     <gml:description>ADCP Data Begins</gml:description>
+                  </sml:Event>
+               </sml:member>
+               <sml:member name="PressurePort">
+                  <sml:Event>
+                     <sml:date>2003-04-14Z</sml:date>
+                     <gml:description>pressure port deployed with mud embedded (bad pressure)</gml:description>
+                  </sml:Event>
+               </sml:member>
+               <sml:member name="PressurePort">
+                  <sml:Event>
+                     <sml:date>2004-08-31Z</sml:date>
+                     <gml:description>pressure port replaced</gml:description>
+                  </sml:Event>
+               </sml:member>
+               <sml:member name="CleanedFaces">
+                  <sml:Event>
+                     <sml:date>2003-10-29Z</sml:date>
+                     <gml:description>cleaned off ADCP faces</gml:description>
+                  </sml:Event>
+               </sml:member>
+               <sml:member name="CleanedFaces">
+                  <sml:Event>
+                     <sml:date>2004-12-06Z</sml:date>
+                     <gml:description>cleaned off ADCP faces</gml:description>
+                  </sml:Event>
+               </sml:member>
+               <sml:member  name="CleanedFaces">
+                  <sml:Event>
+                     <sml:date>2005-05-12Z</sml:date>
+                     <gml:description>cleaned off ADCP faces</gml:description>
+                  </sml:Event>
+               </sml:member>
+               <sml:member  name="CleanedFaces">
+                  <sml:Event>
+                     <sml:date>2005-11-12Z</sml:date>
+                     <gml:description>cleaned off ADCP faces</gml:description>
+                  </sml:Event>
+               </sml:member>
+               <sml:member  name="CleanedFaces">
+                  <sml:Event>
+                     <sml:date>2006-03-07Z</sml:date>
+                     <gml:description>cleaned off ADCP faces</gml:description>
+                  </sml:Event>
+               </sml:member>
+               <sml:member name="newTray">
+                  <sml:Event>
+                     <sml:date>2006-09-01Z</sml:date>
+                     <gml:description>instrument maintenance   new tray installed; ht above bottom raised to 2.25 m</gml:description>
+                  </sml:Event>
+               </sml:member>
+               <sml:member  name="CleanedFaces">
+                  <sml:Event>
+                     <sml:date>2008-01-29Z</sml:date>
+                     <gml:description>cleaned off ADCP faces</gml:description>
+                  </sml:Event>
+               </sml:member>
+               <sml:member name="CleanedFaces">
+                  <sml:Event>
+                     <sml:date>2008-04-25Z</sml:date>
+                     <gml:description>cleaned off ADCP faces</gml:description>
+                  </sml:Event>
+               </sml:member>
+            </sml:EventList>
+         </sml:history>
+         <!--============================-->
+         <!-- Platform Coordinate Frame  -->
+         <!--============================-->
+         <sml:spatialReferenceFrame>
+            <gml:EngineeringCRS gml:id="PLATFORM_FRAME">
+               <gml:srsName>ADCP Platform reference frame</gml:srsName>
+               <gml:usesCS xlink:href="urn:ogc:def:cs:xyzFrame"/>
+               <gml:usesEngineeringDatum>
+                  <gml:EngineeringDatum gml:id="PLATFORM_DATUM">
+                     <gml:datumName></gml:datumName>
+                     <gml:anchorPoint></gml:anchorPoint>
+                  </gml:EngineeringDatum>
+               </gml:usesEngineeringDatum>
+            </gml:EngineeringCRS>
+         </sml:spatialReferenceFrame>
+         <!--========================-->
+         <!-- TODO:  Profiler Inputs -->
+         <!--========================-->
+         <sml:inputs>
+               <sml:InputList>
+                  <sml:input name="pressure">
+                     <swe:ObservableProperty definition="urn:ogc:property:OGC:pressure"/>
+                  </sml:input>
+                  <sml:input name="temperature">
+                     <swe:ObservableProperty definition="urn:ogc:property:OGC:temperature"/>
+                  </sml:input>
+                  <sml:input name="particleBackscatter">
+                     <swe:ObservableProperty definition="urn:ogc:property:OGC:backscatter"/>
+                  </sml:input>
+               </sml:InputList>
+         </sml:inputs>
+         <!--==============================-->
+         <!--      Profiler Outputs        -->
+         <!--==============================-->
+         <sml:outputs>
+            <sml:OutputList>
+               <sml:output name="ADCP_outputs">
+                  <swe:DataRecord>
+                     <swe:field name="pressure">
+                        <swe:Quantity definition="urn:ogc:def:property:ogc:1.0:pressure">
+                           <swe:uom code="mbar"/>
+                        </swe:Quantity>                     
+                     </swe:field>
+                     <swe:field name="temperature">
+                        <swe:Quantity definition="urn:ogc:def:property:ogc:1.0:temperature">
+                           <swe:uom code="cel"/>
+                        </swe:Quantity>
+                     </swe:field>
+                     <swe:field name="velocity">
+                        <swe:Quantity definition="urn:ogc:property:OGC:velocity">
+                           <swe:uom code="m/s"></swe:uom>
+                        </swe:Quantity> 
+                     </swe:field>
+                     <swe:field name="beamIntensity">
+                        <swe:Quantity definition="urn:MVCO:property:beamIntensity">
+                        </swe:Quantity>
+                     </swe:field>
+                     <swe:field name="correlationCoefficient">
+                        <swe:Quantity definition="urn:MVCO:property:flag:correlationCoefficient">
+                        </swe:Quantity>
+                     </swe:field> 
+                  </swe:DataRecord>
+               </sml:output>
+            </sml:OutputList>
+         </sml:outputs>
+         <!--=======================-->
+         <!-- Profiler Components   -->
+         <!--=======================-->
+         <sml:components>
+            <sml:ComponentList>
+               <!--==============================-->
+               <!--  -->
+               <!--==============================-->
+               <sml:component name="" xlink:href=""/>
+            </sml:ComponentList>
+         </sml:components>
+         <!--======================-->
+         <!-- Components Positions -->
+         <!--======================-->
+         <sml:positions>
+            <sml:PositionList>
+               <!--=================================-->
+               <!-- Position of Platform            -->
+               <!--  Note- need depth here          -->
+               <!--=================================-->
+               <sml:position name="platformPosition">
+                  <swe:Position localFrame="#PLATFORM_FRAME"
+                     referenceFrame="urn:ogc:def:crs:EPSG:4326">
+                     <swe:location>
+                        <swe:Vector definition="urn:ogc:def:property:OGC:location">
+                           <swe:coordinate name="latitude">
+                              <swe:Quantity definition="urn:ogc:def:property:OGC:latitude">
+                                 <swe:uom code="deg"/>
+                                 <swe:value>41.3366</swe:value>
+                              </swe:Quantity>
+                           </swe:coordinate>
+                           <swe:coordinate name="longitude">
+                              <swe:Quantity definition="urn:ogc:def:property:OGC:longitude">
+                                 <swe:uom code="deg"/>
+                                 <swe:value>-70.5564</swe:value>
+                              </swe:Quantity>
+                           </swe:coordinate>
+                           <swe:coordinate name="heightAboveSeafloor">
+                              <swe:Quantity definition="urn:ogc:def:property:OGC:height">
+                                 <swe:uom code="m"/>
+                                 <swe:value>0</swe:value>
+                              </swe:Quantity>
+                           </swe:coordinate>
+                        </swe:Vector>
+                     </swe:location>
+                  </swe:Position>
+               </sml:position>
+            </sml:PositionList>
+         </sml:positions>
+         <!--==============================-->
+         <!--      System Connections      -->
+         <!--==============================-->
+      </sml:System>
+   </sml:member>
+</sml:SensorML>

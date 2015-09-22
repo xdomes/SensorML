@@ -1,0 +1,39 @@
+               <sml:member name="Sensor Change">
+                  <sml:Event>
+                     <sml:date>2010-10-11Z</sml:date>
+                     <gml:description>Sensor Change</gml:description>
+                     <sml:property name="Sensor Change parameters">
+                        <swe:DataRecord>
+                           <swe:field name="EventType">
+                              <swe:Category definition="">
+                                 <swe:codeSpace xlink:href="http://mmisw.org/ont/mvco/historyEventType"/>
+                                 <swe:value>SensorChange</swe:value>
+                              </swe:Category>
+                           </swe:field>
+                           <swe:field name="ComponentID" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.2/RDI_Workhorse_1200.xml#RDI_Workhorse_1200"/>
+                           <swe:field name="SerialNumber">
+                              <swe:Category definition="urn:ogc:def:identifier:OGC:serialNumber">
+                                 <swe:value>14391</swe:value>
+                              </swe:Category>
+                           </swe:field>  
+                           <swe:field name="ManufactureDate">
+                              <swe:Time>
+                                 <swe:value>2010-06-15Z</swe:value>
+                              </swe:Time>
+                           </swe:field>
+                           <swe:field name="DeploymentTimeRange">
+                              <swe:TimeRange>
+                                 <swe:value>2010-10-11T16:07:58Z now</swe:value>
+                              </swe:TimeRange>
+                           </swe:field>
+                           <swe:field name="FirmwareVersion">
+                              <swe:Category>
+                                 <swe:value>50.38/swe:value>
+                              </swe:Category>
+                           </swe:field>
+                           <swe:field name="AdditionalDocumentation" xlink:href="http://mvcodata.whoi.edu/documentation"/>
+                        </swe:DataRecord>
+                     </sml:property>
+                  </sml:Event>
+               </sml:member>
+               

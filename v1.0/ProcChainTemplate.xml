@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sml:SensorML xmlns:sml="http://www.opengis.net/sensorML/1.0.1"
+    xmlns:swe="http://www.opengis.net/swe/1.0" xmlns:gml="http://www.opengis.net/gml"
+    xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.opengis.net/sensorML/1.0.1 http://schemas.opengis.net/sensorML/1.0.1/sensorML.xsd"
+    version="1.0.1">
+    <sml:member xlink:role="urn:x-ogc:def:sensor:OGC:processChain">
+        <sml:ProcessChain gml:id="ProcessChainTemplate">
+            <gml:description>Template file for ProcessChain</gml:description>
+            <gml:name>ProcessChain Template</gml:name>
+            <!-- Define all Inputs to your ProcessChain here -->
+            <sml:inputs >
+                <sml:InputList>
+                    <sml:input name="input1"/>
+                    <sml:input name="input1"/>
+                </sml:InputList>
+            </sml:inputs>
+            <!-- Define all Outputs from your ProcessChain here -->
+            <sml:outputs>
+                <sml:OutputList>
+                    <sml:output name="output1"/>
+                    <sml:output name="output1"/>
+                </sml:OutputList>
+            </sml:outputs>
+            <!-- Define required paramters to your chain here -->
+            <sml:parameters>
+                <sml:ParameterList>
+                    <sml:parameter name="parameter1"/>
+                    <sml:parameter name="parameter2"/>
+                </sml:ParameterList>
+            </sml:parameters>
+            <!-- Component list of all sub Process used by this ProcessChain go here -->
+            <sml:components>
+                <sml:ComponentList>
+                    <sml:component name="component1"/>
+                    <sml:component name="component2"/>
+                </sml:ComponentList>
+            </sml:components>
+            <!-- Define the connections- these are the links between various inputs, outputs, and parameters of
+                 each Component of the ProceszsChain.  -->
+            <sml:connections>
+                <sml:ConnectionList>
+                    <sml:connection>
+                        <sml:Link>
+                            <sml:source ref="this/input1"/>
+                            <sml:destination ref="component1/input2/"/>
+                        </sml:Link>
+                    </sml:connection>
+                    <sml:connection>
+                        <sml:Link>
+                            <sml:source ref="this/input2"/>
+                            <sml:destination ref="component1/input2/"/>
+                        </sml:Link>
+                    </sml:connection>
+                </sml:ConnectionList>
+            </sml:connections>
+        </sml:ProcessChain>
+    </sml:member>
+</sml:SensorML>

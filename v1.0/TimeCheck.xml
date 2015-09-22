@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SensorML xmlns="http://www.opengis.net/sensorML/1.0"
+    xmlns:swe="http://www.opengis.net/swe/1.0" xmlns:gml="http://www.opengis.net/gml"
+    xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.opengis.net/sensorML/1.0 http://schemas.opengis.net/sensorML/1.0.0/sensorML.xsd"
+    version="1.0">
+    <member xlink:role="urn:x-ogc:def:sensor:OGC:processModel">
+        <ProcessChain gml:id="Spike">
+            <inputs>
+                <InputList>
+                    <input name="inputValues">
+                        <swe:DataArray>
+                            <swe:elementCount>2400</swe:elementCount>
+                            <swe:elementType name="TimeSeries">
+                                <swe:Quantity>
+                                    <swe:value/>
+                                </swe:Quantity>
+                            </swe:elementType>
+                        </swe:DataArray>                           
+                    </input>
+                </InputList>
+            </inputs>
+            <outputs>
+                <OutputList>
+                    <output name="outputValues">
+                        <swe:DataArray>
+                            <swe:elementCount></swe:elementCount>
+                            <swe:elementType name="TimeSeries">
+                                <swe:Quantity>
+                                    <swe:value/>
+                                </swe:Quantity>
+                            </swe:elementType>
+                        </swe:DataArray>                    
+                    </output>
+                </OutputList>
+            </outputs>
+            <parameters>
+                <ParameterList>
+                    <parameter name="SamplingFrequency"> 
+                        <swe:Quantity/>                           
+                    </parameter>
+                </ParameterList>
+            </parameters>
+            <method xlink:href="urn:ogc:def:process:Q2O:spikeTest"/>
+            <components>
+                <ComponentList>
+                    <component xlink:href=":::ComputeStdDev"/>
+                    <component xlink:href="xlink:href="urn:org:def:process:Q2O:RangeCheck:1.0"/>
+                </ComponentList>
+            </components>
+            <connections/>
+        </ProcessChain>
+    </member>
+</SensorML>

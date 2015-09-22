@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SensorML xmlns="http://www.opengis.net/sensorML/1.0"
+    xmlns:swe="http://www.opengis.net/swe/1.0" xmlns:gml="http://www.opengis.net/gml"
+    xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.opengis.net/sensorML/1.0 http://schemas.opengis.net/sensorML/1.0.0/sensorML.xsd"
+    version="1.0">
+    <member xlink:role="urn:x-ogc:def:sensor:OGC:processModel">
+        <ProcessChain gml:id="TimeContinuityTest">
+            <gml:description></gml:description>
+            <gml:name>TimeContinuityTest</gml:name>
+            <classification/>
+            
+            <inputs>
+                <InputList>
+                    <input name="timeSeries">
+                        <swe:DataArray>
+                            <swe:elementCount>
+                                <swe:Count>
+                                    <swe:value>2400</swe:value>
+                                </swe:Count>
+                            </swe:elementCount>
+                            <swe:elementType name="TimeSeries">
+                                <swe:Quantity definition="urn:_:Q2O:timeSeries"/>
+                            </swe:elementType>
+                        </swe:DataArray>                           
+                    </input>
+                </InputList>
+            </inputs>
+            
+            <outputs>
+                <OutputList>
+                    <output name="timeSeries">
+                        <swe:DataArray>
+                            <swe:elementCount>
+                                <swe:Count>
+                                    <swe:value>2400</swe:value>
+                                </swe:Count>
+                            </swe:elementCount>
+                            <swe:elementType name="TimeSeries">
+                                <swe:Quantity definition="urn:_:Q2O:timeSeries"/>
+                            </swe:elementType>
+                        </swe:DataArray>
+                    </output>
+                    <output name="dataGapFlag">
+                        <swe:Category definition="http://mmisw.org/ont/mvco/qcflag/dataGapFlag">
+                            <swe:codeSpace xlink:href="http://mmisw.org/ont/mvco/flag"/> 
+                        </swe:Category>
+                    </output> 
+                </OutputList>
+            </outputs>
+            
+            <parameters>
+                <ParameterList>
+                    <parameter name="timeContinuityParams">
+                        <swe:DataRecord>
+                            <swe:field name="maxGap">
+                                <swe:Quantity definition="...:numberOfPoints"/>
+                            </swe:field>
+                            <swe:field name="maxNumberOfGaps">
+                                <swe:Quantity definition="...:numberOfGaps"/>
+                            </swe:field>
+                            <swe:field name="startTime">
+                                <swe:Time definition="urn:ogc:phenomenon:time:iso8601"/>
+                            </swe:field>
+                            <swe:field name="endTime">
+                                <swe:Time definition="urn:ogc:phenomenon:time:iso8601"/>
+                            </swe:field>
+                        </swe:DataRecord>
+                    </parameter>
+                </ParameterList>
+            </parameters>
+            <components/> <!-- TODO: add if needed -->
+            
+            <connections/> <!-- TODO: add if needed -->
+            
+        </ProcessChain>
+    </member>
+</SensorML>

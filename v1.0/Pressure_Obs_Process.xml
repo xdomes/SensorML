@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sml:SensorML xmlns:sml="http://www.opengis.net/sensorML/1.0.1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:swe="http://www.opengis.net/swe/1.0.1" xmlns:gml="http://www.opengis.net/gml"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xsi:schemaLocation="http://www.opengis.net/sensorML/1.0.1 http://schemas.opengis.net/sensorML/1.0.1/sensorML.xsd"
+    version="1.0.1">
+    <sml:member>
+        <sml:ProcessChain gml:id="Pressure_Obs_Process">
+            <gml:description>Process Chain for generating Pressure-derived wave parameters
+                from time series of data that has undergone QA/QC processing</gml:description>
+            <gml:name>Pressure Observable Chain</gml:name>
+            <sml:documentation>
+                <sml:Document>
+                    <gml:description>Dean, R.G. and R. A. Dalrymple, 1984. Water Wave Mechanics for Engineers
+                                     and Scientists, Englewood Cliffs, N.J., Prentice-Hall, Inc., 353 pp.</gml:description>
+                </sml:Document>
+            </sml:documentation>
+            <sml:classification>
+                <sml:ClassifierList>
+                    <sml:classifier name="processType">
+                        <sml:Term definition="http://mmisw.org/ont/mvco/process">
+                            <sml:value>http://mmisw.org/ont/mvco/process/PressureObsProcess</sml:value>
+                        </sml:Term>
+                    </sml:classifier>
+                </sml:ClassifierList>
+            </sml:classification>
+            
+            <sml:inputs>
+                <sml:InputList>
+                    <sml:input name="intepolatedPressureTimeSeries">
+                        <swe:DataArray>
+                            <swe:elementCount>
+                                <swe:Count>
+                                    <swe:value>2400</swe:value>
+                                </swe:Count>
+                            </swe:elementCount>
+                            <swe:elementType name="Pressure">
+                                <swe:Quantity definition="http://mmisw.org/ont/mvco/properties/seaWaterPressure">
+                                    <swe:uom code="cm"></swe:uom>
+                                </swe:Quantity>
+                            </swe:elementType>
+                        </swe:DataArray>
+                    </sml:input>
+                </sml:InputList>
+            </sml:inputs>
+            
+            <sml:outputs>
+                <sml:OutputList>
+                    <sml:output name="loCutoffFrequency">
+                        <swe:Quantity definition="http://mmisw.org/ont/mvco/properties/loCutoffFrequency">
+                            <swe:uom code="Hz"></swe:uom>
+                        </swe:Quantity> 
+                    </sml:output>
+                    <sml:output name="hiCutoffFrequency">
+                        <swe:Quantity definition="http://mmisw.org/ont/mvco/properties/hiCutoffFrequency">
+                            <swe:uom code="Hz"></swe:uom>
+                        </swe:Quantity> 
+                    </sml:output>
+                    <sml:output name="waveHeightFromPressure">
+                        <swe:Quantity definition="http://mmisw.org/ont/mvco/properties/waveHeightFromPressure">
+                            <swe:uom code="cm"></swe:uom>
+                        </swe:Quantity> 
+                    </sml:output>
+                    <sml:output name="wavePeriodFromPressure">
+                        <swe:Quantity definition="http://mmisw.org/ont/mvco/properties/wavePeriodFromPressure">
+                            <swe:uom code="s"></swe:uom>
+                        </swe:Quantity> 
+                    </sml:output>
+                </sml:OutputList>
+            </sml:outputs>
+            
+            <!-- TODO: Expand components and connections to reflect actual processing, if desired -->
+            <sml:parameters/>  
+            <sml:components/>   
+            <sml:connections/>
+        </sml:ProcessChain>
+    </sml:member>
+</sml:SensorML>
+

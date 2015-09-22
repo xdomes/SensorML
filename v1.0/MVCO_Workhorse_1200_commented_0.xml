@@ -1,0 +1,388 @@
+<?xml version="1.0"?>
+<sml:SensorML xmlns:sml="http://www.opengis.net/sensorML/1.0.1"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:swe="http://www.opengis.net/swe/1.0.1" xmlns:gml="http://www.opengis.net/gml"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xsi:schemaLocation="http://www.opengis.net/sensorML/1.0.1 http://schemas.opengis.net/sensorML/1.0.1/sensorML.xsd"
+   version="1.0.1">
+   <sml:member xlink:arcrole="urn:ogc:def:process:OGC:detector">
+      <sml:System gml:id="MVCO_ADCP">
+         <!--============================-->
+         <!--         Metadata           -->
+         <!--============================-->
+         <gml:description>This is the RDI Workhorse 1200 deployed at 
+                          Matha's Vineyard Coastal Observatory.</gml:description>
+         <gml:name>MVCO_Workhorse_1200</gml:name>
+         <sml:keywords>
+            <sml:KeywordList codeSpace="urn:x-nasa:def:gcmd:keywords">
+               <sml:keyword>oceanography</sml:keyword>
+               <sml:keyword>waves</sml:keyword>
+               <sml:keyword>currents</sml:keyword>
+               <sml:keyword>acoustic Doppler</sml:keyword>
+               <sml:keyword>profiler</sml:keyword>
+            </sml:KeywordList>
+         </sml:keywords>
+         
+         <!--==========================================================-->
+         <!--===================System Identifiers=====================-->
+         <!--==========================================================-->
+         <sml:identification>
+            <sml:IdentifierList>
+               <sml:identifier name="longName">
+                  <sml:Term definition="urn:ogc:def:property:OGC:longName">
+                     <sml:value>Teledyne RDI ADCP at MVCO</sml:value>
+                  </sml:Term>
+               </sml:identifier>
+               <sml:identifier name="shortName">
+                  <sml:Term definition="urn:ogc:def:property:OGC:shortName">
+                     <sml:value>MVCO_ADCP</sml:value>
+                  </sml:Term>
+               </sml:identifier>
+               <sml:identifier name="Serial Number">
+                  <sml:Term definition="urn:ogc:def:identifier:OGC:serialNumber">
+                     <sml:codeSpace xlink:href="urn:ogc:def:identifier:SBE:serialNumber"/>
+                     <sml:value>1654</sml:value>
+                  </sml:Term>
+               </sml:identifier>
+            </sml:IdentifierList>
+         </sml:identification>
+         
+         <!--==========================================================-->
+         <!--===================System Classifiers=====================-->
+         <!--==========================================================-->
+         <!-- *SF* Mike makes note about being able to configure the specific instrument to 
+            support certain features of the full instrument- not sure how, but Mike drew 
+            block with supported features as paramters -->
+         <sml:classification>
+            <sml:ClassifierList>
+               <sml:classifier name="intendedApplication">
+                  <sml:Term definition="urn:ogc:def:property:OGC:application">
+                     <sml:value>Ocean Waves</sml:value>
+                  </sml:Term>
+               </sml:classifier>
+               <sml:classifier name="intendedApplication">
+                  <sml:Term definition="urn:ogc:def:property:OGC:application">
+                     <sml:value>Ocean Currents</sml:value>
+                  </sml:Term>
+               </sml:classifier>
+               <sml:classifier name="sensorType">
+                  <sml:Term definition="urn:ogc:def:property:OGC:sensorType">
+                     <sml:value>Acoustic Doppler</sml:value>
+                  </sml:Term>
+               </sml:classifier>
+               <sml:classifier name="sensorType">
+                  <sml:Term definition="urn:ogc:def:property:OGC:sensorType">
+                     <sml:value>profiler</sml:value>
+                  </sml:Term>
+               </sml:classifier>
+            </sml:ClassifierList>
+         </sml:classification>
+         <!--- Valid Time in this context applies to this document -->
+         <sml:validTime>
+            <gml:TimeInstant>
+               <gml:timePosition indeterminatePosition="after">2009-03-20</gml:timePosition>
+            </gml:TimeInstant>
+         </sml:validTime>
+         
+         <!-- ================================================= -->
+         <!--                System Characteristics             -->
+         <!-- ================================================= -->
+         <!-- *SF* Need to put in Janet's specific comm info -->
+         <!--==========================================================-->
+         <!--============       System Capabilities       =============-->
+         <!--==========================================================-->
+         <sml:capabilities name="DopplerProperties">
+            <swe:DataRecord>
+               <swe:field name="beamFrequency">
+                  <swe:Quantity definition="urn:MVCO:property:beamFrequency">
+                     <swe:uom code="kHz"/>
+                     <swe:value>1200</swe:value>
+                  </swe:Quantity>
+               </swe:field>
+               <!-- *SF* Does this not belong here??  Here it is redundant, but in some cases it is not the same --> 
+               <swe:field name="ReportingFrequency">
+                  <swe:Quantity definition="urn:MVCO:property:reportingFrequency">
+                     <swe:uom code="min"/>
+                     <swe:value>20</swe:value>
+                  </swe:Quantity>
+               </swe:field>
+               <!-- *SF* - Sampling interval, sampling units,
+                  Sampling_averagin_interval, sample_averaging_units
+                  reporting_interval, reporting_units - from Sarah -->
+               <swe:field name="samplingFrequency">
+                  <swe:Quantity definition="urn:MVCO:property:samplingFrequency">
+                     <swe:uom code="Hz"/>
+                     <swe:value>2</swe:value>
+                  </swe:Quantity>
+               </swe:field>
+            </swe:DataRecord>
+         </sml:capabilities>
+         
+         <!--==========================================================-->
+         <!--============       System Contacts           =============-->
+         <!--==========================================================-->
+         <sml:contact xlink:arcrole="urn:ogc:def:property:OGC:operator">
+            <sml:ResponsibleParty>
+               <sml:individualName>Janet Fredricks</sml:individualName>
+               <sml:organizationName>Woods Hole Oceanographic Institution</sml:organizationName>
+               <sml:contactInfo>
+                  <sml:phone>
+                     <sml:voice>+1-508-548-1400</sml:voice>
+                     <sml:facsimile>+1-508-457-2194</sml:facsimile>
+                  </sml:phone>
+                  <sml:address>
+                     <sml:deliveryPoint>266 Water Street</sml:deliveryPoint>
+                     <sml:city>Woods Hole</sml:city>
+                     <sml:administrativeArea>MA</sml:administrativeArea>
+                     <sml:postalCode> 02543</sml:postalCode>
+                     <sml:country>USA</sml:country>
+                     <sml:electronicMailAddress>jfredericks@whoi.edu</sml:electronicMailAddress>
+                  </sml:address>
+               </sml:contactInfo>
+            </sml:ResponsibleParty> 
+         </sml:contact>
+         
+         <!--==========================================================-->
+         <!--============       Service History            ============-->
+         <!--==========================================================-->
+         <!-- *SF* - Replace name with swe:category of possible event types -->
+         <!-- Mike claims he will do this tonite -->
+         <sml:history>
+            <sml:EventList>
+               <sml:member name="BeginData">
+                  <sml:Event>
+                     <sml:date>2001-07-11Z</sml:date>
+                     <gml:description>ADCP Data Begins</gml:description>
+                  </sml:Event>
+               </sml:member>
+               <sml:member name="PressurePort">
+                  <sml:Event>
+                     <sml:date>2003-04-14Z</sml:date>
+                     <gml:description>pressure port deployed with mud embedded (bad
+                        pressure)</gml:description>
+                  </sml:Event>
+               </sml:member>
+               <sml:member name="PressurePort">
+                  <sml:Event>
+                     <sml:date>2004-08-31Z</sml:date>
+                     <gml:description>pressure port replaced</gml:description>
+                  </sml:Event>
+               </sml:member>
+               <sml:member name="CleanedFaces">
+                  <sml:Event>
+                     <sml:date>2003-10-29Z</sml:date>
+                     <gml:description>cleaned off ADCP faces</gml:description>
+                  </sml:Event>
+               </sml:member>
+               <sml:member name="CleanedFaces">
+                  <sml:Event>
+                     <sml:date>2004-12-06Z</sml:date>
+                     <gml:description>cleaned off ADCP faces</gml:description>
+                  </sml:Event>
+               </sml:member>
+               <sml:member name="CleanedFaces">
+                  <sml:Event>
+                     <sml:date>2005-05-12Z</sml:date>
+                     <gml:description>cleaned off ADCP faces</gml:description>
+                  </sml:Event>
+               </sml:member>
+               <sml:member name="CleanedFaces">
+                  <sml:Event>
+                     <sml:date>2005-11-12Z</sml:date>
+                     <gml:description>cleaned off ADCP faces</gml:description>
+                  </sml:Event>
+               </sml:member>
+               <sml:member name="CleanedFaces">
+                  <sml:Event>
+                     <sml:date>2006-03-07Z</sml:date>
+                     <gml:description>cleaned off ADCP faces</gml:description>
+                  </sml:Event>
+               </sml:member>
+               <sml:member name="newTray">
+                  <sml:Event>
+                     <sml:date>2006-09-01Z</sml:date>
+                     <gml:description>instrument maintenance new tray installed; ht above bottom
+                        raised to 2.25 m</gml:description>
+                  </sml:Event>
+               </sml:member>
+               <sml:member name="CleanedFaces">
+                  <sml:Event>
+                     <sml:date>2008-01-29Z</sml:date>
+                     <gml:description>cleaned off ADCP faces</gml:description>
+                  </sml:Event>
+               </sml:member>
+               <sml:member name="CleanedFaces">
+                  <sml:Event>
+                     <sml:date>2008-04-25Z</sml:date>
+                     <gml:description>cleaned off ADCP faces</gml:description>
+                  </sml:Event>
+               </sml:member>
+            </sml:EventList>
+         </sml:history>
+         
+         <!--============================-->
+         <!-- Platform Coordinate Frame  -->
+         <!--============================-->
+         <!-- *SF* -->
+         <sml:spatialReferenceFrame>
+            <gml:EngineeringCRS gml:id="PLATFORM_FRAME">
+               <gml:srsName>ADCP Platform reference frame</gml:srsName>
+               <gml:usesCS xlink:href="urn:ogc:def:cs:xyzFrame"/>
+               <gml:usesEngineeringDatum>
+                  <gml:EngineeringDatum gml:id="PLATFORM_DATUM">
+                     <gml:datumName/>
+                     <gml:anchorPoint/>
+                  </gml:EngineeringDatum>
+               </gml:usesEngineeringDatum>
+            </gml:EngineeringCRS>
+         </sml:spatialReferenceFrame>
+         
+         <!--========================-->
+         <!--    Profiler Inputs     -->
+         <!--========================-->
+         <sml:inputs>
+            <sml:InputList>
+               <sml:input name="pressure">
+                  <!-- Julie? - What dictionary will we use for the physical observables like seaWaterPressure  
+                     if we do NOT use mmi CF terms registered by Tethys.
+                     Using fictitious URN for now.  TC, 3/19 -->
+                  <swe:ObservableProperty definition="urn:MVCO:property:seaWaterPressure"/>
+               </sml:input>
+               <sml:input name="temperature">
+                  <swe:ObservableProperty definition="urn:ogc:property:OGC:temperature"/>
+               </sml:input>
+               <sml:input name="particleBackscatter">
+                  <swe:ObservableProperty definition="urn:ogc:property:OGC:backscatter"/>
+               </sml:input>
+            </sml:InputList>
+         </sml:inputs>
+         
+         <!--==============================-->
+         <!--      Profiler Outputs        -->
+         <!--==============================-->
+         <sml:outputs>
+            <sml:OutputList>
+               <!-- *SF*   -->
+               <sml:output name="pressureTimeSeries">
+                  <swe:DataArray>
+                     <swe:elementCount>
+                        <swe:Count>
+                           <swe:value>2400</swe:value>
+                        </swe:Count>
+                     </swe:elementCount>
+                     <swe:elementType name="PressureDepth" xlink:href="urn:MVCO:property:pressureDepth">
+                        <swe:Quantity>
+                           <swe:uom code="cm"/>
+                        </swe:Quantity>
+                     </swe:elementType>
+                  </swe:DataArray>
+               </sml:output>
+               <sml:output name="velocityTimeSeries">
+                  <swe:DataArray>
+                     <swe:elementCount>
+                        <swe:Count>
+                           <swe:value>2400</swe:value>
+                        </swe:Count>
+                     </swe:elementCount>
+                     <swe:elementType name="Velocity">
+                        <swe:Quantity definition="urn:ogc:property:OGC:velocity">
+                           <swe:uom code="cm/s"></swe:uom>
+                        </swe:Quantity>
+                     </swe:elementType>
+                  </swe:DataArray>
+               </sml:output>
+               <sml:output name="intensityTimeSeries">
+                  <swe:DataArray>
+                     <swe:elementCount>
+                        <swe:Count>
+                           <swe:value>2400</swe:value>
+                        </swe:Count>
+                     </swe:elementCount>
+                     <swe:elementType name="beamIntensity">
+                        <swe:Quantity definition="...">
+                           <swe:uom code="..."></swe:uom>
+                        </swe:Quantity>
+                     </swe:elementType>
+                  </swe:DataArray>
+               </sml:output>
+               <sml:output name="correlationCoeffTimeSeries">
+                  <swe:DataArray>
+                     <swe:elementCount>
+                        <swe:Count>
+                           <swe:value>2400</swe:value>
+                        </swe:Count>
+                     </swe:elementCount>
+                     <!--  *SF* What do we call this?  Leave for now -->
+                     <swe:elementType name="correlationCoeff">
+                        <swe:Quantity definition="..."/>
+                     </swe:elementType>
+                  </swe:DataArray>
+               </sml:output>
+               <sml:output name="temperature">
+                  <swe:Quantity definition="urn:MVCO:property:seaWaterTemperature">
+                     <swe:uom code="cel"/>
+                  </swe:Quantity>
+               </sml:output> 
+            </sml:OutputList>
+         </sml:outputs>
+         
+         <!--=======================-->
+         <!-- Profiler Components   -->
+         <!--=======================-->
+         <sml:ComponentList>
+            <sml:component name="RDI_Workhorse" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.0/RDI_Workhorse_1200.xml"/>
+         </sml:ComponentList>
+         
+         <!--======================-->
+         <!-- Components Positions -->
+         <!--======================-->
+         <sml:positions>
+            <sml:PositionList>
+               <!--=================================-->
+               <!-- Position of Platform            -->
+               <!--  Note- need depth here          -->
+               <!--=================================-->
+               <!-- *SF* - THis is a fixed sensor, make it sensorFrame -->
+               <!-- Julie, since this is an example, let's make Sensor and Platform Frame 0,0,0:
+                  Check with Mike to make sure this gets encoded correctly, wrt <spatialReferenceFrame>  -->
+               <!-- *SF*   Also may want to add IMU (buoy GPS) if they attach that to the system -->
+               <!-- *SF* - What about using magnetic declination- Where this is obtained should be part of QC -->
+               <!-- *SF* - Julie knows how she is generating hers, so we need to add that to the processing -->
+               <!-- Went ahead an used the Tethys best practice for Lat,Lon,Depth CRS combo for now, see:
+                  http://www.oostethys.org/best-practices/verticalcrs -->
+               <sml:position name="platformPosition">
+                  <swe:Position localFrame="#PLATFORM_FRAME"
+                     referenceFrame="urn:ogc:def:crs,crs:EPSG:6.15:4326,crs:EPSG:6.15:5113">
+                     <swe:location>
+                        <swe:Vector definition="urn:ogc:def:property:OGC:location">
+                           <swe:coordinate name="latitude">
+                              <swe:Quantity definition="urn:ogc:def:property:OGC:latitude">
+                                 <swe:uom code="deg"/>
+                                 <swe:value>41.3366</swe:value>
+                              </swe:Quantity>
+                           </swe:coordinate>
+                           <swe:coordinate name="longitude">
+                              <swe:Quantity definition="urn:ogc:def:property:OGC:longitude">
+                                 <swe:uom code="deg"/>
+                                 <swe:value>-70.5564</swe:value>
+                              </swe:Quantity>
+                           </swe:coordinate>
+                           <swe:coordinate name="heightAboveSeafloor">
+                              <swe:Quantity definition="urn:ogc:def:property:OGC:height">
+                                 <swe:uom code="m"/>
+                                 <swe:value>0</swe:value>
+                              </swe:Quantity>
+                           </swe:coordinate>
+                        </swe:Vector>
+                     </swe:location>
+                  </swe:Position>
+               </sml:position>
+            </sml:PositionList>
+         </sml:positions>
+         
+         <!--==============================-->
+         <!--      System Connections      -->
+         <!--==============================-->
+      </sml:System>
+   </sml:member>
+</sml:SensorML>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<om:ObservationCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.opengis.net/om/1.0 http://schemas.opengis.net/om/1.0.0/observation.xsd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:om="http://www.opengis.net/om/1.0"
+   xmlns:gml="http://www.opengis.net/gml"
+   xmlns:swe="http://www.opengis.net/swe/1.0.1"
+   gml:id="QC_Params">
+   <!-- Observation name -->
+   <gml:name>QC_Params</gml:name>
+   <om:member>
+      <om:Observation>
+         <!-- Observation time -->
+         <om:samplingTime/>
+         <!-- Sensor description (SensorML) -->
+         <om:procedure xlink:href="http://mvcodata.whoi.edu:8080/downloads/sensorML/v1.0/examples/sensors/ADCP_2.1/ADCP_System.xml"/>
+         <!-- Observable is a composite containing all data for now  -->
+         <om:observedProperty>
+            <swe:CompositePhenomenon gml:id="QC_PARAMS" dimension="">
+               <gml:description>QC Parameter values for use in ADCP_System Process</gml:description>
+               <gml:name>QC_Params</gml:name>
+               <swe:component xlink:href="urn:ogc:phenomenon:time:iso8601"/>
+               <swe:component xlink:href="urn:RDI:property:samplingFrequency"/>
+               <swe:component xlink:href="http://mmisw.org/ont/mvco/qcflag/maxGapForTimeSeriesTest"/>
+               <swe:component xlink:href="http://mmisw.org/ont/mvco/qcflag/minRecordLengthForTimeSeriesTest"/>
+               <swe:component xlink:href="http://mmisw.org/ont/mvco/qcflag/minPressureForRangeCheck"/>
+               <swe:component xlink:href="http://mmisw.org/ont/mvco/qcflag/maxPressureForRangeCheck"/>
+               <swe:component xlink:href="http://mmisw.org/ont/mvco/qcflag/minVelocityForRangeCheck"/>
+               <swe:component xlink:href="http://mmisw.org/ont/mvco/qcflag/maxVelocityForRangeCheck"/>
+               <swe:component xlink:href="http://mmisw.org/ont/mvco/qcflag/numIterationsForSpikeParamsForPressureSpikeTest"/>
+               <swe:component xlink:href="http://mmisw.org/ont/mvco/qcflag/numStdDeviationsForSpikeParamsForPressureSpikeTest"/>
+               <swe:component xlink:href="http://mmisw.org/ont/mvco/qcflag/numIterationsForSpikeParamsForVelocitySpikeTest"/>
+               <swe:component xlink:href="http://mmisw.org/ont/mvco/qcflag/numStdDeviationsForSpikeParamsForVelocitySpikeTest"/>
+               <swe:component xlink:href="http://mmisw.org/ont/mvco/qcflag/minPercentGoodForPercentGoodTest"/>
+               <swe:component xlink:href="http://mmisw.org/ont/mvco/qcflag/maxPercentGoodForPercentGoodTest"/>
+            </swe:CompositePhenomenon>
+         </om:observedProperty>
+         <!-- Feature Of Interest -->
+         <om:featureOfInterest xlink:href="urn:MVCO:location:MarthasVineyardCoastalObservatory"/>
+         <!-- Result Structure and Encoding -->
+         <om:result>
+            <swe:DataArray>
+               <swe:elementCount>
+                  <swe:Count>
+                     <swe:value></swe:value>   
+                  </swe:Count>
+               </swe:elementCount>
+               <swe:elementType name="QC_Parameters">
+                  <swe:DataRecord>
+                     <swe:field name="startTimeOfParameterChange">
+                        <swe:Time definition="urn:ogc:phenomenon:time:iso8601"/>
+                     </swe:field>
+                     <swe:field name="samplingFrequency">
+                        <swe:Quantity definition="...">
+                           <swe:uom code="Hz"></swe:uom>
+                        </swe:Quantity> 
+                     </swe:field>
+                     <swe:field name="TimeSeries Params">
+                        <swe:DataRecord>
+                           <swe:field name="maxGapForTimeSeriesTest">
+                              <swe:Quantity definition="...">
+                                 <swe:uom code="s"></swe:uom>
+                              </swe:Quantity> 
+                           </swe:field>
+                           <swe:field name="minRecordLengthForTimeSeriesTest">
+                              <swe:Count></swe:Count> 
+                           </swe:field>
+                        </swe:DataRecord>
+                     </swe:field>
+                     <swe:field name="RangeTest Pressure Params">
+                        <swe:DataRecord>
+                           <swe:field name="minPressureForRangeCheck">
+                              <swe:Quantity definition="...">
+                                 <swe:uom code="cm"></swe:uom>
+                              </swe:Quantity> 
+                           </swe:field>
+                           <swe:field name="maxPressureForRangeCheck">
+                              <swe:Quantity definition="...">
+                                 <swe:uom code="cm"></swe:uom>
+                              </swe:Quantity> 
+                           </swe:field>
+                        </swe:DataRecord>
+                     </swe:field>
+                     <swe:field name="RangeTest Velocity Params">
+                        <swe:DataRecord>
+                           <swe:field name="minVelocityForRangeCheck">
+                              <swe:Quantity definition="...">
+                                 <swe:uom code="cm/s"></swe:uom>
+                              </swe:Quantity> 
+                           </swe:field>
+                           <swe:field name="maxVelocityForRangeCheck">
+                              <swe:Quantity definition="...">
+                                 <swe:uom code="cm/s"></swe:uom>
+                              </swe:Quantity> 
+                           </swe:field>
+                        </swe:DataRecord>
+                     </swe:field>
+                     <swe:field name="SpikeTest Params">
+                        <swe:DataRecord>
+                           <swe:field name="numIterationsForSpikeParamsForPressureSpikeTest">
+                              <swe:Count></swe:Count> 
+                           </swe:field> 
+                           <swe:field name="numStdDeviationsForSpikeParamsForPressureSpikeTest">
+                              <swe:Count></swe:Count> 
+                           </swe:field>
+                           <swe:field name="numIterationsForSpikeParamsForVelocitySpikeTest">
+                              <swe:Count></swe:Count> 
+                           </swe:field> 
+                           <swe:field name="numStdDeviationsForSpikeParamsForVelocitySpikeTest">
+                              <swe:Count></swe:Count> 
+                           </swe:field> 
+                        </swe:DataRecord>
+                     </swe:field>
+                     <swe:field name="minPercentGoodForPercentGoodTest">
+                        <swe:Quantity definition="...">
+                           <swe:uom code="%"></swe:uom>
+                        </swe:Quantity> 
+                     </swe:field> 
+                     <swe:field name="maxGapLengthForGapTestInterpLinear">
+                        <swe:Quantity definition="...">
+                           <swe:uom code="s"></swe:uom>
+                        </swe:Quantity> 
+                     </swe:field>
+                  </swe:DataRecord>
+               </swe:elementType>
+               <swe:encoding>
+                  <swe:TextBlock decimalSeparator="." tokenSeparator="," blockSeparator="\n"/>
+               </swe:encoding>
+               <!-- Result Values -->
+               <swe:values/>
+            </swe:DataArray>
+         </om:result>
+      </om:Observation>
+   </om:member>
+</om:ObservationCollection>
