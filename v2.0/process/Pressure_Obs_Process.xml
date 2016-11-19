@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>    
+<sml:AggregateProcess gml:id="Pressure_Obs_Process" xml:lang="en"
+    definition="http://sensorml.com/def/sensor/processingSystem"
+    xmlns:sml="http://www.opengis.net/sensorml/2.0" 
+    xmlns:swe="http://www.opengis.net/swe/2.0"
+    xmlns:gml="http://www.opengis.net/gml/3.2" 
+    xmlns:gmd="http://www.isotc211.org/2005/gmd"
+    xmlns:gco="http://www.isotc211.org/2005/gco"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:ism="urn:us:gov:ic:ism"
+    xsi:schemaLocation="http://www.opengis.net/sensorml/2.0 http://schemas.opengis.net/sensorML/2.0/aggregate_process.xsd">
+	<gml:description>Process Chain for generating Pressure-derived wave parameters
+		from time series of data that has undergone QA/QC processing</gml:description>
+	<gml:identifier codeSpace="uniqueID">urn:mvco:process:PresureObsProcess</gml:identifier>
+	<gml:name>Pressure Observable Chain</gml:name>
+	<sml:classification>
+		<sml:ClassifierList>
+			<sml:classifier>
+				<sml:Term definition="http://mmisw.org/ont/mvco/process">
+					<sml:label>Process Type</sml:label>
+					<sml:value>http://mmisw.org/ont/mvco/process/PressureObsProcess</sml:value>
+				</sml:Term>
+			</sml:classifier>
+		</sml:ClassifierList>
+	</sml:classification>
+
+	<sml:documentation>
+		<sml:DocumentList>
+			<sml:document>
+				<gmd:CI_OnlineResource>
+					<gmd:linkage>
+						<gmd:URL>http://www.worldscientific.com/worldscibooks/10.1142/1232</gmd:URL>
+					</gmd:linkage>
+					<gmd:description>
+						<gco:CharacterString>
+							Dean, R.G. and R. A. Dalrymple, 1984. Water Wave Mechanics for Engineers
+							and Scientists, Englewood Cliffs, N.J., Prentice-Hall, Inc., 353 pp.
+						</gco:CharacterString>
+					</gmd:description>
+				</gmd:CI_OnlineResource>
+			</sml:document>
+		</sml:DocumentList>
+	</sml:documentation>
+	
+
+	<sml:inputs>
+		<sml:InputList>
+			<sml:input name="intepolatedPressureTimeSeries">
+				<swe:DataArray>
+					<swe:elementCount>
+						<swe:Count>
+							<swe:value>2400</swe:value>
+						</swe:Count>
+					</swe:elementCount>
+					<swe:elementType name="Pressure">
+						<swe:Quantity definition="http://mmisw.org/ont/mvco/properties/seaWaterPressure">
+							<swe:uom code="cm"></swe:uom>
+						</swe:Quantity>
+					</swe:elementType>
+				</swe:DataArray>
+			</sml:input>
+		</sml:InputList>
+	</sml:inputs>
+	
+	<sml:outputs>
+		<sml:OutputList>
+			<sml:output name="loCutoffFrequency">
+				<swe:Quantity definition="http://mmisw.org/ont/mvco/properties/loCutoffFrequency">
+					<swe:uom code="Hz"></swe:uom>
+				</swe:Quantity> 
+			</sml:output>
+			<sml:output name="hiCutoffFrequency">
+				<swe:Quantity definition="http://mmisw.org/ont/mvco/properties/hiCutoffFrequency">
+					<swe:uom code="Hz"></swe:uom>
+				</swe:Quantity> 
+			</sml:output>
+			<sml:output name="waveHeightFromPressure">
+				<swe:Quantity definition="http://mmisw.org/ont/mvco/properties/waveHeightFromPressure">
+					<swe:uom code="cm"></swe:uom>
+				</swe:Quantity> 
+			</sml:output>
+			<sml:output name="wavePeriodFromPressure">
+				<swe:Quantity definition="http://mmisw.org/ont/mvco/properties/wavePeriodFromPressure">
+					<swe:uom code="s"></swe:uom>
+				</swe:Quantity> 
+			</sml:output>
+		</sml:OutputList>
+	</sml:outputs>
+	
+	<!-- TODO: Expand components and connections to reflect actual processing, if desired -->
+	<!--
+	<sml:parameters/>  
+	<sml:components/>   
+	<sml:connections/> -->
+</sml:AggregateProcess>

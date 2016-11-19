@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sml:AggregateProcess gml:id="PUV_Analysis" xml:lang="en"
+    definition="http://sensorml.com/def/sensor/processingSystem"
+    xmlns:sml="http://www.opengis.net/sensorml/2.0" 
+    xmlns:swe="http://www.opengis.net/swe/2.0"
+    xmlns:gml="http://www.opengis.net/gml/3.2" 
+    xmlns:gmd="http://www.isotc211.org/2005/gmd"
+    xmlns:gco="http://www.isotc211.org/2005/gco"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:ism="urn:us:gov:ic:ism"
+    xsi:schemaLocation="http://www.opengis.net/sensorml/2.0 http://schemas.opengis.net/sensorML/2.0/aggregate_process.xsd">
+    <gml:description>
+        Process Chain for generating Pressure and horizontal velocity-derived 
+        wave parameters from time series of data that has undergone QA/QC processing; 
+        based on E. Terray (eterray@whoi.edu) - using coSpectra of pressure and horizontal velocity
+    </gml:description>
+    <gml:identifier codeSpace="uniqueID">urn:mvco:process:PUV_Analysis</gml:identifier>
+    <gml:name>PUV Analysis Process</gml:name>
+    <sml:classification>
+        <sml:ClassifierList>
+            <sml:classifier>
+                <sml:Term definition="http://mmisw.org/ont/mvco/process">
+                    <sml:label>Process Type</sml:label>
+                    <sml:value>http://mmisw.org/ont/mvco/process/puvAnalysis</sml:value>
+                </sml:Term>
+            </sml:classifier>
+        </sml:ClassifierList>
+    </sml:classification>
+    <sml:inputs>
+        <sml:InputList>
+            <sml:input name="PressureTimeSeries">
+                <swe:DataArray>
+                    <swe:elementCount>
+                        <swe:Count/>
+                    </swe:elementCount>
+                    <swe:elementType name="Pressure">
+                        <swe:Quantity definition="urn:ogc:property:OGC:pressure">
+                            <swe:uom code="mbar"></swe:uom>
+                        </swe:Quantity>
+                    </swe:elementType>
+                </swe:DataArray>
+            </sml:input>
+            <sml:input name="VelocityTimeSeries">
+                <swe:DataArray>
+                    <swe:elementCount>
+                        <swe:Count/>
+                    </swe:elementCount>
+                    <swe:elementType name="Velocity">
+                        <swe:Quantity definition="urn:ogc:property:OGC:velocity">
+                            <swe:uom code="cm/s"></swe:uom>
+                        </swe:Quantity>
+                    </swe:elementType>
+                </swe:DataArray>
+            </sml:input>
+        </sml:InputList>
+    </sml:inputs>
+    <sml:outputs>
+        <sml:OutputList>
+            <sml:output name="dominantWaveDirection">
+                <swe:Quantity definition="urn:ogc:property:OGC:angle">
+                    <swe:uom code="deg"></swe:uom>
+                </swe:Quantity>
+            </sml:output>
+            <sml:output name="swellDirection">
+                <swe:Quantity definition="urn:ogc:property:OGC:angle">
+                    <swe:uom code="deg"></swe:uom>
+                </swe:Quantity>
+            </sml:output>
+            <sml:output name="windWaveDirection">
+                <swe:Quantity definition="urn:ogc:property:OGC:angle">
+                    <swe:uom code="deg"></swe:uom>
+                </swe:Quantity>
+            </sml:output>
+        </sml:OutputList>
+    </sml:outputs>
+    <!-- TODO -->
+    <!-- 
+    <sml:parameters></sml:parameters>  
+    <sml:components></sml:components>  
+    <sml:connections></sml:connections>  -->
+</sml:AggregateProcess>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sml:AggregateProcess gml:id="Velocity_Obs_Process" xml:lang="en"
+    definition="http://sensorml.com/def/sensor/processingSystem"
+    xmlns:sml="http://www.opengis.net/sensorml/2.0" 
+    xmlns:swe="http://www.opengis.net/swe/2.0"
+    xmlns:gml="http://www.opengis.net/gml/3.2" 
+    xmlns:gmd="http://www.isotc211.org/2005/gmd"
+    xmlns:gco="http://www.isotc211.org/2005/gco"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:ism="urn:us:gov:ic:ism"
+    xsi:schemaLocation="http://www.opengis.net/sensorml/2.0 http://schemas.opengis.net/sensorML/2.0/aggregate_process.xsd">
+    <gml:description>
+        Process Chain for generating Velocity-derived wave parameters
+        from time series of data that has undergone QA/QC processing; Based on:
+        IAHR working group on wave generation and analysis, 1989. List of sea state 
+        parameters. Journal of Waterway, Port, Coastal and Ocean Engineering 115 6, pp. 793-808.
+    </gml:description>
+    <gml:identifier codeSpace="uniqueID">urn:mvco:process:Velocity_Obs_Process</gml:identifier>
+    <gml:name>Velocity Observable Chain</gml:name>
+    <sml:classification>
+        <sml:ClassifierList>
+            <sml:classifier>
+                <sml:Term definition="http://mmisw.org/ont/mvco/process">
+                    <sml:label>Process Type</sml:label>
+                    <sml:value>http://mmisw.org/ont/mvco/process/VelocityObsProcess</sml:value>
+                </sml:Term>
+            </sml:classifier>
+        </sml:ClassifierList>
+    </sml:classification>
+    
+    <sml:inputs>
+        <sml:InputList>
+            <sml:input name="interpolatedVelocityTimeSeries">
+                <swe:DataArray>
+                    <swe:elementCount>
+                        <swe:Count>
+                            <swe:value>2400</swe:value>
+                        </swe:Count>
+                    </swe:elementCount>
+                    <swe:elementType name="Velocity">
+                        <swe:Quantity definition="urn:ogc:property:OGC:velocity">
+                            <swe:uom code="cm/s"></swe:uom>
+                        </swe:Quantity>
+                    </swe:elementType>
+                </swe:DataArray>
+            </sml:input>
+            <sml:input name="intepolatedPressureTimeSeries">
+                <swe:DataArray>
+                    <swe:elementCount>
+                        <swe:Count>
+                            <swe:value>2400</swe:value>
+                        </swe:Count>
+                    </swe:elementCount>
+                    <swe:elementType name="Pressure">
+                        <swe:Quantity definition="http://mmisw.org/ont/mvco/properties/meanSeaWaterPressure">
+                            <swe:uom code="cm"></swe:uom>
+                        </swe:Quantity>
+                    </swe:elementType>
+                </swe:DataArray>
+            </sml:input>
+        </sml:InputList>
+    </sml:inputs>
+    
+    <sml:outputs>
+        <sml:OutputList>
+            <sml:output name="waveHeightAll">
+                <swe:Quantity definition="http://mmisw.org/ont/mvco/properties/waveHeightAll">
+                    <swe:uom code="cm"></swe:uom>
+                </swe:Quantity> 
+            </sml:output>
+            <sml:output name="swell">
+                <swe:Quantity definition="http://mmisw.org/ont/mvco/properties/swell">
+                    <swe:uom code="cm"></swe:uom>
+                </swe:Quantity> 
+            </sml:output>
+            <sml:output name="windWaves">
+                <swe:Quantity definition="http://mmisw.org/ont/mvco/properties/windWaves">
+                    <swe:uom code="cm"></swe:uom>
+                </swe:Quantity> 
+            </sml:output>
+            <sml:output name="wavePeriodAll">
+                <swe:Quantity definition="http://mmisw.org/ont/mvco/properties/wavePeriodAll">
+                    <swe:uom code="s"></swe:uom>
+                </swe:Quantity> 
+            </sml:output>
+            <sml:output name="swellPeriod">
+                <swe:Quantity definition="http://mmisw.org/ont/mvco/properties/swellPeriod">
+                    <swe:uom code="s"></swe:uom>
+                </swe:Quantity> 
+            </sml:output>
+            <sml:output name="windWavePeriod">
+                <swe:Quantity definition="http://mmisw.org/ont/mvco/properties/windWavePeriod">
+                    <swe:uom code="s"></swe:uom>
+                </swe:Quantity> 
+            </sml:output>
+            <sml:output name="dominantWaveDirection">
+                <swe:Quantity definition="http://mmisw.org/ont/mvco/properties/dominantWaveDirection">
+                    <swe:uom code="deg"/>
+                </swe:Quantity> 
+            </sml:output>
+            <sml:output name="swellDirection">
+                <swe:Quantity definition="http://mmisw.org/ont/mvco/properties/swellDirection">
+                    <swe:uom code="deg"/>
+                </swe:Quantity> 
+            </sml:output>
+            <sml:output name="windWaveDirection">
+                <swe:Quantity definition="http://mmisw.org/ont/mvco/properties/windWaveDirection">
+                    <swe:uom code="deg"/>
+                </swe:Quantity> 
+            </sml:output>
+            <sml:output name="topBinHeight">
+                <swe:Quantity definition="http://mmisw.org/ont/mvco/properties/topBinHeight">
+                    <swe:uom code="cm"/>
+                </swe:Quantity> 
+            </sml:output>
+            <sml:output name="bottomBinHeight">
+                <swe:Quantity definition="http://mmisw.org/ont/mvco/properties/topBinHeight">
+                    <swe:uom code="cm"/>
+                </swe:Quantity> 
+            </sml:output>
+        </sml:OutputList>
+    </sml:outputs>
+    
+    <!-- TODO: Expand components and connections to reflect actual processing, if desired -->
+    <!--
+    <sml:parameters></sml:parameters>   
+    <sml:components></sml:components>  
+    <sml:connections></sml:connections>  -->
+</sml:AggregateProcess>
+

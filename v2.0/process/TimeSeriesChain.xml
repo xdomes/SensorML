@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sml:AggregateProcess gml:id="TimeSeriesChain" xml:lang="en"
+    definition="http://sensorml.com/def/sensor/processingSystem"
+    xmlns:sml="http://www.opengis.net/sensorml/2.0" 
+    xmlns:swe="http://www.opengis.net/swe/2.0"
+    xmlns:gml="http://www.opengis.net/gml/3.2" 
+    xmlns:gmd="http://www.isotc211.org/2005/gmd"
+    xmlns:gco="http://www.isotc211.org/2005/gco"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:ism="urn:us:gov:ic:ism"
+    xsi:schemaLocation="http://www.opengis.net/sensorml/2.0 http://schemas.opengis.net/sensorML/2.0/aggregate_process.xsd">
+    <gml:description>Process Chain for MVCO TimeSeries data.  Can be used for both Velocity and pressure, depending on inputs</gml:description>
+    <gml:identifier codeSpace="uniqueID">urn:mvco:process:TimeSeriesChain</gml:identifier>
+    <gml:name>TimeSeriesChain</gml:name>
+    
+    <sml:identification>
+        <sml:IdentifierList>
+            <sml:identifier>
+                <sml:Term>
+                    <sml:label></sml:label>
+                    <sml:value></sml:value>
+                </sml:Term>
+            </sml:identifier>
+        </sml:IdentifierList>
+    </sml:identification>
+    
+    <sml:classification>
+        <sml:ClassifierList>
+            <sml:classifier>
+                <sml:Term definition="http://mmisw.org/ont/mvco/process">
+                    <sml:label>Process Type</sml:label>
+                    <sml:value>http://mmisw.org/ont/mvco/process/TimeSeriesChain</sml:value>
+                </sml:Term>
+            </sml:classifier>
+        </sml:ClassifierList>
+    </sml:classification>
+    
+    <sml:inputs>
+        <sml:InputList>
+            <sml:input name="timeSeriesData">
+                <swe:DataArray>
+                    <swe:elementCount>
+                        <swe:Count/>
+                    </swe:elementCount>
+                    <swe:elementType name="data">  
+                        <swe:DataRecord>
+                            <swe:field name="time">
+                                <swe:Time definition="http://sensorml.com/ont/swe/property/SampleTime"> 
+                                    <swe:label>Sampling Time</swe:label> 
+                                    <swe:uom xlink:href="http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"/>
+                                </swe:Time>
+                            </swe:field>
+                            <swe:field name="data">
+                                <swe:Quantity definition="http://sensorml.com/ont/swe/property/anyData">
+                                    <swe:uom xlink:href="http://mmisw.org/ont/q2o/parameter/anyUnit"/>
+                                </swe:Quantity>
+                            </swe:field>
+                        </swe:DataRecord>
+                    </swe:elementType>
+                </swe:DataArray>
+            </sml:input>
+        </sml:InputList>
+    </sml:inputs>
+    
+    <sml:outputs>
+        <sml:OutputList>
+            <sml:output name="cleanedTimeSeries">
+                <swe:DataArray>
+                    <swe:elementCount>
+                        <swe:Count/>
+                    </swe:elementCount>
+                    <swe:elementType name="data"> 
+                        <swe:DataRecord>
+                            <swe:field name="time">
+                                <swe:Time definition="http://sensorml.com/ont/swe/property/SampleTime"> 
+                                    <swe:label>Sampling Time</swe:label> 
+                                    <swe:uom xlink:href="http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"/>
+                                </swe:Time>
+                            </swe:field>
+                            <swe:field name="data">
+                                <swe:Quantity definition="http://sensorml.com/ont/swe/property/anyData">
+                                    <swe:uom xlink:href="http://mmisw.org/ont/q2o/parameter/anyUnit"/>
+                                </swe:Quantity>
+                            </swe:field>
+                        </swe:DataRecord>
+                    </swe:elementType>
+                </swe:DataArray>
+            </sml:output>
+            <!-- agFlag can either be pressure or velocity -->
+            <sml:output name="aggregateFlag">
+                <swe:Category definition="http://mmisw.org/ont/mvco/qcflag/aggregateFlag">
+                    <swe:codeSpace xlink:href="http://mmisw.org/ont/mvco/flag"/> 
+                </swe:Category>
+            </sml:output>
+        </sml:OutputList>
+    </sml:outputs>
+    
+    <sml:parameters>
+        <!-- 5 parameter groups for the TimeSeriesChain -->
+        <sml:ParameterList>
+            <sml:parameter name="dataGapParams">
+                <swe:DataRecord>
+                    <swe:field name="maxGap">
+                        <swe:Count definition="http://mmisw.org/ont/q2o/parameter/numberOfPoints"/>
+                    </swe:field>
+                    <swe:field name="maxNumberOfGaps">
+                        <swe:Count definition="http://mmisw.org/ont/q2o/parameter/numberOfGaps"/>
+                    </swe:field>
+                </swe:DataRecord>
+            </sml:parameter>
+            
+            <sml:parameter name="rangeParams">
+                <swe:DataRecord>
+                    <swe:field name="minimum">
+                        <swe:Quantity definition="http://mmisw.org/ont/q2o/parameter/minimum">
+                            <swe:uom xlink:href="http://mmisw.org/ont/q2o/parameter/anyUnit"/>
+                        </swe:Quantity>
+                    </swe:field>
+                    <swe:field name="maximum">
+                        <swe:Quantity definition="http://mmisw.org/ont/q2o/parameter/maximum">
+                            <swe:uom xlink:href="http://mmisw.org/ont/q2o/parameter/anyUnit"/>
+                        </swe:Quantity>
+                    </swe:field>
+                </swe:DataRecord>
+            </sml:parameter>
+            
+            <sml:parameter name="spikeParams">
+                <swe:DataRecord>
+                    <swe:field name="numIterations"> 
+                        <swe:Count definition="http://mmisw.org/ont/q2o/parameter/iterations"/>
+                    </swe:field>
+                    <swe:field name="numStdDeviations">  <!-- Ch. 4 has this as tolerance, check with Janet -->
+                        <swe:Count definition="http://mmisw.org/ont/q2o/parameter/numberOfSigma"/>                           
+                    </swe:field>
+                </swe:DataRecord>
+            </sml:parameter>
+            
+            <sml:parameter name="minimumPercent">
+                <swe:Quantity definition="http://mmisw.org/ont/q2o/parameter/minimumPercentage">
+                    <swe:uom code="%"/>
+                </swe:Quantity>
+            </sml:parameter>
+            <sml:parameter name="InterpParams">
+                <!--  TODO  -->
+            </sml:parameter>
+        </sml:ParameterList>
+    </sml:parameters>
+    
+    <sml:components>
+        <sml:ComponentList>
+            <sml:component name="DataGapTest" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.2/DataGapTest.xml"/>
+            <sml:component name="RangeSeriesTest" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.2/RangeSeriesTest.xml"/>
+            <sml:component name="FlagOutliers" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.2/FlagOutliers.xml"/>
+            <sml:component name="PercentPassed" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.2/PointsGoodTest.xml"/>
+            <sml:component name="LinearInterpolation" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.2/LinearInterpolation.xml"/> <!-- TODO -->
+        </sml:ComponentList>
+    </sml:components>
+    
+    <sml:connections>
+        <sml:ConnectionList>
+            <!-- add params!!! -->
+            <sml:connection>
+                <sml:Link>
+                    <sml:source ref="inputs/timeSeriesData"/>
+                    <sml:destination ref="components/MinRecordLengthTest/inputs/timeSeriesData"/>
+                </sml:Link>
+            </sml:connection>
+            <sml:connection>
+                <sml:Link>
+                    <sml:source ref="parameters/timeContinuityParams/numberOfPoints"/>
+                    <sml:destination ref="components/MinRecordLengthTest/parameters/numberOfPoints"/>
+                </sml:Link>
+            </sml:connection>
+            <sml:connection>
+                <sml:Link>
+                    <sml:source ref="components/MinRecordLengthTest/outputs/timeSeriesData"/>
+                    <sml:destination ref="components/DataGapTest/inputs/timeSeriesData"/>
+                </sml:Link>
+            </sml:connection>
+            <sml:connection>
+                <sml:Link>
+                    <sml:source ref="parameters/dataGapParams/maxGap"/>
+                    <sml:destination ref="components/DataGapTest/parameters/maxGap"/>
+                </sml:Link>
+            </sml:connection>
+            <sml:connection>
+                <sml:Link>
+                    <sml:source ref="parameters/dataGapParams/maxNumberOfGaps"/>
+                    <sml:destination ref="components/DataGapTest/parameters/maxNumberOfGaps"/>
+                </sml:Link>
+            </sml:connection>
+            <sml:connection>
+                <sml:Link>
+                    <sml:source ref="components/DataGapTest/outputs/timeSeriesData"/>
+                    <sml:destination ref="components/RangeSeriesTest/inputs/timeSeriesData"/>
+                </sml:Link>
+            </sml:connection>
+            <sml:connection>
+                <sml:Link>
+                    <sml:source ref="parameters/rangeParams/minimum"/>
+                    <sml:destination ref="components/RangeSeriesTest/parameters/minimum"/>
+                </sml:Link>
+            </sml:connection>
+            <sml:connection>
+                <sml:Link>
+                    <sml:source ref="parameters/rangeParams/maximum"/>
+                    <sml:destination ref="components/RangeSeriesTest/parameters/maximum"/>
+                </sml:Link>
+            </sml:connection>
+            <sml:connection>
+                <sml:Link>
+                    <sml:source ref="components/RangeSeriesTest/outputs/timeSeriesData"/>
+                    <sml:destination ref="components/FlagOutliers/inputs/timeSeriesData"/>
+                </sml:Link>
+            </sml:connection>
+            <sml:connection>
+                <sml:Link>
+                    <sml:source ref="parameters/spikeParams/iterations"/>
+                    <sml:destination ref="components/FlagOutliers/parameters/iterations"/>
+                </sml:Link>
+            </sml:connection>
+            <sml:connection>
+                <sml:Link>
+                    <sml:source ref="parameters/spikeParams/numStdDeviations"/>
+                    <sml:destination ref="components/FlagOutliers/parameters/numStdDeviations"/>
+                </sml:Link>
+            </sml:connection>
+            <sml:connection>
+                <sml:Link>
+                    <sml:source ref="components/FlagOutliers/outputs/flaggedTimeSeriesData"/>
+                    <sml:destination ref="components/PercentPassed/inputs/flaggedTimeSeriesData"/>
+                </sml:Link>
+            </sml:connection>
+            <sml:connection>
+                <sml:Link>
+                    <sml:source ref="parameters/minimumPercent"/>
+                    <sml:destination ref="components/PercentPassed/parameters/minimumPercent"/>
+                </sml:Link>
+            </sml:connection>
+            <sml:connection>
+                <sml:Link>
+                    <sml:source ref="components/PercentPassed/outputs/flaggedTimeSeriesDataray"/>
+                    <sml:destination ref="components/Interpolation/inputs/cleanedTimeSeries"/>
+                </sml:Link>
+            </sml:connection>
+            <sml:connection>
+                <sml:Link>
+                    <sml:source ref="components/Interpolation/outputs/cleanedTimeSeries"/>
+                    <sml:destination ref="outputs/cleanedTimeSeries"/>
+                </sml:Link>
+            </sml:connection>
+        </sml:ConnectionList>
+    </sml:connections>
+</sml:AggregateProcess>

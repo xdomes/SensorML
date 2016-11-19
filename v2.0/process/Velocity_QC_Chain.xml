@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sml:AggregateProcess gml:id="Vel_QC_Chain" xml:lang="en"
+    definition="http://sensorml.com/def/sensor/processingSystem"
+    xmlns:sml="http://www.opengis.net/sensorml/2.0" 
+    xmlns:swe="http://www.opengis.net/swe/2.0"
+    xmlns:gml="http://www.opengis.net/gml/3.2" 
+    xmlns:gmd="http://www.isotc211.org/2005/gmd"
+    xmlns:gco="http://www.isotc211.org/2005/gco"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:ism="urn:us:gov:ic:ism"
+    xsi:schemaLocation="http://www.opengis.net/sensorml/2.0 http://schemas.opengis.net/sensorML/2.0/aggregate_process.xsd">
+    <gml:description>General Process Chain for ADCP data</gml:description>
+    <gml:identifier codeSpace="uniqueID">urn:mvco:process:Velocity_QC_Chain</gml:identifier>
+    <gml:name>Velocity QC Chain</gml:name>
+    <sml:classification>
+        <sml:ClassifierList>
+            <sml:classifier>
+                <sml:Term definition="http://mmisw.org/ont/mvco/process">
+                    <sml:label>Process Type</sml:label>
+                    <sml:value>http://mmisw.org/ont/mvco/process/velocityQCchain.xml</sml:value>
+                </sml:Term>
+            </sml:classifier>
+        </sml:ClassifierList>
+    </sml:classification>
+    
+    <sml:inputs>
+        <sml:InputList>
+            <sml:input name="velocityTimeSeries">
+                <swe:DataArray>
+                    <swe:elementCount>
+                        <swe:Count/>
+                    </swe:elementCount>
+                    <swe:elementType name="Velocity">
+                        <swe:Quantity definition="urn:ogc:property:OGC:velocity">
+                            <swe:uom code="cm/s"></swe:uom>
+                        </swe:Quantity>
+                    </swe:elementType>
+                </swe:DataArray>
+            </sml:input>
+            <sml:input name="intensityTimeSeries">
+                <swe:DataArray>
+                    <swe:elementCount>
+                        <swe:Count/>
+                    </swe:elementCount>
+                    <swe:elementType name="beamIntensity">
+                        <swe:DataRecord>
+                            <swe:field name="time">
+                                <swe:Time definition="http://sensorml.com/ont/swe/property/SampleTime"> 
+                                    <swe:label>Sampling Time</swe:label> 
+                                    <swe:uom xlink:href="http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"/>
+                                </swe:Time>
+                            </swe:field>
+                            <swe:field name="data">
+                                <swe:Quantity definition="http://mmisw.org/ont/mvco/properties/BeamIntensity">
+                                    <swe:uom code="dB"/>  <!--  ???? -->
+                                </swe:Quantity>
+                            </swe:field>
+                        </swe:DataRecord>
+                    </swe:elementType>
+                </swe:DataArray>
+            </sml:input>
+            <sml:input name="correlationCoeffTimeSeries">
+                <swe:DataArray>
+                    <swe:elementCount>
+                        <swe:Count/>
+                    </swe:elementCount>
+                    <swe:elementType name="correlationCoeff">
+                        <swe:DataRecord>
+                            <swe:field name="time">
+                                <swe:Time definition="http://sensorml.com/ont/swe/property/SampleTime"> 
+                                    <swe:label>Sampling Time</swe:label> 
+                                    <swe:uom xlink:href="http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"/>
+                                </swe:Time>
+                            </swe:field>
+                            <swe:field name="data">
+                                <swe:Quantity definition="http://mmisw.org/ont/mvco/properties/CorrelationCoefficient">
+                                    <swe:uom code="1/1"/>
+                                </swe:Quantity>
+                            </swe:field>
+                        </swe:DataRecord>
+                    </swe:elementType>
+                </swe:DataArray>
+            </sml:input>
+        </sml:InputList>
+    </sml:inputs>
+    
+    <sml:outputs>
+        <sml:OutputList>
+            <sml:output name="interpolatedVelocityTimeSeries">
+                <swe:DataArray>
+                    <swe:elementCount>
+                        <swe:Count/>
+                    </swe:elementCount>
+                    <swe:elementType name="Velocity">
+                        <swe:Quantity definition="urn:ogc:property:OGC:velocity">
+                            <swe:uom code="cm/s"></swe:uom>
+                        </swe:Quantity>
+                    </swe:elementType>
+                </swe:DataArray>
+            </sml:output>
+            <sml:output name="topBinHeight">
+                <swe:Quantity definition="http://mmisw.org/ont/mvco/properties/topBinHeight">
+                    <swe:uom code="cm"/>
+                </swe:Quantity> 
+            </sml:output>
+            <sml:output name="aggregateVelocityFlag">
+                <swe:Category definition="http://mmisw.org/ont/mvco/qcflag/aggregateVelocityFlag">
+                    <swe:codeSpace xlink:href="http://mmisw.org/ont/mvco/flag"/> 
+                </swe:Category>
+            </sml:output>
+            <sml:output name="echoIntensityFlag">
+                <swe:Category definition="http://mmisw.org/ont/mvco/qcflag/echoIntensityFlag">
+                    <swe:codeSpace xlink:href="http://mmisw.org/ont/mvco/flag"/> 
+                </swe:Category>
+            </sml:output>
+            <sml:output name="cMFlag">
+                <swe:Category definition="http://mmisw.org/ont/mvco/qcflag/cMFlag">
+                    <swe:codeSpace xlink:href="http://mmisw.org/ont/mvco/flag"/> 
+                </swe:Category>
+            </sml:output>
+            
+        </sml:OutputList>
+    </sml:outputs>
+    
+    <sml:parameters>
+        <sml:ParameterList>
+            <sml:parameter name="minIntensity">
+                <swe:Quantity definition="http://mmisw.org/ont/mvco/properties/MinimimIntensity">
+                    <swe:uom code="dB"/>  <!--  ???  -->
+                </swe:Quantity>
+            </sml:parameter>
+            <sml:parameter name="minCorrelationCoeff">
+                <swe:DataRecord>
+                    <swe:field name="minPercentage">
+                        <swe:Quantity>
+                            <swe:uom code="%"/>
+                        </swe:Quantity>    
+                    </swe:field>
+                    <swe:field name="maxPercentage">
+                        <swe:Quantity>
+                            <swe:uom code="%"/>
+                        </swe:Quantity>    
+                    </swe:field>
+                </swe:DataRecord>
+            </sml:parameter>
+            <!-- Remainder of outputs are identical to PressureSeriesParams -->
+            <sml:parameter name="timeContinuityParams">
+                <swe:DataRecord>
+                    <swe:field name="frequency">
+                        <swe:Quantity definition="http://sensorml.com/orr/#http://sensorml.com/ont/swe/property/Frequency">
+                            <swe:uom code="s"/>
+                        </swe:Quantity>
+                    </swe:field>
+                    <swe:field name="maxGap">
+                        <swe:Quantity definition="http://sensorml.com/orr/#http://sensorml.com/ont/swe/property/Frequency">
+                            <swe:uom code="s"/>
+                        </swe:Quantity>
+                    </swe:field>
+                    <swe:field name="startTime">
+                        <swe:Time definition="http://sensorml.com/ont/swe/property/StartTime"> 
+                            <swe:label>Sampling Time</swe:label> 
+                            <swe:uom xlink:href="http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"/>
+                        </swe:Time>
+                    </swe:field>
+                    <swe:field name="endTime">
+                        <swe:Time definition="http://sensorml.com/ont/swe/property/EndTimeTime"> 
+                            <swe:label>Sampling Time</swe:label> 
+                            <swe:uom xlink:href="http://www.opengis.net/def/uom/ISO-8601/0/Gregorian"/>
+                        </swe:Time>
+                    </swe:field>
+                </swe:DataRecord>
+            </sml:parameter>
+            
+            <sml:parameter name="rangeParams">
+                <swe:DataRecord>
+                    <swe:field name="minimum">
+                        <swe:Quantity definition="http://mmisw.org/ont/q2o/parameter/minimum">
+                            <swe:uom code="m"></swe:uom>
+                        </swe:Quantity>                           
+                    </swe:field>
+                    <swe:field name="maximum">
+                        <swe:Quantity definition="http://mmisw.org/ont/q2o/parameter/maximum">
+                            <swe:uom code="m"></swe:uom>
+                        </swe:Quantity>
+                    </swe:field>
+                </swe:DataRecord>
+            </sml:parameter>
+            
+            <sml:parameter name="spikeParams">
+                <swe:DataRecord>
+                    <swe:field name="numIterations"> 
+                        <swe:Count definition="http://mmisw.org/ont/q2o/parameter/iterations"/>
+                    </swe:field>
+                    <swe:field name="numStdDeviations">  <!-- Ch. 4 has this as tolerance, check with Julie -->
+                        <swe:Count definition="http://mmisw.org/ont/q2o/parameter/numberOfSigma"/>
+                    </swe:field>
+                </swe:DataRecord>
+            </sml:parameter>
+            
+            <sml:parameter name="minimumPercent">
+                <swe:Quantity definition="http://mmisw.org/ont/q2o/parameter/minimumPercentage">
+                    <swe:uom code="%"/>
+                </swe:Quantity>
+            </sml:parameter>
+            
+            <sml:parameter name="InterpParams"/> <!-- TODO -->
+            
+        </sml:ParameterList>
+    </sml:parameters>
+    
+    <sml:components>
+        <sml:ComponentList>
+            <sml:component name="BeamIntensityCheck" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.2/MinThresholdSeriesTest.xml"/>
+            <sml:component name="CorrelationCoeffCheck" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.2/RangeSeriesTest.xml"/>
+            <sml:component name="TimeSeriesChain" xlink:href="http://mvcodata.whoi.edu/downloads/sensorML/v1.0/examples/sensors/ADCP_2.2/TimeSeriesChain.xml"/>
+        </sml:ComponentList>
+    </sml:components>
+    
+    <sml:connections>
+        <sml:ConnectionList>
+            <!--  Input connections -->
+            <sml:connection>
+                <sml:Link>
+                    <sml:source ref="inputs/velocityTimeSeries"/> 
+                    <sml:destination ref="components/BeamIntensityCheck/inputs/timeSeriesData"/> 
+                </sml:Link>
+            </sml:connection>
+            <sml:connection>
+                <sml:Link>
+                    <sml:source ref="inputs/intensityTimeSeries"/> 
+                    <sml:destination ref="components/BeamIntensityCheck/inputs/timeSeriesData"/> 
+                </sml:Link>
+            </sml:connection>
+            <sml:connection>
+                <sml:Link>
+                    <sml:source ref="inputs/correlationCoeffTimeSeries"/> 
+                    <sml:destination ref="components/CorrelationCoeffCheck/inputs/timeSeriesData"/> 
+                </sml:Link>
+            </sml:connection>
+            
+            <!--  Time Series connections -->
+            <sml:connection>
+                <sml:Link>
+                    <sml:source ref="components/BeamIntensityCheck/outputs/timeSeriesData"/>
+                    <sml:destination ref="components/CorrelationCoeffCheck/inputs/timeSeriesData"/>
+                </sml:Link>
+            </sml:connection>
+            <sml:connection>
+                <sml:Link>
+                    <sml:source ref="components/CorrelationCoeffCheck/outputs/timeSeriesData"/>
+                    <sml:destination ref="components/TimeSeriesChain/inputs/timeSeriesData"/>
+                </sml:Link>
+            </sml:connection>
+            
+            <!--  Parameter connections -->
+            <sml:connection>
+                <sml:Link>
+                    <sml:source ref="parameters/timeContinuityParams"/>
+                    <sml:destination ref="components/TimeSeriesChain/parameters/timeContinuityParams"/>
+                </sml:Link>
+            </sml:connection>
+            
+            <sml:connection>
+                <sml:Link>
+                    <sml:source ref="parameters/rangeParams"/>
+                    <sml:destination ref="components/TimeSeriesChain/parameters/rangeParams"/>
+                </sml:Link>
+            </sml:connection>
+            
+            <sml:connection>
+                <sml:Link>
+                    <sml:source ref="parameters/spikeParams"/>
+                    <sml:destination ref="components/TimeSeriesChain/parameters/spikeParams"/>
+                </sml:Link>
+            </sml:connection>
+            
+            <sml:connection>
+                <sml:Link>
+                    <sml:source ref="parameters/minimumPercent"/>
+                    <sml:destination ref="components/TimeSeriesChain/parameters/minimumPercent"/>
+                </sml:Link>
+            </sml:connection>
+            
+            <sml:connection>
+                <sml:Link>
+                    <sml:source ref="parameters/interpolationParams"/>
+                    <sml:destination ref="components/TimeSeriesChain/parameters/interpolationParams"/>
+                </sml:Link>
+            </sml:connection>
+            
+        </sml:ConnectionList>
+    </sml:connections>
+</sml:AggregateProcess>
